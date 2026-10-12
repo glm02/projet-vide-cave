@@ -65,6 +65,8 @@ desktop.ini
 /Projet vide cave.X/nbproject/Makefile-local-*.mk
 /Projet vide cave.X/nbproject/Makefile-genesis.properties
 /Projet vide cave.X/mcc-manifest-autosave.yml
+/Projet vide cave.X/debug/
+/Projet vide cave.X/queuelogs/
 /05_Notes/Etude_MOC3041/*.raw
 /05_Notes/Etude_MOC3041/*.db
 /05_Notes/Etude_MOC3041/*.log
