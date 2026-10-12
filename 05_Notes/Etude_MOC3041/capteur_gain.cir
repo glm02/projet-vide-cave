@@ -1,0 +1,13 @@
+* Hall 20 mV/A ideal et ampli ideal recentre. Pas de bruit/offset/GBW/modele constructeur.
+.param IRMS=2 GAIN=1
+Vsensor sensor 0 SINE(2.5 {0.020*sqrt(2)*IRMS} 50)
+Bamp out 0 V=if(2.5+GAIN*(V(sensor)-2.5)<.2,.2,if(2.5+GAIN*(V(sensor)-2.5)>4.8,4.8,2.5+GAIN*(V(sensor)-2.5)))
+.tran 0 100m 0 10u
+.save V(sensor) V(out)
+.options plotwinsize=0
+.step param IRMS list 2 10 15
+.step param GAIN list 1 5 10
+.meas tran vout_min MIN V(out) FROM=60m TO=100m
+.meas tran vout_max MAX V(out) FROM=60m TO=100m
+.meas tran vac_rms RMS (V(out)-2.5) FROM=60m TO=100m
+.end

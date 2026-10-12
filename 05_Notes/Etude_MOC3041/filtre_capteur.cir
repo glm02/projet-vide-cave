@@ -1,0 +1,9 @@
+* RC propose ideal. Le modele ne valide pas stabilite de sortie ACS ni acquisition ADC.
+Vsource vin 0 AC 1
+Rf vin adc 1k
+Cf adc 0 10n
+.ac dec 300 1 1Meg
+.meas AC fc WHEN mag(V(adc))=.707106781
+.meas AC gain50 FIND mag(V(adc)) AT=50
+.meas AC phase50 FIND ph(V(adc)) AT=50
+.end

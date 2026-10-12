@@ -1,0 +1,37 @@
+{
+  "led_moc3041": {
+    "status": "completed",
+    "measurement_log": "led_moc3041_resultats.txt",
+    "model": "ideal / behavioural; see circuit comments"
+  },
+  "filtre_capteur": {
+    "status": "completed",
+    "measurement_log": "filtre_capteur_resultats.txt",
+    "model": "ideal / behavioural; see circuit comments"
+  },
+  "capteur_gain": {
+    "status": "completed",
+    "measurement_log": "capteur_gain_resultats.txt",
+    "model": "ideal / behavioural; see circuit comments"
+  },
+  "checks": {
+    "status": "PASS",
+    "led_corners": 12,
+    "filter_fc_hz": 15915.4942363,
+    "gain_cases": 9,
+    "rms_uncut_measured_V": [
+      0.0399999706426,
+      0.199999837132,
+      0.299999751743,
+      0.199999837132,
+      0.999999177642,
+      1.50012802274,
+      0.399999668975
+    ],
+    "clipping_cases": [
+      "10 A gain 10",
+      "15 A gain 10"
+    ],
+    "scope": "ideal models only, not full board validation"
+  }
+}

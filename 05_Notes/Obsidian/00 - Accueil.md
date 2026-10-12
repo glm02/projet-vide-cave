@@ -16,6 +16,7 @@ Ce coffre rassemble le suivi du projet GEII. La carte de travail est **G206_CAME
 - [[06 - Documents et coherence]] : liens vers les sources et écarts avec la pré-étude.
 - [[07 - Guide Git et portabilite]] : récupérer le projet et synchroniser ses modifications.
 - [[08 - Journal de travail]] : consigner les prochaines séances.
+- [[09 - Travail a deux et MOC3041]] : accès GitHub, proposition de commande et simulations.
 
 ## État à retenir
 

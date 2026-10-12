@@ -1,0 +1,20 @@
+LTspice 26.0.1 for Windows
+Circuit: C:\Users\rafae\Documents\Ecole\Projet vide cave\05_Notes\Etude_MOC3041\filtre_capteur.cir
+Start Time: Mon Oct 12 15:12:54 2026
+solver = Normal
+Maximum thread count: 18
+tnom = 27
+temp = 27
+method = trap
+Compress1stOrder = true
+Compress2ndOrder = true
+.OP point found by inspection.
+.OP point found by inspection.
+Total elapsed time: 0.021 seconds.
+
+Files loaded:
+C:\Users\rafae\Documents\Ecole\Projet vide cave\05_Notes\Etude_MOC3041\filtre_capteur.cir
+
+fc: mag(V(adc))=.707106781 AT 15915.4942363
+gain50: mag(V(adc)) =(-4.28640124663e-05dB,0°) at 50
+phase50: ph(V(adc)) =(-14.8945784754dB,180°) at 50

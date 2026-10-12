@@ -1,0 +1,16 @@
+* Verification resistance LED : modele a chutes fixes, PAS modele physique MOC3041
+.param RLED=150 CORNER=0
+.param VS={if(CORNER<0,4.75,if(CORNER>0,5.25,5))}
+.param VF={if(CORNER<0,1.5,if(CORNER>0,1.1,1.25))}
+.param VCE={if(CORNER>0,.1,.2)}
+.param RR={RLED*if(CORNER<0,1.05,if(CORNER>0,.95,1))}
+Vsupply rail 0 {VS}
+Rled rail anode {RR}
+Vled anode cathode {VF}
+Vswitch cathode 0 {VCE}
+.tran 0 1m 0 10u
+.step param RLED list 150 180 220 270
+.step param CORNER list -1 0 1
+.meas tran i_led AVG I(Rled)
+.meas tran p_res AVG (V(rail,anode)*I(Rled))
+.end

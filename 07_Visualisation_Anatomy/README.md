@@ -4,6 +4,12 @@ Ouvrir **[index.html](index.html)** dans un navigateur. La page est autonome, sa
 
 Cliquer un composant, survoler ses pièces ou utiliser les flèches dans le cadre pour consulter son rôle et les points encore incomplets. Les boutons donnent un accès direct au PIC, au capteur, à l'optotriac, au LCD et aux connecteurs.
 
+## Étude MOC3041 et mesure de courant
+
+Ouvrir **[simulation.html](simulation.html)** ou [sa variante sombre](simulation-dark.html). Régler RLED, courant supposé, déphasage, gain et IGT hypothétique ; lire l'oscillogramme au ralenti ou le parcourir avec le curseur. Le modèle R-L est pédagogique et ne valide pas le réamorçage d'un MOC sur moteur inductif. Les calculs et les bancs LTspice exécutés sont dans [l'étude de dimensionnement](../05_Notes/Etude_MOC3041/DIMENSIONNEMENT.md). Aucun fichier KiCad n'est modifié par cette simulation.
+
+Reconstruction : `node build-simulation.mjs`, puis `node build-simulation.mjs --dark`. La géométrie réutilise l'illustration actuelle déjà auditée. Les contrôles couvrent affichage téléphone/bureau, thème sombre, pause, paramètres et absence de débordement.
+
 ## Ce que montre la vue
 
 - Les 21 empreintes conservées dans le PCB G206 après nettoyage, avec leurs positions X/Y réellement exportées de KiCad.

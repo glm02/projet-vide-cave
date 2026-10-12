@@ -55,6 +55,11 @@ desktop.ini
 /07_Visualisation_Anatomy/captures_qa/
 /07_Visualisation_Anatomy/controle_interaction.json
 
+# Résultats binaires locaux des bancs LTspice ; conserver .cir et mesures texte
+/05_Notes/Etude_MOC3041/*.raw
+/05_Notes/Etude_MOC3041/*.db
+/05_Notes/Etude_MOC3041/*.log
+
 # Documents Office et Draw.io en cours d'édition
 ~$*
 .~lock.*

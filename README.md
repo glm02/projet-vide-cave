@@ -7,6 +7,7 @@
 - **KiCad de travail :** [G206_CAMEL_TP_CAO.kicad_pro](03_Electronique/G206A_CAMEL_TP_CAO/G206_CAMEL_TP_CAO.kicad_pro).
 - **Notes Obsidian :** ouvrir `05_Notes/Obsidian` comme coffre, puis [00 — Accueil](05_Notes/Obsidian/00%20-%20Accueil.md).
 - **Analyse de la carte et comparaison aux documents :** [rapport du 12 octobre 2026](05_Notes/Analyse_G206_2026-10-12/RAPPORT_ANALYSE.md).
+- **Étude MOC3041 :** [dimensionnement proposé et bancs LTspice](05_Notes/Etude_MOC3041/DIMENSIONNEMENT.md), [simulation Anatomy](07_Visualisation_Anatomy/simulation.html) et [travail à deux sur GitHub](05_Notes/Obsidian/09%20-%20Travail%20a%20deux%20et%20MOC3041.md). Les valeurs secteur restent conditionnées au triac et à la pompe réels.
 - **Composants :** [CSV détaillé, une ligne par référence](03_Electronique/G206A_CAMEL_TP_CAO/Composants_G206.csv) et [nomenclature groupée](03_Electronique/G206A_CAMEL_TP_CAO/Nomenclature_G206_groupee.csv). Le schéma compte 24 composants ; le CSV détaillé indique aussi les écarts avec le PCB.
 - **Rapport de pré-étude :** [document Word](01_Documents/Rapport/Rapport_pre-etude_vide-cave.docx).
 - **Synoptique modifiable :** [Synoptique V3](02_Synoptiques/Synoptique%20V3.drawio).
