@@ -56,6 +56,9 @@ desktop.ini
 /07_Visualisation_Anatomy/controle_interaction.json
 
 # Résultats binaires locaux des bancs LTspice ; conserver .cir et mesures texte
+/08_Firmware/**/build/
+/08_Firmware/**/dist/
+/08_Firmware/**/nbproject/private/
 /05_Notes/Etude_MOC3041/*.raw
 /05_Notes/Etude_MOC3041/*.db
 /05_Notes/Etude_MOC3041/*.log
