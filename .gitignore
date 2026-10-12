@@ -1,0 +1,54 @@
+# Données personnelles et secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets*.json
+
+# KiCad : préférences locales, verrouillages, caches et sauvegardes
+*.kicad_prl
+*.lck
+*.lock
+~*
+*.bak
+*.bkp
+*.kicad_sch-bak
+*.kicad_pcb-bak
+fp-info-cache
+*-backups/
+.history/
+
+# Obsidian : état des fenêtres et extensions personnelles
+**/.obsidian/workspace*.json
+**/.obsidian/cache/
+**/.obsidian/plugins/
+**/.obsidian/community-plugins.json
+.trash/
+
+# Python, Blender et outils locaux
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.runtime/
+*.blend[0-9]
+*.blend[0-9][0-9]
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Alias local masqué : la source est 04_Maquette_3D
+/maquette_3d/
+
+# Analyse : publier le rapport et la comparaison, pas les copies de travail
+/05_Notes/Analyse_G206_2026-10-12/*
+!/05_Notes/Analyse_G206_2026-10-12/*.md
+!/05_Notes/Analyse_G206_2026-10-12/comparaison_tous_composants.csv
+
+# Documents Office et Draw.io en cours d'édition
+~$*
+.~lock.*
+.$*.bkp

@@ -1,0 +1,14 @@
+# Préserver les octets des sources et documents existants, notamment KiCad.
+* -text
+# Les nouvelles notes et métadonnées utilisent LF sur tous les postes.
+*.md text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+*.pdf binary
+*.docx binary
+*.pptx binary
+*.ods binary
+*.blend binary
+*.png binary
+*.jpg binary
+*.zip binary
