@@ -1,0 +1,907 @@
+[
+  {
+    "chemin": ".$Synoptique projet version 2.drawio.bkp",
+    "octets": 7997,
+    "sha256": "46B715B993CFDE7F9019805018D1BA63F70682F08908AD48303AE5A0091D4D1B"
+  },
+  {
+    "chemin": ".$Synoptique projet.drawio.bkp",
+    "octets": 405,
+    "sha256": "A5ECF34C6C2BFF08A01C47AECE44BE77982F9C7B4662BAFCF54E281765FB1E83"
+  },
+  {
+    "chemin": ".$Synoptique V3.drawio.bkp",
+    "octets": 2643,
+    "sha256": "1C154BFB5495BF22C552C4E7E6513DC6205896456E6F01BC09728AECBA49AFFB"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC.zip",
+    "octets": 1617048,
+    "sha256": "FEC062D261A845C98EEC0E7B77A74F7B24A134FB1A2DF5E94C75A89567B2B103"
+  },
+  {
+    "chemin": "Consignes rapport pré-étude.pdf",
+    "octets": 2908147,
+    "sha256": "4827A5B1172558B0D846F9362AE900DF07738E39642750E1133C03EC19B2E5E5"
+  },
+  {
+    "chemin": "GANT P2506736.ods",
+    "octets": 23096,
+    "sha256": "555E157AFBF0262419BE6DF88FAADC29871BEC1A89488D3744547F5C50F3FF95"
+  },
+  {
+    "chemin": "Le compte rendu de conception.pdf",
+    "octets": 687710,
+    "sha256": "0E80BEC5910FD3B64EE9E63BE6E518348262DBE2FB8D8887FEA88A669103905A"
+  },
+  {
+    "chemin": "le_dossier_de_fabrication_23d.pdf",
+    "octets": 956107,
+    "sha256": "64D0FE4AE707AE2DC22348AA211C6867049E970336498ECA7EBAC723FA0DADCF"
+  },
+  {
+    "chemin": "pickit_connexion.pdf",
+    "octets": 570335,
+    "sha256": "D0B283537047EF2540DAB02AD3B838C8FAF819C995FEF0D0B94501CD0BBEC2B3"
+  },
+  {
+    "chemin": "Préparer la soutenance orale.pdf",
+    "octets": 535701,
+    "sha256": "43A6DD651A84B70059BD0D8F93AE5AB5871B570ED34B2B6E5B97B49863B05738"
+  },
+  {
+    "chemin": "projet_vide_cave_geii.pptx",
+    "octets": 24305,
+    "sha256": "9882091002E1C50E7F0B18D5DE11E334FCDA7B6B976F79B693E105BE195A593A"
+  },
+  {
+    "chemin": "Rapport_pre-etude_vide-cave.docx",
+    "octets": 344908,
+    "sha256": "4CA347A86C8EFBD2D85D63061218D332495FE212D3EE5C06CAF2C4F4AC36184A"
+  },
+  {
+    "chemin": "Synoptique projet version 2.drawio",
+    "octets": 8563,
+    "sha256": "D691AE89636CC07EC760435627A5D954CA8755CC26F3F16B98A374BFE73803FE"
+  },
+  {
+    "chemin": "Synoptique projet version 2.drawio.png",
+    "octets": 69613,
+    "sha256": "C83A40A11D0EEC0128D134F25A5909299DA3A1132DC85BD6E0557A0AD375E23E"
+  },
+  {
+    "chemin": "Synoptique projet.drawio",
+    "octets": 6192,
+    "sha256": "56F134A2FAF724BE6A2EB31EB332FC7CCAA2FD8AC8B9B0A88504BB1C70E57752"
+  },
+  {
+    "chemin": "Synoptique projet.drawio.pdf",
+    "octets": 36575,
+    "sha256": "DEE1986F12680BD28C4A6A7BA0ED3C4A57BB80F39B6ED55BACCECBC235A066F4"
+  },
+  {
+    "chemin": "Synoptique projet.drawio.png",
+    "octets": 81030,
+    "sha256": "D56F3E46F60B5DDA4ECE6B3969352FD54ACA3535082CA015C3FFE2623CB23202"
+  },
+  {
+    "chemin": "Synoptique V3.drawio",
+    "octets": 4694,
+    "sha256": "32CD9A53D85A8AF5C0528F41CE9687F564B09D51FBA63D24E5BE6962114249A1"
+  },
+  {
+    "chemin": "06_Archives_et_exports\\Rangement\\ranger_dossier.ps1",
+    "octets": 4750,
+    "sha256": "090E697C92ED425DDF728E92F502CED6915DA2F71A1F7E9AB8CBEDA6E55FFDEB"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\connexions.json",
+    "octets": 15652,
+    "sha256": "15376795B521B3BACE99FA9984EC93FC254AD6CE93160DC79AADC01EB94249BE"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\construire_carte.py",
+    "octets": 19720,
+    "sha256": "2487AF7A91D5F21FC92719E705BDAC2C8334251856C7C00A6AC2CF6F77A7D439"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exporter_dossier.py",
+    "octets": 4763,
+    "sha256": "180B7D1F657ED061B932B978A5262620BCFFC9D33055B0EFE90BD3444C1619A3"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\fp-info-cache",
+    "octets": 3697318,
+    "sha256": "B81AA0BCDD73CEAA9C6B86ED080D869162E66E19BB5B78E23E2E84E8B2BED250"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\fp-lib-table",
+    "octets": 146,
+    "sha256": "CE858C6C187991F77B99503B85CE5C7D72ADABE274D0EEE77173155C2B1F4C89"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\LIRE_MOI.md",
+    "octets": 11476,
+    "sha256": "A3087191BDF2B93F0A8CF6A96D09973921D17F67422068A63D9C020304AD1819"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Nomenclature.csv",
+    "octets": 2720,
+    "sha256": "BC012C2A3CBEB4BE9F4D291BAE801B68B529C02BF8EF6005AFCB153BE57700FE"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\router_carte.py",
+    "octets": 7624,
+    "sha256": "1FCA866108FA76F3945D7EFDB749FF6AE803C327F79C6E17186ABA6B4B4312DE"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\sym-lib-table",
+    "octets": 149,
+    "sha256": "8254449F75D53443E1BC9D4035E52F2E8E69695DC686220382C5F710AC98CEDD"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A-B_Cu.gbr",
+    "octets": 17562,
+    "sha256": "E373D96EE0B3476FDACB634933B86A8CBB0F18BF1159407D36930A82A69FF4FF"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A-B_Mask.gbr",
+    "octets": 5361,
+    "sha256": "F38E3A3E988BD97273FF5DC6326E9C09C3DB3B53C3D84729CB0794E9D9F79A93"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A-B_Paste.gbr",
+    "octets": 470,
+    "sha256": "50362EC0758ED14F9F2F1E1C7C5B4ABFD76428CA2A071AD376A16CF403CC51D5"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A-B_Silkscreen.gbr",
+    "octets": 471,
+    "sha256": "7E3DC8476EB7856F72814072C8BCC15BDBD30D3A4B732DC73A6CE8438CB9EAA1"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A-Edge_Cuts.gbr",
+    "octets": 927,
+    "sha256": "DAE42CDB3C15462DED3571D87EA482D8CFACC6A65464A7D495C0DD04595001F6"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A-F_Cu.gbr",
+    "octets": 23019,
+    "sha256": "2D3E4CC84DC9C139E25773994A10D714B7BBF8649CAD0B1C2849492BECCA6587"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A-F_Mask.gbr",
+    "octets": 5361,
+    "sha256": "903952A7142A30B286525166E7DBA65795453D5221AEB3F029983A0A294CDF3A"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A-F_Paste.gbr",
+    "octets": 470,
+    "sha256": "D6A0FEFC898672E48136E2E5E415C5EBA22493DA6CBA27507118C46473920273"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A-F_Silkscreen.gbr",
+    "octets": 116099,
+    "sha256": "AD0BF0CFAF40DB9FC95BE9F96CC1B3767E643DE292766D44BDF5CBE79029E6B4"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A-job.gbrjob",
+    "octets": 2796,
+    "sha256": "96F359485CADBF1D71160881EB16EAB04E609EE3F812B4A878D61A28559A0CEE"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A.kicad_dru",
+    "octets": 1035,
+    "sha256": "1A0EE172D35039DD3E91410B6B9EBE97396A0A9B9A2510F5D607A916999307F5"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A.kicad_pcb",
+    "octets": 329477,
+    "sha256": "66A7D9C52F102E7C911EAFF6EAF733E77C76C9A644A82ECE55B0A9DED8410465"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A.kicad_prl",
+    "octets": 1280,
+    "sha256": "C4005185432892E79FC093FCEFBC331EA22DE46A3DF332ACA2AF8F8D30E1894D"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A.kicad_pro",
+    "octets": 7964,
+    "sha256": "E5006CA93D488CDE15778C6ED99565716474D96A459A7F6598D83C1B4E882ED6"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A.kicad_sch",
+    "octets": 101752,
+    "sha256": "6AF40C8DA6D9BC49E0DF7EA1B71579A7E9C18F167D0D4D30F8A9EF2BFFECA4D7"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\VideCave.kicad_sym",
+    "octets": 38936,
+    "sha256": "B0F602B92009925FA3525A8CB7DF7159DC81E8EF14FE9558244158A9392E733B"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\Gerbers_prototype.zip",
+    "octets": 32646,
+    "sha256": "1CC487AA1846C62B79F92A22FD0E1AAE459742BB8A2E6DDEDA3F888E5C32DB9B"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\Implantation.pdf",
+    "octets": 381289,
+    "sha256": "5D7009A564F48283D9361AD2B1AFCBF684291EE6425E542DDE1333A4005B80DE"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\Implantation.png",
+    "octets": 144012,
+    "sha256": "1781A7AD27D1DC83F537AF156BC4D876B11F62F2DC5794009C3444CFEA813C72"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\Schema.pdf",
+    "octets": 124774,
+    "sha256": "B0F4F8FBB17453B519E0170A357CEB48DE2B5993BDB87241608A184664AD8BC5"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\Schema.png",
+    "octets": 208325,
+    "sha256": "7F629DEF98FCC51185B293AB4352C1DFB32F1C20E9DFB5F505669ABBD38C05E3"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\controle\\DRC.json",
+    "octets": 288,
+    "sha256": "4BED41F494C984E0020B626BAC4BB9455701099C36543CE1AC797F5995A9C1B9"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\controle\\ERC.json",
+    "octets": 376,
+    "sha256": "3724DB09584A396E256FC8236900D4C0029D6B2EFF02260D7434542FCFCA042A"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\controle\\Resume.json",
+    "octets": 89,
+    "sha256": "53B309AA65250012EB86E2D6D1493565B2F015C6DF5F1100B18ED282C7564116"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\gerbers\\Vide_cave_5A-B_Cu.gbl",
+    "octets": 17352,
+    "sha256": "F00ADBC42522E58D6577A37F23249D9A4139EFDB513B76D17ADEB3175BDCD053"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\gerbers\\Vide_cave_5A-B_Mask.gbs",
+    "octets": 5320,
+    "sha256": "6E1E0A04F753FFECB19EBC0FF75511B404990B93024C17DE2287A97E9F26C29D"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\gerbers\\Vide_cave_5A-Edge_Cuts.gm1",
+    "octets": 927,
+    "sha256": "A5F00B5EDD86A101D13230CB4EED5B67597ABD6C4ADC31E3E6884A6FB9E14D19"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\gerbers\\Vide_cave_5A-F_Cu.gtl",
+    "octets": 22143,
+    "sha256": "B419C678D184D52A33B212BCAF1DC1146E3150E1BAAF344BCC3028194C38FCCF"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\gerbers\\Vide_cave_5A-F_Mask.gts",
+    "octets": 5320,
+    "sha256": "5E0EEF96D8F39E39E5DC03730C8AFF8A64868FE5CA28B2721C4FE5E16178FE03"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\gerbers\\Vide_cave_5A-F_Silkscreen.gto",
+    "octets": 124736,
+    "sha256": "7F4371862465D1E32995C7363173B2E77FADE9E12AC6B691DFEB454388D44A95"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\gerbers\\Vide_cave_5A-job.gbrjob",
+    "octets": 2394,
+    "sha256": "583B852427631FC758F438894B63CB2666BAA61DF3DDEA2AFB43B3EEFD54B8EA"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\gerbers\\Vide_cave_5A-NPTH.drl",
+    "octets": 404,
+    "sha256": "0FEBF6AD9A45D0DF6C7F556ED9C118779F2D7C559CE2452D98E3748B0458B311"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\gerbers\\Vide_cave_5A-PTH.drl",
+    "octets": 2758,
+    "sha256": "488872BDB5D92E85A6DB8AAD56AE81BCEDF5FA219F85D05B6BE5C5B02D4D1025"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\typons\\B_Cu_contact.pdf",
+    "octets": 114136,
+    "sha256": "32FB762E07A76979E18A0E4EBE2B154E217BDB605A93BA7DE4A383B574B4C336"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\typons\\B_Cu_contact.png",
+    "octets": 92999,
+    "sha256": "9A47A103AC208AEEC02D3500A42BE8EDF81B212D723B44C5B45FF12D3825D164"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\typons\\B_Cu_contact.svg",
+    "octets": 51032,
+    "sha256": "D37BAFE2AF9A78C64AFDD65A9C45BD39D86E068D598A98B37571C5C49D232B5E"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\typons\\F_Cu_contact_miroir.pdf",
+    "octets": 120324,
+    "sha256": "AE279B4EF423E45D54AF3A0DFCB9A7AA88045228A4BA11ECC1F8B7B426430B2F"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\typons\\F_Cu_contact_miroir.png",
+    "octets": 100250,
+    "sha256": "1148B4AC06600DAABF7EDB6AA6F1E92D6CCDAEB69117EB791C7BDFA2E828D7B1"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\exports\\typons\\F_Cu_contact_miroir.svg",
+    "octets": 57185,
+    "sha256": "EF44412AFA89F0D9738D3229F0BA6877C09EDF302DE1231629490321788D6914"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\sources\\ACS756_10.png",
+    "octets": 215937,
+    "sha256": "A95313BEADFE3683E5E033CCFF8748FDCE008571E2E32ED8340BE42073C5F886"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\sources\\ACS756_11.png",
+    "octets": 185865,
+    "sha256": "488FFFE0E4BF4D16146E8DE88C7FD0A02F552BDCDBF7C5478166D758AE7F1B70"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\sources\\ACS756.pdf",
+    "octets": 971135,
+    "sha256": "1CEE6AFD721A29DB252A5BE2045C17A20616D71DA28CB90B48BC5BEDB07D84C6"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\sources\\netlist.xml",
+    "octets": 54728,
+    "sha256": "BA3DAC0548F2A7CF31B43FFDCD7D14A2FFA9816AF25F0C123D5D4BC3FF6C5FA3"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\sources\\PIC16F1788.kicad_sym",
+    "octets": 6945,
+    "sha256": "5986098844D87A9FEE755ED7E729961B29F8334D3B8156A9E3CE583796E08DC7"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\sources\\sexpr.py",
+    "octets": 553,
+    "sha256": "8618E9C2CF23F8338875CD0D85D0CBBE1561FC1DA71B473DECF7FEEE4D8A38B3"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\sources\\__pycache__\\sexpr.cpython-311.pyc",
+    "octets": 1666,
+    "sha256": "6B7565EFB03C09C9036F4C0D8AE03A882D2FFFDAE05118CDC7B36CD84362DE6B"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\VideCave.pretty\\ACS756_PFF.kicad_mod",
+    "octets": 1082,
+    "sha256": "CDCACCFFBAE97CBF95E783A55B6CF0AD35A187BD179BB53AF752441D9599DC85"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\VideCave.pretty\\MOC3083TVM_slot.kicad_mod",
+    "octets": 5458,
+    "sha256": "B7FD3CA39EB4E04575E9DC603C9BC26B7C765707BA28C794881B7E987F5A7EB8"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\VideCave.pretty\\RND_205_00298_P10_drill1_4.kicad_mod",
+    "octets": 13495,
+    "sha256": "194D0E2C661C402A88BC0204E6BC926AE3B79EAF76A64067992A039495F3BE3D"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\Vide_cave_5A-backups\\Vide_cave_5A-2026-10-07_221447.zip",
+    "octets": 90906,
+    "sha256": "50A8157577E561CE080A8C51639037F6A3ADAF661456D6F89CB853BC59A7B9A3"
+  },
+  {
+    "chemin": "Carte_vide_cave_PIC_Allegro_TRIAC\\__pycache__\\construire_carte.cpython-311.pyc",
+    "octets": 43921,
+    "sha256": "6AB69888B466421D712473A24E78B64180612DF29E7E26CA8DD65D8B88EA7427"
+  },
+  {
+    "chemin": "Claude outputs\\implantation_carte1.png",
+    "octets": 133658,
+    "sha256": "B47B5CC18F49A2D1A4CDEDC48CC70630937D0A5838BCBE8DC4E78905EDCA7C15"
+  },
+  {
+    "chemin": "Claude outputs\\implantation.png",
+    "octets": 138476,
+    "sha256": "6E7D3C7173EA16521C0DC9FB816DAD3CCD42A7E33B3E8742E95DE998BF747994"
+  },
+  {
+    "chemin": "Claude outputs\\schema_carte1_pic.png",
+    "octets": 210380,
+    "sha256": "E336956B1A111BA9AC0DF8A0B519CEB5ED6BAAAC200142D89B6A893356ED1857"
+  },
+  {
+    "chemin": "Claude outputs\\schema_electrique.png",
+    "octets": 228305,
+    "sha256": "4A606DDBF438B4CEC568C30663980FE5B285EE82CF743890837ED2A72EB645CC"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\~G206_CAMEL_TP_CAO.kicad_pro.lck",
+    "octets": 49,
+    "sha256": "A73CB74AD8B91F7604BB0F56DE3A5A284647E3B871D82E0DE62C2C88AB519A7A"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\fp-info-cache",
+    "octets": 3,
+    "sha256": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\fp-lib-table",
+    "octets": 275,
+    "sha256": "516F7FEE31AE917BA8453290F01F229CB3D759ADFE6AB59330A1AA95E19771A7"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_symboles.kicad_sym",
+    "octets": 107,
+    "sha256": "1AB22C8F30F62250B1F071CA035EBC84E681475DED9BCFAFEEA228AE60196830"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO.kicad_pcb",
+    "octets": 665737,
+    "sha256": "313BD169DF6C521E412FDAF167A5E248862989ABE62A065C45FBA21271B3476A"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO.kicad_prl",
+    "octets": 1296,
+    "sha256": "D869F4EB2E460C78862D74BA052F0413A0A0E6B547D9903AAB077D8BF0AFA8AC"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO.kicad_pro",
+    "octets": 14667,
+    "sha256": "F7E706180E6BAAF2F5E8AE5029B8545FE1882FC8F3D3BE42D048595BB3C71595"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO.kicad_sch",
+    "octets": 163607,
+    "sha256": "720D900DDDEEBD60ED03A6FAB09C85298D634794D1EEDFFDBF8043B276453949"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO.zip",
+    "octets": 115295,
+    "sha256": "06744FA552D65D865D88754CEE6CDD68E608A94094BE2A7E9B631045606EBCCC"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206A_CAMEL_TP_CAO.zip",
+    "octets": 251594,
+    "sha256": "8D577A4A6FAFCA80C4A0B5EE669527B224DAA5AB972342EA7D0065CDE8929410"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_symboles.kicad_sym",
+    "octets": 6482,
+    "sha256": "BB4E1C384E56094A13110FB43936FF41B7F2B847C2867A032579D479F634ABBE"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\sym-lib-table",
+    "octets": 274,
+    "sha256": "A9DB50AC8F94239D07EDB687D0C35ACBC6093A5863832D8DCE4431474B72F129"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\.history\\.gitignore",
+    "octets": 90,
+    "sha256": "C3312A64286DDC9011ADB4ECBF90E1611D7F2C4653AF14D2849FB7DA2EA90421"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\.history\\README.txt",
+    "octets": 569,
+    "sha256": "15B177287F6D16D6517FBC6A27D7124D206FC05EED3DEC20AE0B524FE2955C35"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\.history\\.git\\config",
+    "octets": 130,
+    "sha256": "C877F343674AD9B00866835132BC23C020E6EC1FABFA4194962982E9D543D7C9"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\.history\\.git\\description",
+    "octets": 73,
+    "sha256": "85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\.history\\.git\\HEAD",
+    "octets": 23,
+    "sha256": "F6F2B945F6C411B02BA3DA9C7ACE88DCF71B6AF65BA2E0D89AA82900042B5A10"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\.history\\.git\\hooks\\README.sample",
+    "octets": 177,
+    "sha256": "7319D7F1803FDA2B3416143E426B9EC4C3C3C817C75188B2B82CB3E68FF293AB"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\.history\\.git\\info\\exclude",
+    "octets": 113,
+    "sha256": "FDB7DC7BE17051C3C5067CDF2B8FDF2CA3A8DAF2B5E91F34C6CE1FF3A94C5F6A"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\206A_CAMEL_empreintes.pretty\\Bornier_1x02_L10mm_W7.5mm_P5mm.kicad_mod",
+    "octets": 4482,
+    "sha256": "7D43340EF76040242B9E5694DBC5CCC3A0BB0AE65B64F19F624E96B5BCB35CCC"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\206A_CAMEL_empreintes.pretty\\R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal.kicad_mod",
+    "octets": 5119,
+    "sha256": "D0AAEF16B3EC5BF3B32938AA3919EBAD0FC0D764B85CF917BBADC64AA6A202FD"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-02-27_124542.zip",
+    "octets": 171069,
+    "sha256": "EAD2B8DE4ED8A6377F9484B6339600F1AE2637922BF84E3A6B535E746A6EA31B"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-02-27_125622.zip",
+    "octets": 240685,
+    "sha256": "0AD3EE89C27C57B368BE6B46706BF27A2D3304632A24AD96BECCA06D4936B0E6"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-02-27_130239.zip",
+    "octets": 185307,
+    "sha256": "7B9D110275A09A7DF6E91874B1D39945525CCE6ACE72F5B9C72308A9E74023E4"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-03-02_120203.zip",
+    "octets": 186300,
+    "sha256": "BD8163560DA5254F06B8E2ECEB892CF0825F913B2D67ED67729F7D7691FE06F8"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-03-02_132938.zip",
+    "octets": 186300,
+    "sha256": "BD8163560DA5254F06B8E2ECEB892CF0825F913B2D67ED67729F7D7691FE06F8"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-03-18_132546.zip",
+    "octets": 186300,
+    "sha256": "BD8163560DA5254F06B8E2ECEB892CF0825F913B2D67ED67729F7D7691FE06F8"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-04-01_091638.zip",
+    "octets": 312689,
+    "sha256": "884850FB0C7C8EB1448F5CFEB1A0279319F72868DFF8479CC59D320B117971D5"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-04-01_093001.zip",
+    "octets": 312689,
+    "sha256": "0057E997B8A68C3400BFDDA10B9B7210E4BE9E772E2321C350CD0FAAFCFDC271"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-04-01_095955.zip",
+    "octets": 186300,
+    "sha256": "BD8163560DA5254F06B8E2ECEB892CF0825F913B2D67ED67729F7D7691FE06F8"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-04-22_083042.zip",
+    "octets": 312689,
+    "sha256": "7879DB9C41CA9CEF24545D8220F777694C9EA2BE018A991C21EC8DAF0A9F2492"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-04-22_084039.zip",
+    "octets": 186300,
+    "sha256": "BD8163560DA5254F06B8E2ECEB892CF0825F913B2D67ED67729F7D7691FE06F8"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-04-22_092059.zip",
+    "octets": 186300,
+    "sha256": "BD8163560DA5254F06B8E2ECEB892CF0825F913B2D67ED67729F7D7691FE06F8"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-04-22_093614.zip",
+    "octets": 186300,
+    "sha256": "BD8163560DA5254F06B8E2ECEB892CF0825F913B2D67ED67729F7D7691FE06F8"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-09-28_145145.zip",
+    "octets": 186300,
+    "sha256": "7F938938569C713E127D2CA8DF32FFA00646CB849BF6D97D0B15DEA155F3516F"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-09-28_165656.zip",
+    "octets": 181066,
+    "sha256": "8346719F26AC9CD7FA25B2D63915368ABD3717B7326091ACD0A94535889C3F71"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-10-01_183735.zip",
+    "octets": 181068,
+    "sha256": "863925CFDAA682DA2736280955B0FCD48E7BFC77745782B8E8F6BCF663065F72"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-10-01_213304.zip",
+    "octets": 181068,
+    "sha256": "863925CFDAA682DA2736280955B0FCD48E7BFC77745782B8E8F6BCF663065F72"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-10-05_143734.zip",
+    "octets": 181068,
+    "sha256": "863925CFDAA682DA2736280955B0FCD48E7BFC77745782B8E8F6BCF663065F72"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-10-06_142054.zip",
+    "octets": 182634,
+    "sha256": "E566D30985F99E525CAC9D50A85D3C24FE006BD1C4898FB82211A0A4FA211CB1"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-10-06_145026.zip",
+    "octets": 182108,
+    "sha256": "E270EEF488D1836D2768359E341247A1B7FB2B4A2EDB9A0186648719381C618C"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-10-07_212513.zip",
+    "octets": 183471,
+    "sha256": "726D364A887F3F91470D8ADC15C110939905AEEB170D1A76DA801193812BD117"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO-backups\\G206_CAMEL_TP_CAO-2026-10-07_221049.zip",
+    "octets": 183471,
+    "sha256": "726D364A887F3F91470D8ADC15C110939905AEEB170D1A76DA801193812BD117"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\Gerber\\G206_CAMEL_TP_CAO-B_Cu.gbr",
+    "octets": 252347,
+    "sha256": "EE21AB7C2BFE495FF56C3ED4E9C4C1D4CEA3661AC967D433C24BB96413D3F990"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\Gerber\\G206_CAMEL_TP_CAO-Edge_Cuts.gbr",
+    "octets": 640,
+    "sha256": "E8703109FB0445CDF1A85F598C3351FE31EAD1BD0353E894989739D27B5A9299"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\Gerber\\G206_CAMEL_TP_CAO.drl",
+    "octets": 2932,
+    "sha256": "28CD6C26E83E1B33419731F8E5B8978DFF0DD6F3C0F8D24045B1C43960295BE6"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\162B.kicad_mod",
+    "octets": 7775,
+    "sha256": "2421C9CE6FEC4DDBB8C33691C0FA9FC6906C3B6FFFDBABFEC30BBC0908096D59"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\C_Disc_D4.7mm_W2.5mm_P5.00mm.kicad_mod",
+    "octets": 3011,
+    "sha256": "55FDE884FB26FBE4E91A08A713D486FCD666D247D8E1BE6A1F9418FB66790CEF"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\C_Radial_D5.0mm_H11.0mm_P2.00mm.kicad_mod",
+    "octets": 1677,
+    "sha256": "39A97997E46975B8122E212103404521203E6FFD0A463301BA5C7CD3524247B9"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\CP_Radial_D6.3mm_P2.50mm.kicad_mod",
+    "octets": 2178,
+    "sha256": "CB549A9B944072510E66CCB69F85BF23C813CE516B7C4888985246E1C7A57EA3"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\DSUB-9_Male_Horizontal_P2.77x2.84mm_EdgePinOffset7.70mm_Housed_MountingHolesOffset9.12mm.kicad_mod",
+    "octets": 7457,
+    "sha256": "668943CBD657C199E01A6A1109B634D86B60B28168E443D5AEEF07A282D3FBCC"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\LED_D5.0mm.kicad_mod",
+    "octets": 2665,
+    "sha256": "BFA63EED376F2FBFE80C19BC0FB72D1563DFFD87F7014D0A35ED7C5E14D56929"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\Molex_KK-254_AE-6410-06A_1x06_P2.54mm_Vertical.kicad_mod",
+    "octets": 6406,
+    "sha256": "E8EAD2709ED6E9B04ED5303B171DE55C7E747E63F7CBCC2D1D1B915C594EDE95"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\PicKit_4_Snap_1x08_P2.54mm_Vertical.kicad_mod",
+    "octets": 4407,
+    "sha256": "F984B42F81D17D49740A75C32A18C2F21E201921B99635C6B4ECE13782C1895E"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\PinHeader_1x06_P2.54mm_Vertical.kicad_mod",
+    "octets": 3594,
+    "sha256": "904BCF20B976C3F204C859E6867393D2957AA64BB5A246F10A5529713AD0ADA2"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\PinHeader_1x08_P2.54mm_Vertical.kicad_mod",
+    "octets": 3858,
+    "sha256": "3206EE7FF0C7871AA261060D755DCFFA34A4980DA88FB55DA6851866CF3480C2"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\Potentiometer_Bourns_3306F_Vertical.kicad_mod",
+    "octets": 4400,
+    "sha256": "741C5F360BBE9856FC9DB0E097A2773ECC4FD393A9DCD44D35D90C87C6C7A9FA"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\SW_DIP_SPSTx02_Slide_7.5x7.01mm_W7.62mm_P2.54mm_LowProfile.kicad_mod",
+    "octets": 11973,
+    "sha256": "F94F4A4DEBFAB971E2BEA1B6E813D0B71A0700619A4FC648764E7C6524E6F4BF"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\SW_TH_Tactile_Omron_B3F-10xx.kicad_mod",
+    "octets": 2723,
+    "sha256": "87B1380275260864C35197D7545BFF032F850877E79BC7DB572F289E3C07F7CC"
+  },
+  {
+    "chemin": "G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty\\TestPoint_Loop_D2.50mm_Drill1.0mm.kicad_mod",
+    "octets": 1795,
+    "sha256": "254EDDD454196FACE7CA4187BF726E3653B25E6C7E49112FDDD2E6315CAA1D76"
+  },
+  {
+    "chemin": "kicad\\PROJET VIDE CAVE\\G206_CAMEL_symboles.kicad_sym",
+    "octets": 107,
+    "sha256": "1AB22C8F30F62250B1F071CA035EBC84E681475DED9BCFAFEEA228AE60196830"
+  },
+  {
+    "chemin": "kicad\\PROJET VIDE CAVE\\IUT_CAO_symboles.kicad_sym",
+    "octets": 6482,
+    "sha256": "BB4E1C384E56094A13110FB43936FF41B7F2B847C2867A032579D479F634ABBE"
+  },
+  {
+    "chemin": "kicad\\PROJET VIDE CAVE\\PIC16F1788-I_SP.zip",
+    "octets": 921428,
+    "sha256": "67059CA7B39AA18F1C20A105A3117D228BFDF3078DDCD4344EA7BA2877C716A4"
+  },
+  {
+    "chemin": "kicad\\PROJET VIDE CAVE\\PROJET VIDE CAVE.kicad_pcb",
+    "octets": 78,
+    "sha256": "CAA7EC9394D475416E3987D82CCD1E6C80C7539D2DE5359C23551D475B88325F"
+  },
+  {
+    "chemin": "kicad\\PROJET VIDE CAVE\\PROJET VIDE CAVE.kicad_prl",
+    "octets": 1284,
+    "sha256": "A5D019B6C0D0D5FAEC6AFF943C071307DD532207CB59F28B91D023F03D15AD4B"
+  },
+  {
+    "chemin": "kicad\\PROJET VIDE CAVE\\PROJET VIDE CAVE.kicad_pro",
+    "octets": 7468,
+    "sha256": "344BC9554B28EEC45B1E560D3C4A564755FE81446E311DEB33B2FCB24FBCF8CC"
+  },
+  {
+    "chemin": "kicad\\PROJET VIDE CAVE\\PROJET VIDE CAVE.kicad_sch",
+    "octets": 11341,
+    "sha256": "E851C4EE597A04E8473A7A681EE9FB1453D05C7244BFAA59944DFECAFA092EA8"
+  },
+  {
+    "chemin": "kicad\\PROJET VIDE CAVE\\PROJET VIDE CAVE-backups\\PROJET VIDE CAVE-2026-09-28_144740.zip",
+    "octets": 5743,
+    "sha256": "0D313E1FA19D1B23082AF16756D4294C05F08A6FC5E84AD9B4CFFC09E26F4047"
+  },
+  {
+    "chemin": "kicad\\PROJET VIDE CAVE\\PROJET VIDE CAVE-backups\\PROJET VIDE CAVE-2026-09-28_152157.zip",
+    "octets": 5850,
+    "sha256": "D6AE07E32423F0B49FA8BA825BEE918D0326339F3E5A3E58BDC2A0467D192C08"
+  },
+  {
+    "chemin": "maquette_3d\\01_installation.png",
+    "octets": 2294564,
+    "sha256": "9B944AE6E92FA508DB35722DEE128F7FDF5FC31CC20BF1E324B2EEA2C319F73C"
+  },
+  {
+    "chemin": "maquette_3d\\02_coffret_eclate.png",
+    "octets": 2095800,
+    "sha256": "8795C66759B932029C1263AA3EAFF55E705F877A0DCA3CE2B14A6E5237759187"
+  },
+  {
+    "chemin": "maquette_3d\\03_carte_kicad.png",
+    "octets": 2123782,
+    "sha256": "DE796A843E2EA16D4B510792BD1D3670BC69C297A8CDE378EFE6D8F3FFB31A16"
+  },
+  {
+    "chemin": "maquette_3d\\04_interieur_moteur_pompe.png",
+    "octets": 2159444,
+    "sha256": "EFA2A5D33A68A19659D42732DA6639CA0BEEEF1D0D732A4F56A1D1C32ABB12B1"
+  },
+  {
+    "chemin": "maquette_3d\\creer_maquette.py",
+    "octets": 25701,
+    "sha256": "9E5FA00F1BBC14CB30BB377EE85A84535B5589BB1C2F0B128C6A3A4CEDFFE933"
+  },
+  {
+    "chemin": "maquette_3d\\finaliser_cave.py",
+    "octets": 2251,
+    "sha256": "B0A81587A3B55EDF81495DD4BEF953C83E56C32F6C3220559CA38B6035A76DD9"
+  },
+  {
+    "chemin": "maquette_3d\\implantation_kicad.json",
+    "octets": 111326,
+    "sha256": "DEA241ECD2F6ADA7C40FFE1B3EE7C9CC0F77B8AC9E672743683E475C9AC3CF7C"
+  },
+  {
+    "chemin": "maquette_3d\\installer_dans_cave.py",
+    "octets": 11431,
+    "sha256": "07F138EC2356F8FBDA5A43EED64D51F50F4A5A63C5D3A9CFE40EBF88FCB55615"
+  },
+  {
+    "chemin": "maquette_3d\\interieur_pompe.py",
+    "octets": 10151,
+    "sha256": "4FB4FC7EC039AF28DEDFF0685595AE305F3DBCF2E22F51C37D71063D3A52CE08"
+  },
+  {
+    "chemin": "maquette_3d\\lire_kicad.py",
+    "octets": 2629,
+    "sha256": "0030498B2E878DA7FD7CEFF933019203B1DF3F3ECB6311DDB414DE8D19237B10"
+  },
+  {
+    "chemin": "maquette_3d\\LISEZ_MOI.md",
+    "octets": 5233,
+    "sha256": "301C3BB091539D49544761B99185DABAEC602A7F8938D566AA98E3B5D521F273"
+  },
+  {
+    "chemin": "maquette_3d\\mettre_a_jour_cave.py",
+    "octets": 2094,
+    "sha256": "C3F1C13A6F43D4B16371D5D9111CFF21499FA70F3A4B81E9B01A1F10DC6EBA86"
+  },
+  {
+    "chemin": "maquette_3d\\mettre_a_jour_interieur.py",
+    "octets": 2345,
+    "sha256": "00836E5DCB32D026665B4E878714FEC06FCDB5191723D59C9DABD949FFDB1028"
+  },
+  {
+    "chemin": "maquette_3d\\verification.json",
+    "octets": 427,
+    "sha256": "CE69C1342B2CEF52AF1ADF1D72F1B0C55FF1270353F6630978E08750E244ADCD"
+  },
+  {
+    "chemin": "maquette_3d\\verifier_maquette.py",
+    "octets": 1750,
+    "sha256": "0449608394AD7F9E8596625D3A494859B6A1F63D94B1B0D6F1051E5F4DCA8A55"
+  },
+  {
+    "chemin": "maquette_3d\\Vide_cave_GEII.blend",
+    "octets": 927266,
+    "sha256": "BF6DFCED88C63A6743C52B7761DB5F021BB08311B23C4493AD89E0B508A18C9A"
+  },
+  {
+    "chemin": "maquette_3d\\Vide_cave_GEII.blend1",
+    "octets": 913601,
+    "sha256": "48886F6AA8841259A6696D06E63AC887CC6DFEA631DD540B43E70372926510DC"
+  },
+  {
+    "chemin": "maquette_3d\\.runtime\\extensions\\.cache\\compat.dat",
+    "octets": 122,
+    "sha256": "851673F809C207C637DF34196D9D769353225703355031304224D1C2FAC2BC47"
+  },
+  {
+    "chemin": "maquette_3d\\__pycache__\\installer_dans_cave.cpython-313.pyc",
+    "octets": 18479,
+    "sha256": "640FB3CD657088F833685D4E39F16F4CA83725CC35044E26E6F1458646B3FC6E"
+  },
+  {
+    "chemin": "maquette_3d\\__pycache__\\interieur_pompe.cpython-313.pyc",
+    "octets": 19347,
+    "sha256": "5EEF352B98A1AE1A32F399F865C94540E68392D5AC0961F450582E63C8247C5F"
+  },
+  {
+    "chemin": "maquette_3d\\__pycache__\\lire_kicad.cpython-311.pyc",
+    "octets": 6753,
+    "sha256": "41B4B8599F31E35D1020E0FEB13227C2023215C1E6EF7E331F90FFB3535812F6"
+  },
+  {
+    "chemin": "maquette_3d\\__pycache__\\lire_kicad.cpython-312.pyc",
+    "octets": 5245,
+    "sha256": "AD0DD4F36B7EF3FCCA28A6543A1D8AD9154CB0963FEED724AF9CEBC8684BE610"
+  },
+  {
+    "chemin": "PROJET VIDE CAVE\\Bienvenue.md",
+    "octets": 218,
+    "sha256": "A469E11BDE6E465FB40D83092992C52406634D97EBC7802116554A9949A2E818"
+  },
+  {
+    "chemin": "PROJET VIDE CAVE\\INFO 3.md",
+    "octets": 68,
+    "sha256": "85B2790E522DF8EDFB0397D14CD0D2713FD4D3E70D6FB368787452D2808E78A2"
+  },
+  {
+    "chemin": "PROJET VIDE CAVE\\.obsidian\\app.json",
+    "octets": 2,
+    "sha256": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+  },
+  {
+    "chemin": "PROJET VIDE CAVE\\.obsidian\\appearance.json",
+    "octets": 2,
+    "sha256": "44136FA355B3678A1146AD16F7E8649E94FB4FC21FE77E8310C060F61CAAFF8A"
+  },
+  {
+    "chemin": "PROJET VIDE CAVE\\.obsidian\\core-plugins.json",
+    "octets": 696,
+    "sha256": "763CF20A921FD9955735B278006820B90B207B2FC04D9E79CA648279C7C14276"
+  },
+  {
+    "chemin": "PROJET VIDE CAVE\\.obsidian\\graph.json",
+    "octets": 509,
+    "sha256": "CE2B8FC28F5CABCED68D9319EA7D4CE4B50DAEC86ED0DC4CDC6D8F0DEC439EA0"
+  },
+  {
+    "chemin": "PROJET VIDE CAVE\\.obsidian\\workspace.json",
+    "octets": 5629,
+    "sha256": "0606586F39797F8303DAD09117B18748D44E6D2A46C344F8B2399C9DD6E0FFEB"
+  }
+]

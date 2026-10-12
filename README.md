@@ -11,7 +11,7 @@
 - **Rapport de pré-étude :** [document Word](01_Documents/Rapport/Rapport_pre-etude_vide-cave.docx).
 - **Synoptique modifiable :** [Synoptique V3](02_Synoptiques/Synoptique%20V3.drawio).
 - **Maquette :** [fichier Blender](04_Maquette_3D/Vide_cave_GEII.blend) et [notice](04_Maquette_3D/LISEZ_MOI.md).
-- **Visualisation pédagogique Anatomy :** dossier `07_Visualisation_Anatomy`, avec sa notice. Cette visualisation explique le projet ; elle ne produit pas le PCB.
+- **Visualisation pédagogique Anatomy :** ouvrir [index.html](07_Visualisation_Anatomy/index.html) dans un navigateur, ou consulter [l'aperçu](07_Visualisation_Anatomy/preview.png) et [la notice](07_Visualisation_Anatomy/README.md). Cette visualisation explique le projet ; elle ne produit pas le PCB. Sur GitHub, télécharger ou cloner le dépôt pour ouvrir la page localement.
 
 ## Sources et versions
 

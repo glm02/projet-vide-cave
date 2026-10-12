@@ -1,0 +1,11 @@
+{
+  "fichiers_manquants": [],
+  "fichiers_adaptes": [
+    "04_Maquette_3D\\implantation_kicad.json",
+    "04_Maquette_3D\\lire_kicad.py",
+    "04_Maquette_3D\\LISEZ_MOI.md",
+    "04_Maquette_3D\\__pycache__\\lire_kicad.cpython-312.pyc"
+  ],
+  "copies_originales_verifiees": true,
+  "total_original": 181
+}

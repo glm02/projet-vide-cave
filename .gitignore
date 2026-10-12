@@ -48,6 +48,13 @@ desktop.ini
 !/05_Notes/Analyse_G206_2026-10-12/*.md
 !/05_Notes/Analyse_G206_2026-10-12/comparaison_tous_composants.csv
 
+# Captures QA du visualiseur ; conserver preview.png et le cuivre réel
+/07_Visualisation_Anatomy/*.png
+!/07_Visualisation_Anatomy/preview.png
+!/07_Visualisation_Anatomy/pcb-nettoye.png
+/07_Visualisation_Anatomy/captures_qa/
+/07_Visualisation_Anatomy/controle_interaction.json
+
 # Documents Office et Draw.io en cours d'édition
 ~$*
 .~lock.*

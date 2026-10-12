@@ -41,7 +41,7 @@ Source : paramètres `.kicad_pro` et zone GND du PCB, relevés par l'analyse du 
 | GND | 14 mm | (113,5 ; 135) → (127,5 ; 135) |
 | MCLR | 10 mm | (173 ; 110) → (183 ; 110) |
 
-Les vias associés sont de diamètre 2 mm avec perçage 0,8 mm. Leur interprétation comme passages de straps doit être confirmée dans le dossier de fabrication. Le comptage final des pistes et le résultat DRC sont dans le [rapport technique](../Analyse_G206_2026-10-12/RAPPORT_ANALYSE.md).
+Les quatre vias associés sont de diamètre 2 mm avec perçage 0,8 mm. Les deux straps totalisent 24 mm. Leur interprétation comme passages de straps doit être confirmée dans le dossier de fabrication. Le PCB final compte 212 segments, dont 210 B.Cu et 2 F.Cu, ainsi que 56 zones : 1 GND et 55 gouttes de cuivre. Voir [les règles détaillées du relevé](../Analyse_G206_2026-10-12/REGLES_PCB.md) et le résultat DRC dans le [rapport technique](../Analyse_G206_2026-10-12/RAPPORT_ANALYSE.md).
 
 ## Revue à chaque modification
 

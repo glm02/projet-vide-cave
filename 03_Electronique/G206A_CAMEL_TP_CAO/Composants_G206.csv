@@ -1,0 +1,25 @@
+﻿Repere;Quantite;Valeur;Symbole_KiCad;Empreinte_schema;Empreinte_PCB;Present_sur_PCB;Reference_fabricant;Fabricant;Fiche_technique;A_completer;Remarques
+BZ1;1;Buzzer;Device:Buzzer;;;non;;;;"valeur ou modele exact; reference fabricant; empreinte schema";"Absent du PCB; Polarite du schema a revoir"
+C1;1;47uF;Device:C_Polarized_Small;IUT_CAO_empreintes:CP_Radial_D6.3mm_P2.50mm;IUT_CAO_empreintes:CP_Radial_D6.3mm_P2.50mm;oui;;;;reference fabricant;
+C2;1;100n;Device:C;IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm;IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm;oui;;;;reference fabricant;
+C5;1;100n;Device:C;IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm;IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm;oui;;;;reference fabricant;
+D4;1;LED R;Device:LED;IUT_CAO_empreintes:LED_D5.0mm;IUT_CAO_empreintes:LED_D5.0mm;oui;;;;reference fabricant;
+DS1;1;162B-CC_BC-3LP;Display_Character:HY1602E;IUT_CAO_empreintes:162B;IUT_CAO_empreintes:162B;oui;;;http://www.icbank.com/data/ICBShop/board/HY1602E.pdf;reference fabricant;
+J1;1;Alimentation;Connector:Screw_Terminal_01x02;206A_CAMEL_empreintes:Bornier_1x02_L10mm_W7.5mm_P5mm;206A_CAMEL_empreintes:Bornier_1x02_L10mm_W7.5mm_P5mm;oui;;;;reference fabricant;
+J2;1;Série (TTL);Connector_Generic:Conn_01x06;IUT_CAO_empreintes:PinHeader_1x06_P2.54mm_Vertical;IUT_CAO_empreintes:PinHeader_1x06_P2.54mm_Vertical;oui;;;;reference fabricant;
+J4;1;Conn_PIC_ICSP_ICD;Connector:Conn_PIC_ICSP_ICD;IUT_CAO_empreintes:PicKit_4_Snap_1x08_P2.54mm_Vertical;IUT_CAO_empreintes:PicKit_4_Snap_1x08_P2.54mm_Vertical;oui;;;http://ww1.microchip.com/downloads/en/devicedoc/30277d.pdf;reference fabricant;
+M1;1;Motor_AC;Motor:Motor_AC;;;non;;;;"reference fabricant; empreinte schema";"Absent du PCB; Moteur externe : renseigner plaque et raccordement"
+R3;1;R;Device:R;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;oui;;;;"valeur ou modele exact; reference fabricant; empreinte schema";Valeur PCB differente : 10k
+R4;1;R;Device:R;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;oui;;;;"valeur ou modele exact; reference fabricant; empreinte schema";Valeur PCB differente : 10k
+R7;1;R;Device:R;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;oui;;;;"valeur ou modele exact; reference fabricant; empreinte schema";Valeur PCB differente : 270
+R9;1;270;Device:R;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;oui;;;;reference fabricant;
+R10;1;270;Device:R;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;oui;;;;reference fabricant;
+R11;1;56k;Device:R;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;oui;;;;reference fabricant;
+R12;1;10k;Device:R;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;oui;;;;reference fabricant;
+R13;1;1,5k;Device:R;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;oui;;;;reference fabricant;
+R14;1;270;Device:R;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;oui;;;;reference fabricant;
+SW4;1;B3F-1000;Switch:SW_Push;IUT_CAO_empreintes:SW_TH_Tactile_Omron_B3F-10xx;IUT_CAO_empreintes:SW_TH_Tactile_Omron_B3F-10xx;oui;;;;reference fabricant;
+TRIAC1;1;octo-triac;Relay_SolidState:FODM3011;Package_DIP:SMDIP-4_W7.62mm;Package_DIP:SMDIP-4_W7.62mm;oui;;;https://www.onsemi.com/pub/Collateral/FODM3053_NF098-D.PDF;reference fabricant;Symbole FODM3011 nominal 250 V : choix a revoir pour secteur 230 V
+Triac_de_puissance1;1;Generic_Triac_A1A2G;Triac_Thyristor:Generic_Triac_A1A2G;;;non;;;;"valeur ou modele exact; reference fabricant; empreinte schema";Absent du PCB
+U1;1;PIC16F1788-xSP;IUT_CAO_symboles:PIC16F1788-xSP;Package_DIP:DIP-28_W7.62mm_LongPads;Package_DIP:DIP-28_W7.62mm_LongPads;oui;;;http://ww1.microchip.com/downloads/en/DeviceDoc/40001675C.pdf;reference fabricant;
+U3;1;Capteur de courant;Sensor_Current:ACS756xCB-100B-PFF;Sensor_Current:Allegro_CB_PFF;Sensor_Current:Allegro_CB_PFF;oui;;;http://www.allegromicro.com/~/media/Files/Datasheets/ACS756-Datasheet.ashx?la=en;"valeur ou modele exact; reference fabricant";"Symbole ACS756xCB-100B-PFF ; modele reel a preciser"

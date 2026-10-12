@@ -1,0 +1,46 @@
+﻿reference;valeur_schema;valeur_pcb;etat;ecarts_nets;empreinte_schema;empreinte_pcb
+BZ1;Buzzer;;absent_PCB;;;
+C1;47uF;47uF;commun;;IUT_CAO_empreintes:CP_Radial_D6.3mm_P2.50mm;IUT_CAO_empreintes:CP_Radial_D6.3mm_P2.50mm
+C2;100n;100n;commun;;IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm;IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm
+C3;;100n;absent_schema;;;IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm
+C4;;100n;absent_schema;;;IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm
+C5;100n;100n;commun;;IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm;IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm
+D1;;LED V;absent_schema;;;IUT_CAO_empreintes:LED_D5.0mm
+D2;;LED V;absent_schema;;;IUT_CAO_empreintes:LED_D5.0mm
+D3;;LED R;absent_schema;;;IUT_CAO_empreintes:LED_D5.0mm
+D4;LED R;LED R;commun;;IUT_CAO_empreintes:LED_D5.0mm;IUT_CAO_empreintes:LED_D5.0mm
+DS1;162B-CC_BC-3LP;162B-CC_BC-3LP;commun;;IUT_CAO_empreintes:162B;IUT_CAO_empreintes:162B
+J1;Alimentation;Alimentation;commun;;206A_CAMEL_empreintes:Bornier_1x02_L10mm_W7.5mm_P5mm;206A_CAMEL_empreintes:Bornier_1x02_L10mm_W7.5mm_P5mm
+J2;Série (TTL);Série (TTL);commun;;IUT_CAO_empreintes:PinHeader_1x06_P2.54mm_Vertical;IUT_CAO_empreintes:PinHeader_1x06_P2.54mm_Vertical
+J3;;Connecteur carte moteurs;absent_schema;;;IUT_CAO_empreintes:Molex_KK-254_AE-6410-06A_1x06_P2.54mm_Vertical
+J4;Conn_PIC_ICSP_ICD;Conn_PIC_ICSP_ICD;commun;;IUT_CAO_empreintes:PicKit_4_Snap_1x08_P2.54mm_Vertical;IUT_CAO_empreintes:PicKit_4_Snap_1x08_P2.54mm_Vertical
+M1;Motor_AC;;absent_PCB;;;
+R1;;10k;absent_schema;;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+R10;270;270;commun;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+R11;56k;56k;commun;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+R12;10k;10k;commun;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+R13;1,5k;1,5k;commun;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+R14;270;270;commun;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+R2;;10k;absent_schema;;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+R3;R;10k;commun;"1: schema=Net-(R3-Pad1); PCB=+5V | 2: schema=Net-(Triac_de_puissance1-A2); PCB=SW1";;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+R4;R;10k;commun;"2: schema=Net-(Triac_de_puissance1-A2); PCB=SW2 | 1: schema=Net-(M1-Pad1); PCB=+5V";;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+R5;;56k;absent_schema;;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+R6;;56k;absent_schema;;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+R7;R;270;commun;"2: schema=Net-(R7-Pad2); PCB=Net-(D1-A) | 1: schema=RB2; PCB=Net-(U1-AN9/RB3)";;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+R8;;270;absent_schema;;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+R9;270;270;commun;;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+RV1;;10k;absent_schema;;;IUT_CAO_empreintes:Potentiometer_Bourns_3306F_Vertical
+SW1;;B3F-1000;absent_schema;;;IUT_CAO_empreintes:SW_TH_Tactile_Omron_B3F-10xx
+SW2;;B3F-1000;absent_schema;;;IUT_CAO_empreintes:SW_TH_Tactile_Omron_B3F-10xx
+SW3;;SW_DIP_x02;absent_schema;;;IUT_CAO_empreintes:SW_DIP_SPSTx02_Slide_7.5x7.01mm_W7.62mm_P2.54mm_LowProfile
+SW4;B3F-1000;B3F-1000;commun;;IUT_CAO_empreintes:SW_TH_Tactile_Omron_B3F-10xx;IUT_CAO_empreintes:SW_TH_Tactile_Omron_B3F-10xx
+TP1;;PWM_3;absent_schema;;;IUT_CAO_empreintes:TestPoint_Loop_D2.50mm_Drill1.0mm
+TP2;;GND;absent_schema;;;IUT_CAO_empreintes:TestPoint_Loop_D2.50mm_Drill1.0mm
+TP3;;PWM_2;absent_schema;;;IUT_CAO_empreintes:TestPoint_Loop_D2.50mm_Drill1.0mm
+TP4;;CODEUR;absent_schema;;;IUT_CAO_empreintes:TestPoint_Loop_D2.50mm_Drill1.0mm
+TP5;;uC_TXD_TTL;absent_schema;;;IUT_CAO_empreintes:TestPoint_Loop_D2.50mm_Drill1.0mm
+TP6;;POT_1;absent_schema;;;IUT_CAO_empreintes:TestPoint_Loop_D2.50mm_Drill1.0mm
+TRIAC1;octo-triac;octo-triac;commun;;Package_DIP:SMDIP-4_W7.62mm;Package_DIP:SMDIP-4_W7.62mm
+Triac_de_puissance1;Generic_Triac_A1A2G;;absent_PCB;;;
+U1;PIC16F1788-xSP;PIC16F1788-xSP;commun;;Package_DIP:DIP-28_W7.62mm_LongPads;Package_DIP:DIP-28_W7.62mm_LongPads
+U3;Capteur de courant;Capteur de courant;commun;;Sensor_Current:Allegro_CB_PFF;Sensor_Current:Allegro_CB_PFF

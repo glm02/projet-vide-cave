@@ -1,0 +1,11 @@
+{
+  "ouverture_blender": "OK",
+  "scenes": [
+    "01 Installation du vide-cave",
+    "02 Coffret en vue éclatée",
+    "03 Implantation KiCad fournie",
+    "04 Intérieur moteur et pompe"
+  ],
+  "ressources_manquantes": [],
+  "aucune_modification_du_modele": true
+}

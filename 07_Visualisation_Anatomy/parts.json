@@ -1,0 +1,6 @@
+{
+  "physical_parts": 321,
+  "schematic_components": 24,
+  "pcb_footprints": 21,
+  "geometry": "simplified packages; X/Y from KiCad; not fabrication geometry"
+}

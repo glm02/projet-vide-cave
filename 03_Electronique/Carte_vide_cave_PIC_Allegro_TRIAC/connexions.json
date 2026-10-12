@@ -1,0 +1,836 @@
+[
+  {
+    "ref": "U1",
+    "val": "PIC16F1788-I/SP",
+    "symbol": "PIC16F1788",
+    "fp": "Package_DIP:DIP-28_W7.62mm_LongPads",
+    "nets": {
+      "1": "MCLR",
+      "2": "ADC_I",
+      "3": "LCD_RS",
+      "4": "LCD_E",
+      "5": "LCD_D4",
+      "6": "LCD_D5",
+      "7": "LCD_D6",
+      "8": "GND",
+      "9": null,
+      "10": "LCD_D7",
+      "11": null,
+      "12": null,
+      "13": null,
+      "14": null,
+      "15": null,
+      "16": null,
+      "17": "UART_TX",
+      "18": "UART_RX",
+      "19": "GND",
+      "20": "+5V",
+      "21": "LED_POMPE",
+      "22": "BOUTON_START",
+      "23": "POMPE_CMD",
+      "24": "BOUTON_STOP",
+      "25": null,
+      "26": null,
+      "27": "ICSP_CLK",
+      "28": "ICSP_DAT"
+    },
+    "xy": [
+      60,
+      58
+    ],
+    "sch": [
+      85,
+      65
+    ],
+    "rot": 0,
+    "desc": "Microcontrôleur 5 V; oscillateur interne; sortie RB2 active à 1",
+    "uuid": "dbe53fb8-494e-5e65-b2f0-f62b9b48ffec"
+  },
+  {
+    "ref": "U2",
+    "val": "ACS756SCB-100B-PFF-T",
+    "symbol": "ACS756xCB-100B-PFF",
+    "fp": "VideCave:ACS756_PFF",
+    "nets": {
+      "1": "+5V",
+      "2": "GND",
+      "3": "I_BRUT",
+      "4": "L_FUSIBLE",
+      "5": "MT2"
+    },
+    "xy": [
+      118,
+      53
+    ],
+    "sch": [
+      225,
+      58
+    ],
+    "rot": 0,
+    "desc": "Capteur repris du projet; 20 mV/A; offset 2,5 V; boîtier PFF",
+    "uuid": "110319cc-a650-5c69-b1ed-735899b3d457"
+  },
+  {
+    "ref": "U3",
+    "val": "MOC3083TVM",
+    "symbol": "MOC3083M",
+    "fp": "VideCave:MOC3083TVM_slot",
+    "nets": {
+      "1": "OPTO_A",
+      "2": "OPTO_K",
+      "3": null,
+      "4": "GATE",
+      "5": null,
+      "6": "OPTO_MT2"
+    },
+    "xy": [
+      118,
+      108
+    ],
+    "sch": [
+      255,
+      190
+    ],
+    "rot": 0,
+    "desc": "Optotriac 800 V; passage par zéro; IFT max 5 mA; version TVM entre rangées 10.16 mm",
+    "uuid": "f3e84b18-69a3-577b-9fef-2e09de71385d"
+  },
+  {
+    "ref": "Q1",
+    "val": "BTA16-800CRG",
+    "symbol": "BTA16-800C",
+    "fp": "Package_TO_SOT_THT:TO-220-3_Vertical",
+    "nets": {
+      "1": "L_POMPE",
+      "2": "MT2",
+      "3": "GATE"
+    },
+    "xy": [
+      180,
+      110
+    ],
+    "sch": [
+      350,
+      190
+    ],
+    "rot": 0,
+    "desc": "Triac standard 4 quadrants 800 V / 16 A; gâchette 25 mA en QI/QIII; dissipateur externe",
+    "uuid": "e782d501-d908-5cbe-a290-b31e22ca1be4"
+  },
+  {
+    "ref": "Q2",
+    "val": "2N3904",
+    "symbol": "2N3904",
+    "fp": "Package_TO_SOT_THT:TO-92_Inline_Wide",
+    "nets": {
+      "1": "GND",
+      "2": "BASE_NPN",
+      "3": "OPTO_K"
+    },
+    "xy": [
+      107,
+      107
+    ],
+    "sch": [
+      190,
+      185
+    ],
+    "rot": 0,
+    "desc": "Commande de la LED optotriac; défaut matériel = arrêt",
+    "uuid": "0e4b572d-fefc-5676-b717-e766355f86be"
+  },
+  {
+    "ref": "J1",
+    "val": "SECTEUR L N",
+    "symbol": "Conn_01x02",
+    "fp": "VideCave:RND_205_00298_P10_drill1_4",
+    "nets": {
+      "1": "L_ENTREE",
+      "2": "N"
+    },
+    "xy": [
+      185,
+      40
+    ],
+    "sch": [
+      330,
+      45
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "2c9e98fd-9540-5472-bdd6-9f6c368d5509"
+  },
+  {
+    "ref": "J2",
+    "val": "POMPE L N",
+    "symbol": "Conn_01x02",
+    "fp": "VideCave:RND_205_00298_P10_drill1_4",
+    "nets": {
+      "1": "L_POMPE",
+      "2": "N"
+    },
+    "xy": [
+      185,
+      140
+    ],
+    "sch": [
+      380,
+      190
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "937a3fd4-9280-51ff-b16a-45946b844566"
+  },
+  {
+    "ref": "J8",
+    "val": "TERRE EXTERNE",
+    "symbol": "Conn_01x03",
+    "fp": null,
+    "nets": {
+      "1": "PE",
+      "2": "PE",
+      "3": "PE"
+    },
+    "xy": null,
+    "sch": [
+      375,
+      100
+    ],
+    "rot": 0,
+    "desc": "Bornier PE extérieur au PCB: secteur, pompe, coffret conducteur si présent",
+    "uuid": "4cc7365c-e649-5d52-9010-82d079fe30f2"
+  },
+  {
+    "ref": "F1",
+    "val": "T3.15A HBC 250VAC",
+    "symbol": "Fuse",
+    "fp": "Fuse:Fuseholder_Littelfuse_445_030_series_5x20mm",
+    "nets": {
+      "1": "L_ENTREE",
+      "2": "L_FUSIBLE"
+    },
+    "xy": [
+      175,
+      57
+    ],
+    "sch": [
+      280,
+      45
+    ],
+    "rot": 180,
+    "desc": "Littelfuse 02153.15MXP temporisé céramique; candidat pompe 300 W; calibre à valider",
+    "uuid": "5b72e537-190b-5d3e-b5d1-39245164e497"
+  },
+  {
+    "ref": "J3",
+    "val": "5V ISOLEE",
+    "symbol": "Conn_01x02",
+    "fp": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal",
+    "nets": {
+      "1": "+5V",
+      "2": "GND"
+    },
+    "xy": [
+      45,
+      120
+    ],
+    "sch": [
+      45,
+      135
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "10dd3ada-7de2-5acd-b262-0888337d6308"
+  },
+  {
+    "ref": "J4",
+    "val": "ICSP PICkit",
+    "symbol": "Conn_01x06",
+    "fp": "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical",
+    "nets": {
+      "1": "MCLR",
+      "2": "+5V",
+      "3": "GND",
+      "4": "ICSP_DAT",
+      "5": "ICSP_CLK",
+      "6": null
+    },
+    "xy": [
+      84,
+      52
+    ],
+    "sch": [
+      135,
+      55
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "c409809c-3af9-5b59-99ca-1bee038c9a16"
+  },
+  {
+    "ref": "J5",
+    "val": "LCD 16x2 4 BITS",
+    "symbol": "Conn_01x16",
+    "fp": "Connector_PinHeader_2.54mm:PinHeader_1x16_P2.54mm_Vertical",
+    "nets": {
+      "1": "GND",
+      "2": "+5V",
+      "3": "LCD_VO",
+      "4": "LCD_RS",
+      "5": "GND",
+      "6": "LCD_E",
+      "7": null,
+      "8": null,
+      "9": null,
+      "10": null,
+      "11": "LCD_D4",
+      "12": "LCD_D5",
+      "13": "LCD_D6",
+      "14": "LCD_D7",
+      "15": "LCD_A",
+      "16": "GND"
+    },
+    "xy": [
+      40,
+      45
+    ],
+    "sch": [
+      35,
+      42
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "2fc7e9ad-597a-52be-a077-87aaa3e61ea0"
+  },
+  {
+    "ref": "J6",
+    "val": "BOUTONS IHM",
+    "symbol": "Conn_01x04",
+    "fp": "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+    "nets": {
+      "1": "GND",
+      "2": "BOUTON_START",
+      "3": "BOUTON_STOP",
+      "4": "+5V"
+    },
+    "xy": [
+      89,
+      87
+    ],
+    "sch": [
+      135,
+      100
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "263a1a80-7420-5b08-a3e8-3d4196693bc0"
+  },
+  {
+    "ref": "J7",
+    "val": "UART TTL 5V",
+    "symbol": "Conn_01x04",
+    "fp": "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical",
+    "nets": {
+      "1": "GND",
+      "2": "UART_TX",
+      "3": "UART_RX",
+      "4": "+5V"
+    },
+    "xy": [
+      80,
+      126
+    ],
+    "sch": [
+      135,
+      140
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "65f58447-67ac-535f-b630-327391df78b3"
+  },
+  {
+    "ref": "R1",
+    "val": "10k",
+    "symbol": "R",
+    "fp": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+    "nets": {
+      "1": "+5V",
+      "2": "MCLR"
+    },
+    "xy": [
+      52,
+      40
+    ],
+    "sch": [
+      75,
+      132
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "15f50315-8159-530f-8e31-b6e9a759e2fe"
+  },
+  {
+    "ref": "C1",
+    "val": "100nF",
+    "symbol": "C",
+    "fp": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm",
+    "nets": {
+      "1": "+5V",
+      "2": "GND"
+    },
+    "xy": [
+      74,
+      78
+    ],
+    "sch": [
+      100,
+      132
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "1c2d1635-86e5-5ba0-b7ec-9ddd6cc96d86"
+  },
+  {
+    "ref": "C2",
+    "val": "47uF 16V",
+    "symbol": "C_Polarized",
+    "fp": "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm",
+    "nets": {
+      "1": "+5V",
+      "2": "GND"
+    },
+    "xy": [
+      52,
+      108
+    ],
+    "sch": [
+      45,
+      172
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "05a3f196-e7de-55f4-a702-ba14b4056c6f"
+  },
+  {
+    "ref": "C3",
+    "val": "100nF",
+    "symbol": "C",
+    "fp": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm",
+    "nets": {
+      "1": "+5V",
+      "2": "GND"
+    },
+    "xy": [
+      110,
+      52
+    ],
+    "sch": [
+      195,
+      58
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "af990f49-7231-5a4e-a827-20b7f18e9170"
+  },
+  {
+    "ref": "R2",
+    "val": "1k",
+    "symbol": "R",
+    "fp": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+    "nets": {
+      "1": "I_BRUT",
+      "2": "ADC_I"
+    },
+    "xy": [
+      95,
+      72
+    ],
+    "sch": [
+      225,
+      100
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "fa771022-9a6f-596e-93b3-6ecf55f40113"
+  },
+  {
+    "ref": "C4",
+    "val": "10nF",
+    "symbol": "C",
+    "fp": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm",
+    "nets": {
+      "1": "ADC_I",
+      "2": "GND"
+    },
+    "xy": [
+      74,
+      60
+    ],
+    "sch": [
+      260,
+      100
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "9bc5e2a7-dd3a-568a-825f-d5b29e846566"
+  },
+  {
+    "ref": "R3",
+    "val": "4.7k",
+    "symbol": "R",
+    "fp": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+    "nets": {
+      "1": "POMPE_CMD",
+      "2": "BASE_NPN"
+    },
+    "xy": [
+      88,
+      102
+    ],
+    "sch": [
+      150,
+      185
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "d68bae1b-11b4-5171-8ed4-273d2e8b0c45"
+  },
+  {
+    "ref": "R4",
+    "val": "100k",
+    "symbol": "R",
+    "fp": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+    "nets": {
+      "1": "BASE_NPN",
+      "2": "GND"
+    },
+    "xy": [
+      97,
+      117
+    ],
+    "sch": [
+      190,
+      222
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "daeaddaa-96fa-578e-a3f3-60ead95e3609"
+  },
+  {
+    "ref": "R5",
+    "val": "330R",
+    "symbol": "R",
+    "fp": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+    "nets": {
+      "1": "+5V",
+      "2": "OPTO_A"
+    },
+    "xy": [
+      105,
+      95
+    ],
+    "sch": [
+      225,
+      150
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "8f25be0f-a57d-55bb-ae67-f4fad6344a7f"
+  },
+  {
+    "ref": "R6",
+    "val": "91R 0.5W",
+    "symbol": "R",
+    "fp": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+    "nets": {
+      "1": "MT2",
+      "2": "R_G_SERIE"
+    },
+    "xy": [
+      135,
+      93
+    ],
+    "sch": [
+      295,
+      148
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "240dfa02-0f6b-58b9-a109-7fb712449405"
+  },
+  {
+    "ref": "R7",
+    "val": "91R 0.5W",
+    "symbol": "R",
+    "fp": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+    "nets": {
+      "1": "R_G_SERIE",
+      "2": "OPTO_MT2"
+    },
+    "xy": [
+      151,
+      93
+    ],
+    "sch": [
+      330,
+      148
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "ffc051cc-ac50-5bb0-b009-18d3b10b9a3b"
+  },
+  {
+    "ref": "R8",
+    "val": "330R 0.5W",
+    "symbol": "R",
+    "fp": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+    "nets": {
+      "1": "GATE",
+      "2": "L_POMPE"
+    },
+    "xy": [
+      162,
+      121
+    ],
+    "sch": [
+      330,
+      230
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "fb61ea99-8ab6-5573-9ed6-11207539f81c"
+  },
+  {
+    "ref": "R9",
+    "val": "39R 1W",
+    "symbol": "R",
+    "fp": "Resistor_THT:R_Axial_DIN0411_L9.9mm_D3.6mm_P15.24mm_Horizontal",
+    "nets": {
+      "1": "MT2",
+      "2": "SNUBBER"
+    },
+    "xy": [
+      150,
+      102
+    ],
+    "sch": [
+      290,
+      260
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "7f51b077-bbcc-5b8f-9362-a6e9c725f40d"
+  },
+  {
+    "ref": "C5",
+    "val": "10nF X2 305VAC",
+    "symbol": "C",
+    "fp": "Capacitor_THT:C_Rect_L19.0mm_W5.0mm_P15.00mm_MKS4",
+    "nets": {
+      "1": "SNUBBER",
+      "2": "L_POMPE"
+    },
+    "xy": [
+      150,
+      133
+    ],
+    "sch": [
+      330,
+      260
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "186dfd21-9e8a-58b2-8d75-fc4fd52ac4a3"
+  },
+  {
+    "ref": "R10",
+    "val": "1k",
+    "symbol": "R",
+    "fp": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+    "nets": {
+      "1": "LED_POMPE",
+      "2": "LED_A"
+    },
+    "xy": [
+      61,
+      119
+    ],
+    "sch": [
+      75,
+      215
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "38ccff8c-a6f1-5833-b592-9456e1c4b866"
+  },
+  {
+    "ref": "D1",
+    "val": "LED POMPE",
+    "symbol": "LED",
+    "fp": "LED_THT:LED_D3.0mm",
+    "nets": {
+      "1": "GND",
+      "2": "LED_A"
+    },
+    "xy": [
+      69,
+      129
+    ],
+    "sch": [
+      100,
+      215
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "2188d51d-7406-5988-8348-54ff16928809"
+  },
+  {
+    "ref": "R11",
+    "val": "220R",
+    "symbol": "R",
+    "fp": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal",
+    "nets": {
+      "1": "+5V",
+      "2": "LCD_A"
+    },
+    "xy": [
+      48,
+      87
+    ],
+    "sch": [
+      45,
+      220
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "d188a936-ee3e-576c-b80f-7c828bf61b98"
+  },
+  {
+    "ref": "RV1",
+    "val": "10k CONTRASTE",
+    "symbol": "R_Potentiometer",
+    "fp": "Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical",
+    "nets": {
+      "1": "GND",
+      "2": "LCD_VO",
+      "3": "+5V"
+    },
+    "xy": [
+      55,
+      96
+    ],
+    "sch": [
+      45,
+      260
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "6dd2e879-8a23-52e5-afd5-53d262af7bfe"
+  },
+  {
+    "ref": "#FLG01",
+    "val": "PWR_FLAG",
+    "symbol": "PWR_FLAG",
+    "fp": null,
+    "nets": {
+      "1": "+5V"
+    },
+    "xy": null,
+    "sch": [
+      78,
+      265
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "0fdce753-1d23-59bd-abed-2f107cfe82bf"
+  },
+  {
+    "ref": "#FLG02",
+    "val": "PWR_FLAG",
+    "symbol": "PWR_FLAG",
+    "fp": null,
+    "nets": {
+      "1": "GND"
+    },
+    "xy": null,
+    "sch": [
+      110,
+      265
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "dabfb5fc-9f41-577a-9b38-1af55fd666ba"
+  },
+  {
+    "ref": "H1",
+    "val": "M3",
+    "symbol": "MountingHole",
+    "fp": "MountingHole:MountingHole_3.2mm_M3",
+    "nets": {},
+    "xy": [
+      30,
+      30
+    ],
+    "sch": [
+      150,
+      265
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "f366e573-ea24-530d-86be-75a0dfd958d6"
+  },
+  {
+    "ref": "H2",
+    "val": "M3",
+    "symbol": "MountingHole",
+    "fp": "MountingHole:MountingHole_3.2mm_M3",
+    "nets": {},
+    "xy": [
+      210,
+      30
+    ],
+    "sch": [
+      175,
+      265
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "b50e1587-fc96-59c9-b46b-bfe6b0079ba6"
+  },
+  {
+    "ref": "H3",
+    "val": "M3",
+    "symbol": "MountingHole",
+    "fp": "MountingHole:MountingHole_3.2mm_M3",
+    "nets": {},
+    "xy": [
+      30,
+      150
+    ],
+    "sch": [
+      200,
+      265
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "582a82b8-bf4e-5ff7-87a1-88011889c049"
+  },
+  {
+    "ref": "H4",
+    "val": "M3",
+    "symbol": "MountingHole",
+    "fp": "MountingHole:MountingHole_3.2mm_M3",
+    "nets": {},
+    "xy": [
+      210,
+      150
+    ],
+    "sch": [
+      225,
+      265
+    ],
+    "rot": 0,
+    "desc": "",
+    "uuid": "3a5fa50d-899c-5a6f-9693-86e2fabead47"
+  }
+]

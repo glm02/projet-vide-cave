@@ -1,0 +1,88 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="g_NgVDMcWhpcLLxMocdx">
+    <mxGraphModel dx="1380" dy="779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="poMiY06gaIIKHaxzYX0x-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="610" width="720" x="230" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="LCD" vertex="1">
+          <mxGeometry height="93" width="140" x="1005" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="ESP32 / Carte de commande" vertex="1">
+          <mxGeometry height="80" width="120" x="460" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="MOTEUR asynchrone 230V monophasé" vertex="1">
+          <mxGeometry height="80" width="120" x="810" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Capteur de courant" vertex="1">
+          <mxGeometry height="60" width="120" x="250" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-11" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="SERVEUR /WIFI/ PAGE HTML&amp;nbsp;" vertex="1">
+          <mxGeometry height="93" width="150" x="1000" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Moteur bloqué ?" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Eau détecté ?" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Moteur qui tourne a vide&amp;nbsp;" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-18" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.001;entryY=0.69;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="160" y="319.5" as="sourcePoint" />
+            <mxPoint x="231" y="320.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-19" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=-0.006;entryY=0.417;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="poMiY06gaIIKHaxzYX0x-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="159" y="160" as="sourcePoint" />
+            <mxPoint x="230" y="161" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-20" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;" value="Relais" vertex="1">
+          <mxGeometry height="40" width="80" x="650" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-21" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=-0.004;entryY=0.489;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryPerimeter=0;" target="poMiY06gaIIKHaxzYX0x-1" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="160" y="479.5" as="sourcePoint" />
+            <mxPoint x="231" y="480.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-22" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.001;entryY=0.69;entryDx=0;entryDy=0;entryPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="319" as="sourcePoint" />
+            <mxPoint x="451" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-28" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" target="poMiY06gaIIKHaxzYX0x-20" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="580" y="340" as="sourcePoint" />
+            <mxPoint x="630" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-29" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="730" y="390" as="sourcePoint" />
+            <mxPoint x="808" y="418" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-31" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="580" y="310" as="sourcePoint" />
+            <mxPoint x="990" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="poMiY06gaIIKHaxzYX0x-32" edge="1" parent="1" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="565" y="290" as="sourcePoint" />
+            <mxPoint x="1005" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

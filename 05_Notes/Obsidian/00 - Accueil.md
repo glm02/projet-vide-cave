@@ -30,6 +30,7 @@ La référence technique détaillée est le [rapport d'analyse du 12 octobre 202
 - [Rapport Word](../../01_Documents/Rapport/Rapport_pre-etude_vide-cave.docx)
 - [Synoptique V3](../../02_Synoptiques/Synoptique%20V3.drawio)
 - [Maquette Blender](../../04_Maquette_3D/Vide_cave_GEII.blend)
+- [Visualisation Anatomy à ouvrir dans un navigateur](../../07_Visualisation_Anatomy/index.html), [aperçu](../../07_Visualisation_Anatomy/preview.png) et [notice](../../07_Visualisation_Anatomy/README.md)
 - [README du dépôt](../../README.md)
 - [Dépôt GitHub](https://github.com/glm02/projet-vide-cave)
 - [Ancienne note INFO 3 conservée](../PROJET%20VIDE%20CAVE/INFO%203.md)

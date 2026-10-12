@@ -1,0 +1,36 @@
+﻿Repère;Valeur / référence;Empreinte;Fonction / spécification
+U1;PIC16F1788-I/SP;Package_DIP:DIP-28_W7.62mm_LongPads;"Microcontrôleur 5 V; oscillateur interne; sortie RB2 active à 1"
+U2;ACS756SCB-100B-PFF-T;VideCave:ACS756_PFF;"Capteur repris du projet; 20 mV/A; offset 2,5 V; boîtier PFF"
+U3;MOC3083TVM;VideCave:MOC3083TVM_slot;"Optotriac 800 V; passage par zéro; IFT max 5 mA; version TVM entre rangées 10.16 mm"
+Q1;BTA16-800CRG;Package_TO_SOT_THT:TO-220-3_Vertical;"Triac standard 4 quadrants 800 V / 16 A; gâchette 25 mA en QI/QIII; dissipateur externe"
+Q2;2N3904;Package_TO_SOT_THT:TO-92_Inline_Wide;"Commande de la LED optotriac; défaut matériel = arrêt"
+J1;SECTEUR L N;VideCave:RND_205_00298_P10_drill1_4;
+J2;POMPE L N;VideCave:RND_205_00298_P10_drill1_4;
+F1;T3.15A HBC 250VAC;Fuse:Fuseholder_Littelfuse_445_030_series_5x20mm;"Littelfuse 02153.15MXP temporisé céramique; candidat pompe 300 W; calibre à valider"
+J3;5V ISOLEE;TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal;
+J4;ICSP PICkit;Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical;
+J5;LCD 16x2 4 BITS;Connector_PinHeader_2.54mm:PinHeader_1x16_P2.54mm_Vertical;
+J6;BOUTONS IHM;Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical;
+J7;UART TTL 5V;Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical;
+R1;10k;Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal;
+C1;100nF;Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm;
+C2;47uF 16V;Capacitor_THT:CP_Radial_D6.3mm_P2.50mm;
+C3;100nF;Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm;
+R2;1k;Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal;
+C4;10nF;Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm;
+R3;4.7k;Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal;
+R4;100k;Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal;
+R5;330R;Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal;
+R6;91R 0.5W;Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;
+R7;91R 0.5W;Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;
+R8;330R 0.5W;Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;
+R9;39R 1W;Resistor_THT:R_Axial_DIN0411_L9.9mm_D3.6mm_P15.24mm_Horizontal;
+C5;10nF X2 305VAC;Capacitor_THT:C_Rect_L19.0mm_W5.0mm_P15.00mm_MKS4;
+R10;1k;Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal;
+D1;LED POMPE;LED_THT:LED_D3.0mm;
+R11;220R;Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal;
+RV1;10k CONTRASTE;Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical;
+H1;M3;MountingHole:MountingHole_3.2mm_M3;
+H2;M3;MountingHole:MountingHole_3.2mm_M3;
+H3;M3;MountingHole:MountingHole_3.2mm_M3;
+H4;M3;MountingHole:MountingHole_3.2mm_M3;

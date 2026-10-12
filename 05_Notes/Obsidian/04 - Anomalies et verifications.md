@@ -19,13 +19,13 @@ Ces points reprennent le [rapport d'analyse](../Analyse_G206_2026-10-12/RAPPORT_
 | Raccordement secteur | Symbole AC à une broche, absence de bornier phase/neutre complet | La chaîne secteur/puissance doit être explicitée |
 | Synchronisation R3/R4/R7 | Valeurs `R`, empreintes vides au schéma ; anciennes valeurs 10 kΩ / 10 kΩ / 270 Ω sur PCB, écarts de nets | Une mise à jour automatique sans préparation serait ambiguë |
 | Buzzer BZ1 | `+` relié à GND, `−` vers R9/PIC, empreinte absente | Référence, polarité et mode de commande à préciser |
-| Implantation puissance | U3 et TRIAC1 hors PCB, triac sans MPN ni empreinte | Partie commande/puissance à concevoir après correction des sources |
+| Implantation commande/puissance | U3 et TRIAC1 hors contour ; Triac_de_puissance1 sans MPN ni empreinte et absent du PCB | Partie commande/puissance à concevoir après correction des sources |
 
 ## Références et vérifications conditionnelles
 
 | Point | Niveau de confiance / limite |
 | --- | --- |
-| Symbole FODM3011 | Le nominal de 250 V associé au symbole est inférieur au pic d'un secteur 230 V (~325 V). La valeur « optotriac » ne suffit pas à identifier le composant réel : le risque est conditionnel au MPN retenu |
+| Symbole FODM3011 (TRIAC1) | Le nominal de 250 V associé au symbole est inférieur au pic d'un secteur 230 V (~325 V). La valeur « octo-triac » ne suffit pas à identifier le composant réel : le risque est conditionnel au MPN retenu |
 | Symbole ACS756 | Le symbole visé correspond à une variante ±100 A, 20 mV/A, décalage de sortie de 2,5 V à courant nul. Confirmer la référence commandée et l'adaptation à la pompe |
 | Découplage du capteur | Condensateur local de 100 nF absent du montage représenté ; à définir avec la référence réelle |
 | Découplage PIC | C2 est à environ 33,5 mm de VDD (broche 20), d'après la revue géométrique |
@@ -34,6 +34,6 @@ Ces points reprennent le [rapport d'analyse](../Analyse_G206_2026-10-12/RAPPORT_
 
 ## Ne pas corriger un faux positif
 
-LCD1 utilise le brochage **162B particulier** : 1 LEDA, 2 LEDK, 3 VSS, 4 VDD, 5 VO, 6 RS, 7 RW, 8 E, 9 à 16 DB0 à DB7. Le symbole issu de HY1602E a été modifié volontairement. Un avertissement de comparaison à la bibliothèque générique n'est pas une preuve de mauvais brochage du LCD. Conserver le contrôle contre la documentation fabricant décrit dans le rapport.
+DS1 utilise le brochage **162B particulier** : 1 LEDA, 2 LEDK, 3 VSS, 4 VDD, 5 VO, 6 RS, 7 RW, 8 E, 9 à 16 DB0 à DB7. Le symbole issu de HY1602E a été modifié volontairement. Un avertissement de comparaison à la bibliothèque générique n'est pas une preuve de mauvais brochage du LCD. Conserver le contrôle contre la documentation fabricant décrit dans le rapport.
 
 Les avertissements de différence avec une ancienne bibliothèque et les écarts volontaires liés à l'adaptation doivent être triés. Aucun résultat d'analyse automatique ne doit justifier seul la suppression d'un composant du schéma.

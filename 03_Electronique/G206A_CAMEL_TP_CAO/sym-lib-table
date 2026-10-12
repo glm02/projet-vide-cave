@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "IUT_CAO_symboles")(type "KiCad")(uri "${KIPRJMOD}/IUT_CAO_symboles.kicad_sym")(options "")(descr ""))
+  (lib (name "G206_CAMEL_symboles")(type "KiCad")(uri "${KIPRJMOD}/G206_CAMEL_symboles.kicad_sym")(options "")(descr ""))
+)

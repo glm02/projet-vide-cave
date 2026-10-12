@@ -33,10 +33,11 @@ Ce synoptique expose **l'intention**, pas une garantie que ces connexions sont p
 | --- | --- | --- |
 | U1, PIC16F1788 | Acquisition, décision, affichage et commande | Firmware absent ; configuration de RA6/RA7 et des entrées analogiques à préciser |
 | U3, symbole ACS756 | Mesure du courant moteur | Voie IP+/IP− non câblée ; sortie AN0 différente du net « capteur de courant » du PIC |
-| U2, symbole FODM3011 / valeur « optotriac » | Interface de commande vers la puissance | Référence réelle à choisir ; net de commande PIC différent de RB2 côté R7 |
-| TRIAC1 | Commutation de la pompe | Référence fabricant et empreinte absentes ; pas encore sur le PCB |
-| LCD1, 162B | Affichage | Brochage particulier étudié ; ne pas lui appliquer automatiquement celui d'un LCD générique |
+| TRIAC1, symbole FODM3011 / valeur « octo-triac » | Optotriac de commande vers la puissance | Référence réelle à choisir ; net de commande PIC différent de RB2 côté R7 ; empreinte actuellement hors carte |
+| Triac_de_puissance1 | Commutation de la pompe | Référence fabricant et empreinte absentes ; pas encore sur le PCB |
+| DS1, 162B | Affichage | Brochage particulier étudié ; ne pas lui appliquer automatiquement celui d'un LCD générique |
 | BZ1 | Alerte sonore | Empreinte absente, polarité à clarifier |
+| M1 | Moteur de la pompe, externe | Plaque moteur et raccordement à représenter ; n'a pas à être implanté comme un composant sur le PCB |
 | Alimentation / reset / ICSP | Alimentation et programmation du PIC | Base nominale identifiée ; découplage physique à revoir |
 
 La carte ne dispose pas de voie tension ou de détection du zéro permettant de produire la mesure de déphasage décrite dans la pré-étude. Le symbole AC n'est pas un bornier secteur phase/neutre complet.

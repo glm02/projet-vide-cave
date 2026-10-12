@@ -1,0 +1,14 @@
+{
+  "statut": "OK",
+  "scènes": {
+    "01 Installation du vide-cave": 479,
+    "02 Coffret en vue éclatée": 139,
+    "03 Implantation KiCad fournie": 677,
+    "04 Intérieur moteur et pompe": 253
+  },
+  "unités": "mètres",
+  "flotteur": "retiré",
+  "bassin": "quatre parois et grille amovible",
+  "environnement": "cave fermée avec puisard sous le sol",
+  "vue_intérieure": "conservée dans la scène 04"
+}

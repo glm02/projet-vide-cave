@@ -1,0 +1,20 @@
+{
+  "chemins_sources_valides": true,
+  "scripts_maquette_syntaxe_valide": true,
+  "bibliotheques_kicad_locales": [
+    "03_Electronique\\G206A_CAMEL_TP_CAO\\IUT_CAO_symboles.kicad_sym",
+    "03_Electronique\\G206A_CAMEL_TP_CAO\\G206_CAMEL_symboles.kicad_sym",
+    "03_Electronique\\G206A_CAMEL_TP_CAO\\206A_CAMEL_empreintes.pretty",
+    "03_Electronique\\G206A_CAMEL_TP_CAO\\IUT_CAO_empreintes.pretty",
+    "03_Electronique\\Carte_vide_cave_PIC_Allegro_TRIAC\\VideCave.kicad_sym",
+    "03_Electronique\\Carte_vide_cave_PIC_Allegro_TRIAC\\VideCave.pretty"
+  ],
+  "blend_et_rendus_presents": true,
+  "alias_blender_valide": true,
+  "coffre_obsidian_conserve": true,
+  "fichiers_adaptes": [
+    "04_Maquette_3D/lire_kicad.py",
+    "04_Maquette_3D/LISEZ_MOI.md",
+    "04_Maquette_3D/implantation_kicad.json"
+  ]
+}

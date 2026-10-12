@@ -1,0 +1,6619 @@
+{
+  "source": "03_Electronique\\G206A_CAMEL_TP_CAO\\G206_CAMEL_TP_CAO.kicad_pcb",
+  "footprints": [
+    {
+      "name": "IUT_CAO_empreintes:TestPoint_Loop_D2.50mm_Drill1.0mm",
+      "ref": "TP3",
+      "value": "PWM_2",
+      "at": [
+        124.5,
+        106.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R3",
+      "value": "10k",
+      "at": [
+        104.42,
+        104.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:SW_TH_Tactile_Omron_B3F-10xx",
+      "ref": "SW4",
+      "value": "B3F-1000",
+      "at": [
+        166.2385,
+        115.7606,
+        180.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            4.5,
+            180.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "number": "3",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            6.5,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            6.5,
+            4.5,
+            180.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:TestPoint_Loop_D2.50mm_Drill1.0mm",
+      "ref": "TP4",
+      "value": "CODEUR",
+      "at": [
+        111.5,
+        123.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R9",
+      "value": "270",
+      "at": [
+        140.5,
+        129.42,
+        -90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm",
+      "ref": "C4",
+      "value": "100n",
+      "at": [
+        162.5,
+        127.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            5.0,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R1",
+      "value": "10k",
+      "at": [
+        125.08,
+        145.5,
+        180.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R5",
+      "value": "56k",
+      "at": [
+        125.08,
+        142.0,
+        180.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:TestPoint_Loop_D2.50mm_Drill1.0mm",
+      "ref": "TP1",
+      "value": "PWM_3",
+      "at": [
+        120.5,
+        106.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:SW_DIP_SPSTx02_Slide_7.5x7.01mm_W7.62mm_P2.54mm_LowProfile",
+      "ref": "SW3",
+      "value": "SW_DIP_x02",
+      "at": [
+        104.38,
+        96.25
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "rect",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            2.54
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "3",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            2.54
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            0.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R4",
+      "value": "10k",
+      "at": [
+        104.42,
+        108.55
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:Molex_KK-254_AE-6410-06A_1x06_P2.54mm_Vertical",
+      "ref": "J3",
+      "value": "Connecteur carte moteurs",
+      "at": [
+        106.0,
+        123.0,
+        -90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "roundrect",
+          "at": [
+            0.0,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            3.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            2.54,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            3.0
+          ]
+        },
+        {
+          "number": "3",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            5.08,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            3.0
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            3.0
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            3.0
+          ]
+        },
+        {
+          "number": "6",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            12.7,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Package_DIP:SMDIP-4_W7.62mm",
+      "ref": "TRIAC1",
+      "value": "octo-triac",
+      "at": [
+        95.25,
+        86.995
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "smd",
+          "shape": "rect",
+          "at": [
+            -3.81,
+            -1.27
+          ],
+          "size": [
+            2.0,
+            1.78
+          ]
+        },
+        {
+          "number": "2",
+          "type": "smd",
+          "shape": "rect",
+          "at": [
+            -3.81,
+            1.27
+          ],
+          "size": [
+            2.0,
+            1.78
+          ]
+        },
+        {
+          "number": "3",
+          "type": "smd",
+          "shape": "rect",
+          "at": [
+            3.81,
+            1.27
+          ],
+          "size": [
+            2.0,
+            1.78
+          ]
+        },
+        {
+          "number": "4",
+          "type": "smd",
+          "shape": "rect",
+          "at": [
+            3.81,
+            -1.27
+          ],
+          "size": [
+            2.0,
+            1.78
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:Bornier_1x02_L10mm_W7.5mm_P5mm",
+      "ref": "J1",
+      "value": "Alimentation",
+      "at": [
+        185.0,
+        95.0,
+        90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "rect",
+          "at": [
+            0.0,
+            0.0,
+            90.0
+          ],
+          "size": [
+            3.0,
+            3.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            5.0,
+            0.0,
+            90.0
+          ],
+          "size": [
+            3.0,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:TestPoint_Loop_D2.50mm_Drill1.0mm",
+      "ref": "TP2",
+      "value": "GND",
+      "at": [
+        185.0,
+        85.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:TestPoint_Loop_D2.50mm_Drill1.0mm",
+      "ref": "TP5",
+      "value": "uC_TXD_TTL",
+      "at": [
+        125.5,
+        130.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm",
+      "ref": "C2",
+      "value": "100n",
+      "at": [
+        169.0,
+        100.5,
+        180.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            5.0,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:LED_D5.0mm",
+      "ref": "D2",
+      "value": "LED V",
+      "at": [
+        145.46,
+        144.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "roundrect",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            2.54,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:LED_D5.0mm",
+      "ref": "D4",
+      "value": "LED R",
+      "at": [
+        130.5,
+        144.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "roundrect",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            2.54,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R11",
+      "value": "56k",
+      "at": [
+        145.5,
+        85.42,
+        -90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Package_DIP:DIP-28_W7.62mm_LongPads",
+      "ref": "U1",
+      "value": "PIC16F1788-xSP",
+      "at": [
+        156.08,
+        110.88,
+        -90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "rect",
+          "at": [
+            0.0,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            2.54,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "3",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            5.08,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            7.62,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            10.16,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "6",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            12.7,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "7",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            15.24,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "8",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            17.78,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "9",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            20.32,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "10",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            22.86,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "11",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            25.4,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "12",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            27.94,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "13",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            30.48,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "14",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            33.02,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "15",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            33.02,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "16",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            30.48,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "17",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            27.94,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "18",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            25.4,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "19",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            22.86,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "20",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            20.32,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "21",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            17.78,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "22",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            15.24,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "23",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            12.7,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "24",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            10.16,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "25",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            7.62,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "26",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            5.08,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "27",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            2.54,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        },
+        {
+          "number": "28",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            7.62,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.4,
+            1.6
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:PinHeader_1x06_P2.54mm_Vertical",
+      "ref": "J2",
+      "value": "Série (TTL)",
+      "at": [
+        135.66,
+        123.0,
+        -90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "rect",
+          "at": [
+            0.0,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            2.54,
+            270.0
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        },
+        {
+          "number": "3",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            5.08,
+            270.0
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            7.62,
+            270.0
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            10.16,
+            270.0
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        },
+        {
+          "number": "6",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            12.7,
+            270.0
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:CP_Radial_D6.3mm_P2.50mm",
+      "ref": "C1",
+      "value": "47uF",
+      "at": [
+        165.317621,
+        105.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "rect",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            2.5,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R8",
+      "value": "270",
+      "at": [
+        148.0,
+        129.42,
+        -90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:SW_TH_Tactile_Omron_B3F-10xx",
+      "ref": "SW1",
+      "value": "B3F-1000",
+      "at": [
+        103.7615,
+        140.2394
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            4.5
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "number": "3",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            6.5,
+            0.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            6.5,
+            4.5
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:LED_D5.0mm",
+      "ref": "D1",
+      "value": "LED V",
+      "at": [
+        152.46,
+        144.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "roundrect",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            2.54,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R6",
+      "value": "56k",
+      "at": [
+        158.5,
+        131.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R12",
+      "value": "10k",
+      "at": [
+        169.5,
+        120.08,
+        90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            90.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0,
+            90.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:TestPoint_Loop_D2.50mm_Drill1.0mm",
+      "ref": "TP6",
+      "value": "POT_1",
+      "at": [
+        153.5,
+        106.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm",
+      "ref": "C3",
+      "value": "100n",
+      "at": [
+        118.5,
+        119.0,
+        -90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            5.0,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R7",
+      "value": "270",
+      "at": [
+        155.0,
+        129.5,
+        -90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:LED_D5.0mm",
+      "ref": "D3",
+      "value": "LED R",
+      "at": [
+        138.0,
+        144.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "roundrect",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            2.54,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:162B",
+      "ref": "DS1",
+      "value": "162B-CC_BC-3LP",
+      "at": [
+        152.1,
+        79.25
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -2.54,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "3",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -5.08,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -7.62,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -10.16,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "6",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -12.7,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "7",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -15.24,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "8",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -17.78,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "9",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -20.32,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "10",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -22.86,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "11",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -25.4,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "12",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -27.94,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "13",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -30.48,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "14",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -33.02,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "15",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -35.56,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "16",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -38.1,
+            0.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:Potentiometer_Bourns_3306F_Vertical",
+      "ref": "RV1",
+      "value": "10k",
+      "at": [
+        157.5,
+        97.5,
+        180.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            2.5,
+            -5.0,
+            180.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "number": "3",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            5.0,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:PicKit_4_Snap_1x08_P2.54mm_Vertical",
+      "ref": "J4",
+      "value": "Conn_PIC_ICSP_ICD",
+      "at": [
+        183.0,
+        120.5
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "rect",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            2.54
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        },
+        {
+          "number": "3",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            5.08
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            7.62
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            10.16
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        },
+        {
+          "number": "6",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            12.7
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        },
+        {
+          "number": "7",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            15.24
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        },
+        {
+          "number": "8",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.0,
+            17.78
+          ],
+          "size": [
+            2.5,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R14",
+      "value": "270",
+      "at": [
+        161.5,
+        94.5,
+        90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            90.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0,
+            90.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R2",
+      "value": "10k",
+      "at": [
+        173.08,
+        136.5,
+        180.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:C_Disc_D4.7mm_W2.5mm_P5.00mm",
+      "ref": "C5",
+      "value": "100n",
+      "at": [
+        154.5,
+        90.42,
+        90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            90.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            5.0,
+            0.0,
+            90.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IUT_CAO_empreintes:SW_TH_Tactile_Omron_B3F-10xx",
+      "ref": "SW2",
+      "value": "B3F-1000",
+      "at": [
+        167.2385,
+        144.7606,
+        180.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            4.5,
+            180.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "number": "3",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            6.5,
+            0.0,
+            180.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            6.5,
+            4.5,
+            180.0
+          ],
+          "size": [
+            2.5,
+            2.5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sensor_Current:Allegro_CB_PFF",
+      "ref": "U3",
+      "value": "Capteur de courant",
+      "at": [
+        77.4,
+        108.845
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "rect",
+          "at": [
+            0.0,
+            0.0
+          ],
+          "size": [
+            1.5,
+            1.5
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            1.91,
+            0.0
+          ],
+          "size": [
+            1.5,
+            1.5
+          ]
+        },
+        {
+          "number": "3",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            3.82,
+            0.0
+          ],
+          "size": [
+            1.5,
+            1.5
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            2.96,
+            -22.03,
+            65.0
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            2.96,
+            -20.77,
+            295.0
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            3.71,
+            -23.06
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            3.71,
+            -19.74
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            4.91,
+            -23.45
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            4.91,
+            -19.35
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            6.24,
+            -23.45
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            6.24,
+            -19.35
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            6.91,
+            -21.4
+          ],
+          "size": [
+            9.0,
+            6.0
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            7.58,
+            -23.45
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            7.58,
+            -19.35
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            8.91,
+            -23.45
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            8.91,
+            -19.35
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            10.11,
+            -23.06
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            10.11,
+            -19.74
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            10.86,
+            -22.03
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "4",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            10.86,
+            -20.77
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -7.04,
+            -22.03
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -7.04,
+            -20.77
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -6.29,
+            -23.06
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -6.29,
+            -19.74
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -5.09,
+            -23.45
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -5.09,
+            -19.35
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -3.76,
+            -23.45
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -3.76,
+            -19.35
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            -3.09,
+            -21.4
+          ],
+          "size": [
+            9.0,
+            6.0
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -2.42,
+            -23.45
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -2.42,
+            -19.35
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -1.09,
+            -23.45
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            -1.09,
+            -19.35
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.11,
+            -23.06
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.11,
+            -19.74
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.86,
+            -22.03,
+            295.0
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        },
+        {
+          "number": "5",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            0.86,
+            -20.77,
+            65.0
+          ],
+          "size": [
+            0.8,
+            0.8
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R10",
+      "value": "270",
+      "at": [
+        133.5,
+        129.5,
+        -90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0,
+            270.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "206A_CAMEL_empreintes:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+      "ref": "R13",
+      "value": "1,5k",
+      "at": [
+        149.5,
+        95.5,
+        90.0
+      ],
+      "pads": [
+        {
+          "number": "1",
+          "type": "thru_hole",
+          "shape": "circle",
+          "at": [
+            0.0,
+            0.0,
+            90.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "number": "2",
+          "type": "thru_hole",
+          "shape": "oval",
+          "at": [
+            10.16,
+            0.0,
+            90.0
+          ],
+          "size": [
+            2.0,
+            2.0
+          ]
+        }
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "start": [
+        113.5,
+        135.0
+      ],
+      "end": [
+        127.5,
+        135.0
+      ],
+      "width": 0.7,
+      "layer": "F.Cu"
+    },
+    {
+      "start": [
+        184.95,
+        125.58
+      ],
+      "end": [
+        185.265,
+        125.265
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        169.5,
+        129.5
+      ],
+      "end": [
+        170.853705,
+        129.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        146.11,
+        75.8
+      ],
+      "end": [
+        149.56,
+        79.25
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        130.5,
+        138.0
+      ],
+      "end": [
+        130.5,
+        144.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        133.22,
+        118.5
+      ],
+      "end": [
+        133.22,
+        116.153452
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        140.887148,
+        113.6606
+      ],
+      "end": [
+        138.3,
+        111.073452
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        103.7615,
+        140.2394
+      ],
+      "end": [
+        105.183705,
+        138.817195
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        118.470749,
+        130.029251
+      ],
+      "end": [
+        113.5,
+        135.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        187.347057,
+        86.749999
+      ],
+      "end": [
+        187.45,
+        86.647056
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        131.5,
+        128.883704
+      ],
+      "end": [
+        135.66,
+        124.723704
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        152.0,
+        85.34
+      ],
+      "end": [
+        154.42,
+        85.34
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        135.66,
+        124.723704
+      ],
+      "end": [
+        135.66,
+        123.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        113.136648,
+        75.8
+      ],
+      "end": [
+        146.11,
+        75.8
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        132.273704,
+        146.35
+      ],
+      "end": [
+        136.15,
+        146.35
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        165.2606,
+        144.7606
+      ],
+      "end": [
+        167.2385,
+        144.7606
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        153.5,
+        97.5
+      ],
+      "end": [
+        152.5,
+        97.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        152.0,
+        85.34
+      ],
+      "end": [
+        152.5,
+        85.84
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        185.0,
+        85.5
+      ],
+      "end": [
+        186.249999,
+        86.749999
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        149.5,
+        85.34
+      ],
+      "end": [
+        152.0,
+        85.34
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        187.35,
+        87.85
+      ],
+      "end": [
+        185.0,
+        85.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        113.5,
+        135.029251
+      ],
+      "end": [
+        113.5,
+        135.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        170.853705,
+        129.5
+      ],
+      "end": [
+        181.983705,
+        140.63
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        152.5,
+        85.84
+      ],
+      "end": [
+        152.5,
+        97.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        167.817621,
+        105.5
+      ],
+      "end": [
+        167.817621,
+        101.682379
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        167.167621,
+        107.35
+      ],
+      "end": [
+        163.35,
+        107.35
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        169.0,
+        100.5
+      ],
+      "end": [
+        175.0,
+        106.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        118.5,
+        124.0
+      ],
+      "end": [
+        118.5,
+        130.029251
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        135.66,
+        121.34
+      ],
+      "end": [
+        133.22,
+        118.9
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        105.423706,
+        130.62
+      ],
+      "end": [
+        105.021853,
+        131.021853
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        183.0,
+        125.58
+      ],
+      "end": [
+        184.95,
+        125.58
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        106.0,
+        130.62
+      ],
+      "end": [
+        104.88,
+        130.62
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        149.56,
+        79.25
+      ],
+      "end": [
+        147.02,
+        79.25
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        131.5,
+        131.5
+      ],
+      "end": [
+        134.0,
+        134.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        152.46,
+        145.5
+      ],
+      "end": [
+        153.6985,
+        146.7385
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        167.817621,
+        101.682379
+      ],
+      "end": [
+        169.0,
+        100.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        185.0,
+        85.5
+      ],
+      "end": [
+        185.0,
+        90.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        147.02,
+        79.25
+      ],
+      "end": [
+        147.02,
+        79.02
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        175.0,
+        106.5
+      ],
+      "end": [
+        175.0,
+        115.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        146.31,
+        146.35
+      ],
+      "end": [
+        150.61,
+        146.35
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        163.35,
+        107.35
+      ],
+      "end": [
+        153.5,
+        97.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        184.52,
+        140.63
+      ],
+      "end": [
+        185.265,
+        139.885
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        105.183705,
+        138.817195
+      ],
+      "end": [
+        105.183705,
+        138.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        146.5,
+        79.77
+      ],
+      "end": [
+        147.02,
+        79.25
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        118.5,
+        130.029251
+      ],
+      "end": [
+        118.470749,
+        130.029251
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        185.265,
+        139.885
+      ],
+      "end": [
+        185.265,
+        125.765
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        127.5,
+        135.0
+      ],
+      "end": [
+        131.5,
+        131.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        105.183705,
+        138.0
+      ],
+      "end": [
+        110.5,
+        138.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        147.02,
+        79.25
+      ],
+      "end": [
+        147.02,
+        82.86
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        134.0,
+        134.0
+      ],
+      "end": [
+        163.0,
+        134.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        163.0,
+        142.5
+      ],
+      "end": [
+        165.2606,
+        144.7606
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        185.265,
+        125.265
+      ],
+      "end": [
+        187.35,
+        123.18
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        103.5,
+        132.0
+      ],
+      "end": [
+        103.5,
+        139.9779
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        145.46,
+        145.5
+      ],
+      "end": [
+        146.31,
+        146.35
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        166.2385,
+        115.7606
+      ],
+      "end": [
+        164.1385,
+        113.6606
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        104.38,
+        84.556648
+      ],
+      "end": [
+        113.136648,
+        75.8
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        130.5,
+        144.576296
+      ],
+      "end": [
+        132.273704,
+        146.35
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        133.22,
+        116.153452
+      ],
+      "end": [
+        138.3,
+        111.073452
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        130.5,
+        144.5
+      ],
+      "end": [
+        130.5,
+        144.576296
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        110.5,
+        138.0
+      ],
+      "end": [
+        113.5,
+        135.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        164.1385,
+        113.6606
+      ],
+      "end": [
+        140.887148,
+        113.6606
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        158.0,
+        145.5
+      ],
+      "end": [
+        158.0,
+        143.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        156.7615,
+        146.7385
+      ],
+      "end": [
+        158.0,
+        145.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        103.5,
+        139.9779
+      ],
+      "end": [
+        103.7615,
+        140.2394
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        167.817621,
+        106.7
+      ],
+      "end": [
+        167.167621,
+        107.35
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        150.61,
+        146.35
+      ],
+      "end": [
+        152.46,
+        144.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        104.38,
+        96.25
+      ],
+      "end": [
+        104.38,
+        84.556648
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        152.46,
+        144.5
+      ],
+      "end": [
+        152.46,
+        145.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        175.0,
+        115.0
+      ],
+      "end": [
+        174.2394,
+        115.7606
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        174.2394,
+        115.7606
+      ],
+      "end": [
+        166.2385,
+        115.7606
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        154.42,
+        85.34
+      ],
+      "end": [
+        154.5,
+        85.42
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        167.817621,
+        105.5
+      ],
+      "end": [
+        167.817621,
+        106.7
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        131.5,
+        131.0
+      ],
+      "end": [
+        131.5,
+        128.883704
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        138.3,
+        111.073452
+      ],
+      "end": [
+        138.3,
+        110.88
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        106.0,
+        130.62
+      ],
+      "end": [
+        105.423706,
+        130.62
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        159.0,
+        142.5
+      ],
+      "end": [
+        163.0,
+        142.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        167.5,
+        129.5
+      ],
+      "end": [
+        167.5,
+        127.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        147.02,
+        82.86
+      ],
+      "end": [
+        149.5,
+        85.34
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        143.46,
+        146.5
+      ],
+      "end": [
+        145.46,
+        144.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        163.0,
+        134.0
+      ],
+      "end": [
+        167.5,
+        129.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        136.15,
+        146.35
+      ],
+      "end": [
+        138.0,
+        144.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        181.983705,
+        140.63
+      ],
+      "end": [
+        184.52,
+        140.63
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        167.5,
+        127.5
+      ],
+      "end": [
+        169.5,
+        129.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        104.88,
+        130.62
+      ],
+      "end": [
+        103.5,
+        132.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        186.249999,
+        86.749999
+      ],
+      "end": [
+        187.347057,
+        86.749999
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        135.66,
+        123.0
+      ],
+      "end": [
+        135.66,
+        121.34
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        187.35,
+        123.18
+      ],
+      "end": [
+        187.35,
+        87.85
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        138.0,
+        144.5
+      ],
+      "end": [
+        138.0,
+        144.576296
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        158.0,
+        143.5
+      ],
+      "end": [
+        159.0,
+        142.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        153.6985,
+        146.7385
+      ],
+      "end": [
+        156.7615,
+        146.7385
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        104.38,
+        98.79
+      ],
+      "end": [
+        104.38,
+        96.25
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        145.46,
+        144.5
+      ],
+      "end": [
+        145.46,
+        145.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        127.5,
+        135.0
+      ],
+      "end": [
+        130.5,
+        138.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        133.22,
+        118.9
+      ],
+      "end": [
+        133.22,
+        118.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        138.0,
+        144.576296
+      ],
+      "end": [
+        139.923704,
+        146.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        139.923704,
+        146.5
+      ],
+      "end": [
+        143.46,
+        146.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        172.46,
+        123.04
+      ],
+      "end": [
+        176.0,
+        123.04
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        125.08,
+        145.5
+      ],
+      "end": [
+        125.08,
+        145.42
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        174.2,
+        94.2
+      ],
+      "end": [
+        181.7,
+        94.2
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        103.42,
+        109.55
+      ],
+      "end": [
+        103.42,
+        126.7
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        135.76,
+        117.257056
+      ],
+      "end": [
+        135.76,
+        118.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        164.0,
+        100.5
+      ],
+      "end": [
+        164.0,
+        104.182379
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        112.1,
+        78.533704
+      ],
+      "end": [
+        112.1,
+        93.616548
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        144.48,
+        79.25
+      ],
+      "end": [
+        144.48,
+        84.4
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        173.08,
+        148.5
+      ],
+      "end": [
+        173.08,
+        137.35
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        101.5,
+        131.38
+      ],
+      "end": [
+        104.8,
+        128.08
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        179.5,
+        142.92
+      ],
+      "end": [
+        179.5,
+        144.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        188.65,
+        138.35
+      ],
+      "end": [
+        188.65,
+        86.15
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        154.5,
+        94.5
+      ],
+      "end": [
+        157.5,
+        97.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        135.76,
+        118.5
+      ],
+      "end": [
+        135.76,
+        118.1
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        104.42,
+        104.5
+      ],
+      "end": [
+        102.33,
+        102.41
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        157.165787,
+        94.5
+      ],
+      "end": [
+        154.5,
+        91.834213
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        113.746296,
+        112.0
+      ],
+      "end": [
+        107.87,
+        112.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        166.911701,
+        81.588299
+      ],
+      "end": [
+        171.85,
+        86.526598
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        176.5,
+        122.54
+      ],
+      "end": [
+        176.0,
+        123.04
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        144.48,
+        79.25
+      ],
+      "end": [
+        144.48,
+        77.835787
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        135.76,
+        118.1
+      ],
+      "end": [
+        137.41,
+        116.45
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        145.0,
+        78.73
+      ],
+      "end": [
+        144.48,
+        79.25
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        163.5,
+        100.5
+      ],
+      "end": [
+        160.5,
+        97.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        107.87,
+        112.0
+      ],
+      "end": [
+        104.42,
+        108.55
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        104.8,
+        128.08
+      ],
+      "end": [
+        106.0,
+        128.08
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        104.42,
+        108.55
+      ],
+      "end": [
+        103.42,
+        109.55
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        117.53,
+        99.046548
+      ],
+      "end": [
+        117.53,
+        108.216296
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        171.85,
+        92.65
+      ],
+      "end": [
+        164.0,
+        100.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        137.41,
+        116.45
+      ],
+      "end": [
+        157.458051,
+        116.45
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        154.5,
+        90.42
+      ],
+      "end": [
+        154.5,
+        91.834213
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        183.0,
+        144.0
+      ],
+      "end": [
+        188.65,
+        138.35
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        125.08,
+        146.35
+      ],
+      "end": [
+        127.23,
+        148.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        144.48,
+        77.835787
+      ],
+      "end": [
+        143.644213,
+        77.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        164.0,
+        100.5
+      ],
+      "end": [
+        163.5,
+        100.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        144.48,
+        84.4
+      ],
+      "end": [
+        145.5,
+        85.42
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        188.65,
+        86.15
+      ],
+      "end": [
+        184.088299,
+        81.588299
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        164.0,
+        104.182379
+      ],
+      "end": [
+        165.317621,
+        105.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        171.85,
+        86.526598
+      ],
+      "end": [
+        171.85,
+        92.65
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        102.8606,
+        147.3606
+      ],
+      "end": [
+        101.5,
+        146.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        171.85,
+        92.65
+      ],
+      "end": [
+        172.65,
+        92.65
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        101.5,
+        146.0
+      ],
+      "end": [
+        101.5,
+        131.38
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        117.53,
+        108.216296
+      ],
+      "end": [
+        113.746296,
+        112.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        157.458051,
+        116.45
+      ],
+      "end": [
+        161.088051,
+        120.08
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        173.08,
+        136.5
+      ],
+      "end": [
+        179.5,
+        142.92
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        113.633704,
+        77.0
+      ],
+      "end": [
+        112.1,
+        78.533704
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        176.0,
+        123.04
+      ],
+      "end": [
+        183.0,
+        123.04
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        169.5,
+        120.08
+      ],
+      "end": [
+        172.46,
+        123.04
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        185.0,
+        104.58
+      ],
+      "end": [
+        178.92,
+        104.58
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        123.2194,
+        147.3606
+      ],
+      "end": [
+        102.8606,
+        147.3606
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        104.42,
+        108.55
+      ],
+      "end": [
+        104.42,
+        104.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        185.0,
+        95.0
+      ],
+      "end": [
+        185.0,
+        104.58
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        179.5,
+        144.0
+      ],
+      "end": [
+        183.0,
+        144.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        172.65,
+        92.65
+      ],
+      "end": [
+        174.2,
+        94.2
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        103.42,
+        126.7
+      ],
+      "end": [
+        104.8,
+        128.08
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        161.5,
+        94.5
+      ],
+      "end": [
+        157.165787,
+        94.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        178.92,
+        104.58
+      ],
+      "end": [
+        176.5,
+        107.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        102.33,
+        102.41
+      ],
+      "end": [
+        102.33,
+        84.17
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        127.23,
+        148.5
+      ],
+      "end": [
+        173.08,
+        148.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        184.088299,
+        81.588299
+      ],
+      "end": [
+        166.911701,
+        81.588299
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        161.088051,
+        120.08
+      ],
+      "end": [
+        169.5,
+        120.08
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        125.08,
+        145.5
+      ],
+      "end": [
+        123.2194,
+        147.3606
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        176.5,
+        107.0
+      ],
+      "end": [
+        176.5,
+        122.54
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        154.5,
+        90.42
+      ],
+      "end": [
+        154.5,
+        94.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        159.823402,
+        74.5
+      ],
+      "end": [
+        166.911701,
+        81.588299
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        160.5,
+        97.5
+      ],
+      "end": [
+        157.5,
+        97.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        112.1,
+        93.616548
+      ],
+      "end": [
+        117.53,
+        99.046548
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        181.7,
+        94.2
+      ],
+      "end": [
+        182.5,
+        95.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        102.33,
+        84.17
+      ],
+      "end": [
+        112.0,
+        74.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        143.644213,
+        77.0
+      ],
+      "end": [
+        113.633704,
+        77.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        182.5,
+        95.0
+      ],
+      "end": [
+        185.0,
+        95.0
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        112.0,
+        74.5
+      ],
+      "end": [
+        159.823402,
+        74.5
+      ],
+      "width": 0.7,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        122.56,
+        119.0
+      ],
+      "end": [
+        123.06,
+        118.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        121.16,
+        139.08
+      ],
+      "end": [
+        121.16,
+        139.0
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        121.16,
+        120.16
+      ],
+      "end": [
+        120.0,
+        119.0
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        118.5,
+        119.0
+      ],
+      "end": [
+        120.0,
+        119.0
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        121.16,
+        139.0
+      ],
+      "end": [
+        121.16,
+        120.16
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        120.0,
+        119.0
+      ],
+      "end": [
+        122.56,
+        119.0
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        122.08,
+        139.0
+      ],
+      "end": [
+        125.08,
+        142.0
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        121.16,
+        139.0
+      ],
+      "end": [
+        122.08,
+        139.0
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        160.5,
+        129.5
+      ],
+      "end": [
+        162.5,
+        127.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        148.46,
+        119.4
+      ],
+      "end": [
+        158.56,
+        129.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        148.46,
+        119.0
+      ],
+      "end": [
+        148.46,
+        119.4
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        158.56,
+        129.5
+      ],
+      "end": [
+        160.5,
+        129.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        158.5,
+        131.5
+      ],
+      "end": [
+        162.5,
+        127.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        155.0,
+        139.66
+      ],
+      "end": [
+        155.0,
+        144.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        148.0,
+        139.58
+      ],
+      "end": [
+        148.0,
+        144.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        140.5,
+        139.58
+      ],
+      "end": [
+        140.5,
+        144.46
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        140.5,
+        144.46
+      ],
+      "end": [
+        140.54,
+        144.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        140.54,
+        139.62
+      ],
+      "end": [
+        140.5,
+        139.58
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        133.04,
+        140.12
+      ],
+      "end": [
+        133.5,
+        139.66
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        133.5,
+        144.04
+      ],
+      "end": [
+        133.04,
+        144.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        133.5,
+        139.66
+      ],
+      "end": [
+        133.5,
+        144.04
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        121.62,
+        79.25
+      ],
+      "end": [
+        121.62,
+        88.758538
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        121.62,
+        88.758538
+      ],
+      "end": [
+        143.38,
+        110.518538
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        143.38,
+        110.518538
+      ],
+      "end": [
+        143.38,
+        110.88
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        119.08,
+        88.997258
+      ],
+      "end": [
+        140.84,
+        110.757258
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        119.08,
+        79.25
+      ],
+      "end": [
+        119.08,
+        88.997258
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        140.84,
+        110.757258
+      ],
+      "end": [
+        140.84,
+        110.88
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        145.5,
+        95.58
+      ],
+      "end": [
+        149.42,
+        95.58
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        141.94,
+        79.25
+      ],
+      "end": [
+        141.94,
+        92.02
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        149.42,
+        95.58
+      ],
+      "end": [
+        149.5,
+        95.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        141.94,
+        92.02
+      ],
+      "end": [
+        145.5,
+        95.58
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        145.92,
+        110.757258
+      ],
+      "end": [
+        145.92,
+        110.88
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        134.32,
+        79.25
+      ],
+      "end": [
+        134.32,
+        99.157258
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        134.32,
+        99.157258
+      ],
+      "end": [
+        145.92,
+        110.757258
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        151.0,
+        110.757258
+      ],
+      "end": [
+        151.0,
+        110.88
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        139.4,
+        79.25
+      ],
+      "end": [
+        139.4,
+        99.157258
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        139.4,
+        99.157258
+      ],
+      "end": [
+        151.0,
+        110.757258
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        133.22,
+        110.757258
+      ],
+      "end": [
+        133.22,
+        110.88
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        114.0,
+        79.25
+      ],
+      "end": [
+        114.0,
+        91.537258
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        114.0,
+        91.537258
+      ],
+      "end": [
+        133.22,
+        110.757258
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        148.46,
+        110.757258
+      ],
+      "end": [
+        148.46,
+        110.88
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        136.86,
+        99.157258
+      ],
+      "end": [
+        148.46,
+        110.757258
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        136.86,
+        79.25
+      ],
+      "end": [
+        136.86,
+        99.157258
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        161.25,
+        79.25
+      ],
+      "end": [
+        152.1,
+        79.25
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        161.5,
+        79.5
+      ],
+      "end": [
+        161.25,
+        79.25
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        161.5,
+        84.34
+      ],
+      "end": [
+        161.5,
+        79.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        116.54,
+        91.537258
+      ],
+      "end": [
+        135.76,
+        110.757258
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        135.76,
+        110.757258
+      ],
+      "end": [
+        135.76,
+        110.88
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        116.54,
+        79.25
+      ],
+      "end": [
+        116.54,
+        91.537258
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        128.14,
+        118.9
+      ],
+      "end": [
+        128.14,
+        118.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        125.5,
+        123.0
+      ],
+      "end": [
+        125.5,
+        121.54
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        125.5,
+        121.54
+      ],
+      "end": [
+        128.14,
+        118.9
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        125.5,
+        123.0
+      ],
+      "end": [
+        125.5,
+        130.0
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        115.6,
+        117.798781
+      ],
+      "end": [
+        120.398781,
+        113.0
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        124.5,
+        106.5
+      ],
+      "end": [
+        128.14,
+        110.14
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        115.6,
+        125.644366
+      ],
+      "end": [
+        115.6,
+        117.798781
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        106.0,
+        133.16
+      ],
+      "end": [
+        108.084366,
+        133.16
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        108.084366,
+        133.16
+      ],
+      "end": [
+        115.6,
+        125.644366
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        128.14,
+        110.14
+      ],
+      "end": [
+        128.14,
+        110.88
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        127.08,
+        113.0
+      ],
+      "end": [
+        128.14,
+        111.94
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        128.14,
+        111.94
+      ],
+      "end": [
+        128.14,
+        110.88
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        120.398781,
+        113.0
+      ],
+      "end": [
+        127.08,
+        113.0
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        118.454415,
+        116.5
+      ],
+      "end": [
+        124.0,
+        116.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        125.6,
+        118.1
+      ],
+      "end": [
+        125.6,
+        118.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        124.0,
+        116.5
+      ],
+      "end": [
+        125.6,
+        118.1
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        116.7,
+        118.254415
+      ],
+      "end": [
+        118.454415,
+        116.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        107.1,
+        135.7
+      ],
+      "end": [
+        116.7,
+        126.1
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        116.7,
+        126.1
+      ],
+      "end": [
+        116.7,
+        118.254415
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        106.0,
+        135.7
+      ],
+      "end": [
+        107.1,
+        135.7
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        125.6,
+        111.9
+      ],
+      "end": [
+        125.6,
+        110.88
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        121.342742,
+        106.5
+      ],
+      "end": [
+        125.6,
+        110.757258
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        125.6,
+        110.757258
+      ],
+      "end": [
+        125.6,
+        110.88
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        106.0,
+        123.0
+      ],
+      "end": [
+        120.5,
+        108.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        120.5,
+        108.5
+      ],
+      "end": [
+        120.5,
+        106.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        120.5,
+        106.5
+      ],
+      "end": [
+        121.342742,
+        106.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        111.5,
+        126.501
+      ],
+      "end": [
+        159.0,
+        126.501
+      ],
+      "width": 0.6,
+      "layer": "F.Cu"
+    },
+    {
+      "start": [
+        109.46,
+        125.54
+      ],
+      "end": [
+        111.5,
+        123.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        159.0,
+        126.501
+      ],
+      "end": [
+        158.6,
+        126.501
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        151.0,
+        118.901
+      ],
+      "end": [
+        151.0,
+        118.501
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        106.0,
+        125.54
+      ],
+      "end": [
+        109.46,
+        125.54
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        111.5,
+        123.501
+      ],
+      "end": [
+        111.5,
+        126.501
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        158.6,
+        126.501
+      ],
+      "end": [
+        151.0,
+        118.901
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        173.0,
+        110.0
+      ],
+      "end": [
+        183.0,
+        110.0
+      ],
+      "width": 0.6,
+      "layer": "F.Cu"
+    },
+    {
+      "start": [
+        183.0,
+        120.5
+      ],
+      "end": [
+        183.0,
+        110.0
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        157.7494,
+        109.2106
+      ],
+      "end": [
+        164.1885,
+        109.2106
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        164.1885,
+        109.2106
+      ],
+      "end": [
+        166.2385,
+        111.2606
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        167.5791,
+        109.92
+      ],
+      "end": [
+        166.2385,
+        111.2606
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        156.08,
+        110.88
+      ],
+      "end": [
+        157.7494,
+        109.2106
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        173.0,
+        110.0
+      ],
+      "end": [
+        172.92,
+        109.92
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        169.5,
+        109.92
+      ],
+      "end": [
+        167.5791,
+        109.92
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        172.92,
+        109.92
+      ],
+      "end": [
+        169.5,
+        109.92
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        153.54,
+        118.9
+      ],
+      "end": [
+        155.377817,
+        120.737817
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        161.624365,
+        125.6
+      ],
+      "end": [
+        179.0,
+        125.6
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        153.54,
+        118.5
+      ],
+      "end": [
+        153.54,
+        118.9
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        179.0,
+        125.6
+      ],
+      "end": [
+        179.0,
+        127.525634
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        156.762183,
+        120.737817
+      ],
+      "end": [
+        160.98,
+        124.955635
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        182.134366,
+        130.66
+      ],
+      "end": [
+        183.0,
+        130.66
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        160.98,
+        124.955635
+      ],
+      "end": [
+        161.624365,
+        125.6
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        179.0,
+        127.525634
+      ],
+      "end": [
+        182.134366,
+        130.66
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        155.377817,
+        120.737817
+      ],
+      "end": [
+        156.762183,
+        120.737817
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        156.08,
+        118.5
+      ],
+      "end": [
+        162.08,
+        124.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        180.5,
+        124.5
+      ],
+      "end": [
+        180.5,
+        127.47
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        162.08,
+        124.5
+      ],
+      "end": [
+        180.5,
+        124.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        180.5,
+        127.47
+      ],
+      "end": [
+        181.15,
+        128.12
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        181.15,
+        128.12
+      ],
+      "end": [
+        183.0,
+        128.12
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        105.8115,
+        142.6894
+      ],
+      "end": [
+        114.2306,
+        142.6894
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        114.2306,
+        142.6894
+      ],
+      "end": [
+        114.92,
+        142.0
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        114.92,
+        142.0
+      ],
+      "end": [
+        114.92,
+        145.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        103.7615,
+        144.7394
+      ],
+      "end": [
+        105.8115,
+        142.6894
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        164.7394,
+        140.2606
+      ],
+      "end": [
+        167.2385,
+        140.2606
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        162.92,
+        139.92
+      ],
+      "end": [
+        163.5,
+        140.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        164.5,
+        140.5
+      ],
+      "end": [
+        164.7394,
+        140.2606
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        167.66,
+        132.5
+      ],
+      "end": [
+        166.92,
+        132.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        166.92,
+        132.5
+      ],
+      "end": [
+        162.92,
+        136.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        163.5,
+        140.5
+      ],
+      "end": [
+        164.5,
+        140.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        162.92,
+        136.5
+      ],
+      "end": [
+        162.92,
+        139.92
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        168.66,
+        131.5
+      ],
+      "end": [
+        167.66,
+        132.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        110.0,
+        97.85
+      ],
+      "end": [
+        111.6,
+        96.25
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        114.58,
+        104.5
+      ],
+      "end": [
+        110.0,
+        99.92
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        111.6,
+        96.25
+      ],
+      "end": [
+        112.0,
+        96.25
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        110.0,
+        99.92
+      ],
+      "end": [
+        110.0,
+        97.85
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        116.38,
+        103.17
+      ],
+      "end": [
+        116.38,
+        106.75
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        116.38,
+        106.75
+      ],
+      "end": [
+        114.58,
+        108.55
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        112.0,
+        98.79
+      ],
+      "end": [
+        116.38,
+        103.17
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        145.92,
+        120.42
+      ],
+      "end": [
+        155.0,
+        129.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        145.92,
+        118.5
+      ],
+      "end": [
+        145.92,
+        120.42
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        148.0,
+        129.42
+      ],
+      "end": [
+        143.38,
+        124.8
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        143.38,
+        124.8
+      ],
+      "end": [
+        143.38,
+        118.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        140.5,
+        129.42
+      ],
+      "end": [
+        140.5,
+        118.84
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        140.5,
+        118.84
+      ],
+      "end": [
+        140.84,
+        118.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        133.5,
+        129.5
+      ],
+      "end": [
+        138.3,
+        124.7
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        138.3,
+        124.7
+      ],
+      "end": [
+        138.3,
+        118.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        155.0,
+        105.0
+      ],
+      "end": [
+        153.5,
+        106.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        155.0,
+        102.5
+      ],
+      "end": [
+        155.0,
+        105.0
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        153.5,
+        110.84
+      ],
+      "end": [
+        153.54,
+        110.88
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        153.54,
+        111.28
+      ],
+      "end": [
+        153.54,
+        110.88
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        153.5,
+        106.5
+      ],
+      "end": [
+        153.5,
+        110.84
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        128.24,
+        120.95
+      ],
+      "end": [
+        128.63,
+        120.95
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        128.14,
+        121.86
+      ],
+      "end": [
+        128.0,
+        122.0
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        128.63,
+        120.95
+      ],
+      "end": [
+        130.68,
+        118.9
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        130.68,
+        118.9
+      ],
+      "end": [
+        130.68,
+        118.5
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        128.04,
+        121.15
+      ],
+      "end": [
+        128.24,
+        120.95
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    },
+    {
+      "start": [
+        128.04,
+        123.0
+      ],
+      "end": [
+        128.04,
+        121.15
+      ],
+      "width": 0.6,
+      "layer": "B.Cu"
+    }
+  ],
+  "outline": [
+    100.0,
+    70.0,
+    190.0,
+    150.0
+  ],
+  "outside_outline": [
+    "TRIAC1",
+    "U3"
+  ]
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "ancien": "Carte_vide_cave_PIC_Allegro_TRIAC",
+    "nouveau": "03_Electronique\\Carte_vide_cave_PIC_Allegro_TRIAC"
+  },
+  {
+    "ancien": "G206A_CAMEL_TP_CAO",
+    "nouveau": "03_Electronique\\G206A_CAMEL_TP_CAO"
+  },
+  {
+    "ancien": "kicad",
+    "nouveau": "03_Electronique\\Projets_KiCad_initiaux"
+  },
+  {
+    "ancien": "maquette_3d",
+    "nouveau": "04_Maquette_3D"
+  },
+  {
+    "ancien": "PROJET VIDE CAVE",
+    "nouveau": "05_Notes\\PROJET VIDE CAVE"
+  },
+  {
+    "ancien": "Claude outputs",
+    "nouveau": "06_Archives_et_exports\\Claude outputs"
+  },
+  {
+    "ancien": "Carte_vide_cave_PIC_Allegro_TRIAC.zip",
+    "nouveau": "06_Archives_et_exports\\Carte_vide_cave_PIC_Allegro_TRIAC.zip"
+  },
+  {
+    "ancien": ".$Synoptique projet version 2.drawio.bkp",
+    "nouveau": "02_Synoptiques\\.$Synoptique projet version 2.drawio.bkp"
+  },
+  {
+    "ancien": ".$Synoptique projet.drawio.bkp",
+    "nouveau": "02_Synoptiques\\.$Synoptique projet.drawio.bkp"
+  },
+  {
+    "ancien": ".$Synoptique V3.drawio.bkp",
+    "nouveau": "02_Synoptiques\\.$Synoptique V3.drawio.bkp"
+  },
+  {
+    "ancien": "Consignes rapport pré-étude.pdf",
+    "nouveau": "01_Documents\\Consignes\\Consignes rapport pré-étude.pdf"
+  },
+  {
+    "ancien": "GANT P2506736.ods",
+    "nouveau": "01_Documents\\Planning\\GANT P2506736.ods"
+  },
+  {
+    "ancien": "Le compte rendu de conception.pdf",
+    "nouveau": "01_Documents\\Consignes\\Le compte rendu de conception.pdf"
+  },
+  {
+    "ancien": "le_dossier_de_fabrication_23d.pdf",
+    "nouveau": "01_Documents\\Consignes\\le_dossier_de_fabrication_23d.pdf"
+  },
+  {
+    "ancien": "pickit_connexion.pdf",
+    "nouveau": "03_Electronique\\Documentation\\pickit_connexion.pdf"
+  },
+  {
+    "ancien": "Préparer la soutenance orale.pdf",
+    "nouveau": "01_Documents\\Consignes\\Préparer la soutenance orale.pdf"
+  },
+  {
+    "ancien": "projet_vide_cave_geii.pptx",
+    "nouveau": "01_Documents\\Presentation\\projet_vide_cave_geii.pptx"
+  },
+  {
+    "ancien": "Rapport_pre-etude_vide-cave.docx",
+    "nouveau": "01_Documents\\Rapport\\Rapport_pre-etude_vide-cave.docx"
+  },
+  {
+    "ancien": "Synoptique projet version 2.drawio",
+    "nouveau": "02_Synoptiques\\Synoptique projet version 2.drawio"
+  },
+  {
+    "ancien": "Synoptique projet version 2.drawio.png",
+    "nouveau": "02_Synoptiques\\Synoptique projet version 2.drawio.png"
+  },
+  {
+    "ancien": "Synoptique projet.drawio",
+    "nouveau": "02_Synoptiques\\Synoptique projet.drawio"
+  },
+  {
+    "ancien": "Synoptique projet.drawio.pdf",
+    "nouveau": "02_Synoptiques\\Synoptique projet.drawio.pdf"
+  },
+  {
+    "ancien": "Synoptique projet.drawio.png",
+    "nouveau": "02_Synoptiques\\Synoptique projet.drawio.png"
+  },
+  {
+    "ancien": "Synoptique V3.drawio",
+    "nouveau": "02_Synoptiques\\Synoptique V3.drawio"
+  }
+]
