@@ -8,7 +8,7 @@ Le test fait clignoter **D4 sur RB0, broche 21**, par R10 : 500 ms allumée, 500
 
 1. `File → New Project → Microchip Embedded → Standalone Project`.
 2. Device : `PIC16F1788` ; ne pas sélectionner une référence voisine.
-3. Hardware Tool : ton PICkit, avec son numéro de série. Si le modèle reste inconnu, utiliser `Simulator` pour compiler uniquement.
+3. Hardware Tool : **MPLAB SNAP (PG164100)**, avec son numéro de série. Si aucun numéro n'est détecté, utiliser `Simulator` pour compiler uniquement puis résoudre la détection USB.
 4. Compiler : `XC8 v3.10`, installé sur ce PC. Projet `Test_LED_G206`, emplacement dans `08_Firmware` ; créer un dossier projet `.X` distinct de ce dossier de sources.
 5. Dans le projet : clic droit `Source Files → Add Existing Item`, sélectionner le `main.c` de ce dossier avec un chemin relatif. Retirer tout autre `main()` de ce premier projet.
 6. `Clean and Build Project` : le résultat attendu est `BUILD SUCCESSFUL`.
@@ -17,6 +17,8 @@ Le test fait clignoter **D4 sur RB0, broche 21**, par R10 : 500 ms allumée, 500
 [Assistant officiel de création de projet](https://developerhelp.microchip.com/xwiki/bin/view/software-tools/ides/x/projects/creating/project/).
 
 Le PC dispose actuellement de **MPLAB X 6.30 et XC8 3.10**. **PICkit 3 : utiliser MPLAB X 6.20 ou une version compatible plus ancienne** ; 6.20 est la dernière version prenant en charge ce programmateur. Ne pas désinstaller automatiquement 6.30. [Compatibilité annoncée par Microchip](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide).
+
+Le matériel précisé par l'équipe est **PG164100 = MPLAB SNAP**, utilisable avec cette version 6.30. Le cas PICkit 3 ci-dessus ne s'applique donc pas à notre matériel. Le pack Snap installé référence le PIC16F1788. [Fiche outil Microchip](https://www.microchip.com/en-us/development-tool/PG164100).
 
 ## Raccordement ICSP d'après le schéma
 
@@ -29,11 +31,13 @@ Le PC dispose actuellement de **MPLAB X 6.30 et XC8 3.10**. **PICkit 3 : utilise
 | 5 | ICSPCLK / PGC | 27 / RB6 |
 | 6 | Non utilisé | — |
 
-Les contacts 7/8 du connecteur physique ne sont pas des signaux supplémentaires du PICkit. **Ce tableau décrit J4, pas nécessairement l'ordre du câble d'un PICkit à 8 contacts.** Vérifier le repère de broche 1 et le brochage officiel du modèle de PICkit utilisé avant de raccorder ; ne pas décaler l'adaptateur.
+Le SNAP utilise, en ICSP, le même ordre pour ses contacts 1 à 5 : MCLR, VDD, GND, PGD, PGC. Relier ces contacts aux contacts J4 de même numéro ; 6/7/8 ne sont pas nécessaires ici. Vérifier le repère de broche 1 et l'orientation du câble ; ne pas décaler l'adaptateur. [Brochage officiel SNAP](https://onlinedocs.microchip.com/oxy/GUID-671CAF55-DB13-4D9A-8881-F58C984111B5-en-US-4/GUID-ECE487E3-CCF2-49C8-97A6-01CEEDE5FD22.html).
 
-Premier test en basse tension, sans secteur ni moteur raccordé. Si la carte est alimentée par J1 avec une source 5 V externe, sélectionner la cible alimentée extérieurement dans MPLAB et laisser l'alimentation de cible par PICkit désactivée. La liaison VDD reste nécessaire pour la détection de tension. N'activer l'alimentation par PICkit qu'après vérification de sa capacité, de la consommation et de l'absence d'autre source.
+Premier test en basse tension, sans secteur ni moteur raccordé. **Le SNAP n'alimente pas la carte** : fournir le 5 V externe à J1. Sa broche VDD détecte la tension de la cible ; elle n'est pas une sortie d'alimentation. Relier la masse commune et laisser la cible réglée comme alimentée extérieurement. [Guide SNAP, alimentation et programmation](https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/UserGuides/MPLAB-Snap-In-Circuit-Debugger-Users-Guide-50002787.pdf).
 
-Le PICkit n'a pas été identifié dans l'inventaire USB effectué et aucune programmation n'a été exécutée. Ce n'est pas une preuve que le matériel est débranché : vérifier la détection du numéro de série dans MPLAB.
+Le SNAP n'a pas encore été identifié dans l'inventaire USB effectué et aucune programmation n'a été exécutée. Ce n'est pas une preuve que le matériel est débranché : vérifier la détection du numéro de série dans MPLAB, ainsi que le câble Micro-USB qui doit transporter les données.
+
+**Programmation basse tension obligatoire avec le SNAP.** Le code préparé conserve `#pragma config LVP = ON`. Si l'ancien firmware a déjà programmé le PIC avec LVP désactivé, modifier le nouveau code ne suffit pas : le SNAP ne pourra pas entrer en programmation. Il faudra réactiver LVP avec un programmateur capable de programmation haute tension, par exemple un PICkit approprié. La programmation haute tension signifie une procédure ICSP spécifique sur MCLR, jamais alimenter VDD avec une tension élevée. [PIC16F1788, CONFIG2 et section 29](https://ww1.microchip.com/downloads/en/DeviceDoc/40001675C.pdf).
 
 ## Comprendre les premières lignes C
 
