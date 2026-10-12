@@ -1,8 +1,10 @@
 # Premier programme C : LED sur l'ancienne carte G206
 
-Ouvrir [main.c](main.c). Cible déduite du schéma : **PIC16F1788, boîtier DIP28**. Vérifier que le marquage du composant monté correspond avant de programmer. Le dossier ne contient pas de projet MPLAB `.X` préconfiguré pour un programmateur précis : le créer avec l'assistant ci-dessous, puis ajouter ce fichier.
+Ce dossier conserve l'exemple initial [main.c](main.c). **Le projet principal choisi par l'équipe est `Projet vide cave.X` ; modifier désormais son [main.c](../../Projet%20vide%20cave.X/main.c).** La copie de départ est identique à cet exemple, mais le projet principal ne compile plus le fichier de ce dossier. Cible : **PIC16F1788, boîtier DIP28** ; vérifier le marquage du composant monté avant de programmer. Ouvrir le projet principal puis choisir MPLAB SNAP dans ses propriétés. Si `main.c` n'apparaît pas encore, fermer/réouvrir le projet pour recharger ses fichiers. L'assistant ci-dessous sert pour créer un autre projet de test.
 
 Le test fait clignoter **D4 sur RB0, broche 21**, par R10 : 500 ms allumée, 500 ms éteinte. La sortie RB2 est maintenue à zéro. Aucun programme de protection moteur ou de mesure n'est actif. Les autres lignes sont laissées en entrée ; LCD, UART et capteur ne sont pas encore pilotés.
+
+Le projet `.X` existant a été compilé avec son Makefile MPLAB : succès, 79 mots programme et 4 octets RAM. Le HEX est dans `Projet vide cave.X/dist/default/production/Projet_vide_cave.X.production.hex`, généré localement. Le choix du numéro de série SNAP reste à effectuer dans les propriétés du projet. La configuration MCC `.mc3` a été conservée ; pour ce premier test, les initialisations et bits de configuration viennent de `main.c`. Lors du passage à du code généré MCC, conserver un seul `main()` et une seule définition des bits de configuration.
 
 ## Ouvrir dans MPLAB X
 

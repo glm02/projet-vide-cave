@@ -8,7 +8,7 @@
 - **Notes Obsidian :** ouvrir `05_Notes/Obsidian` comme coffre, puis [00 — Accueil](05_Notes/Obsidian/00%20-%20Accueil.md).
 - **Analyse de la carte et comparaison aux documents :** [rapport du 12 octobre 2026](05_Notes/Analyse_G206_2026-10-12/RAPPORT_ANALYSE.md).
 - **Étude MOC3041 :** [dimensionnement proposé et bancs LTspice](05_Notes/Etude_MOC3041/DIMENSIONNEMENT.md), [simulation Anatomy](07_Visualisation_Anatomy/simulation.html) et [travail à deux sur GitHub](05_Notes/Obsidian/09%20-%20Travail%20a%20deux%20et%20MOC3041.md). Les valeurs secteur restent conditionnées au triac et à la pompe réels.
-- **Premier programme C :** [test LED PIC16F1788, instructions MPLAB/PICkit](08_Firmware/Test_LED_PIC16F1788/README.md) et [main.c](08_Firmware/Test_LED_PIC16F1788/main.c). Compilé avec XC8 3.10 ; comportement matériel à vérifier, aucune programmation exécutée.
+- **Firmware principal :** ouvrir le dossier `Projet vide cave.X` dans MPLAB X et modifier son [main.c](Projet%20vide%20cave.X/main.c). [Instructions du test LED et raccordement SNAP](08_Firmware/Test_LED_PIC16F1788/README.md). Compilé avec XC8 3.10 ; comportement matériel à vérifier, aucune programmation exécutée.
 - **Composants :** [CSV détaillé, une ligne par référence](03_Electronique/G206A_CAMEL_TP_CAO/Composants_G206.csv) et [nomenclature groupée](03_Electronique/G206A_CAMEL_TP_CAO/Nomenclature_G206_groupee.csv). Le schéma compte 24 composants ; le CSV détaillé indique aussi les écarts avec le PCB.
 - **Rapport de pré-étude :** [document Word](01_Documents/Rapport/Rapport_pre-etude_vide-cave.docx).
 - **Synoptique modifiable :** [Synoptique V3](02_Synoptiques/Synoptique%20V3.drawio).

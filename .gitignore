@@ -59,6 +59,12 @@ desktop.ini
 /08_Firmware/**/build/
 /08_Firmware/**/dist/
 /08_Firmware/**/nbproject/private/
+/Projet vide cave.X/build/
+/Projet vide cave.X/dist/
+/Projet vide cave.X/nbproject/private/
+/Projet vide cave.X/nbproject/Makefile-local-*.mk
+/Projet vide cave.X/nbproject/Makefile-genesis.properties
+/Projet vide cave.X/mcc-manifest-autosave.yml
 /05_Notes/Etude_MOC3041/*.raw
 /05_Notes/Etude_MOC3041/*.db
 /05_Notes/Etude_MOC3041/*.log
