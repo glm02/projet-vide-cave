@@ -1,0 +1,31 @@
+# Prévient sur Telegram à chaque envoi (SYNC.bat ou git push), pour savoir
+# quand l'autre a modifié la carte et qu'il faut récupérer la dernière version.
+# Inactif tant que les secrets TELEGRAM_BOT_TOKEN et TELEGRAM_CHAT_ID ne sont
+# pas définis dans les réglages du dépôt.
+name: Notification Telegram
+
+on: push
+
+jobs:
+  telegram:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Envoyer le message
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TOKEN" ] || [ -z "$CHAT" ]; then
+            echo "Secrets Telegram absents : pas de notification."
+            exit 0
+          fi
+          # Les messages de commit sont lus depuis le fichier de l'événement,
+          # jamais insérés dans le script (ils viennent des utilisateurs).
+          liste=$(jq -r '.commits[] | "• " + .author.name + " : " + (.message | split("\n")[0])' "$GITHUB_EVENT_PATH" | head -10)
+          texte="🔧 projet-vide-cave (${GITHUB_REF_NAME})
+          ${liste}
+
+          ➡️ Pense à lancer SYNC.bat (KiCad fermé) pour récupérer la dernière version."
+          curl -s --max-time 15 -o /dev/null -w "Telegram HTTP %{http_code}\n" \
+            "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${CHAT}" --data-urlencode "text=${texte}"

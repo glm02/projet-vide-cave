@@ -10,6 +10,8 @@ MOC3041 choisi pour la suite. Le schéma n'a pas encore été converti du FODM30
 
 ## Autoriser le collègue à pousser
 
+> Méthode simple retenue le 21 octobre 2026 : [GUIDE_TRAVAILLER_A_DEUX.md](../../GUIDE_TRAVAILLER_A_DEUX.md) et `SYNC.bat` à la racine (un double-clic récupère puis envoie, notification Telegram à chaque push). La méthode par branches ci-dessous reste possible pour des modifications longues.
+
 Le 12 octobre 2026, la liste des collaborateurs GitHub ne montre que le propriétaire `glm02`. Il faut le pseudo GitHub du collègue et le message d'erreur pour confirmer le diagnostic.
 
 Dans [les réglages d'accès du dépôt](https://github.com/glm02/projet-vide-cave/settings/access), ajouter son compte personnel. Il doit accepter l'invitation, puis utiliser sa propre authentification GitHub ; le caractère public du dépôt autorise la lecture, pas automatiquement l'écriture. Ne pas partager le compte ou le token du propriétaire. [Documentation GitHub](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/inviting-collaborators-to-a-personal-repository).
