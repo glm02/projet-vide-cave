@@ -100,10 +100,7 @@ Double-clique sur ce fichier `.kicad_pro` pour ouvrir le projet dans KiCad.
 1. Enregistre (**Ctrl + S**) dans le schéma ET dans le PCB.
 2. **Ferme KiCad.**
 3. Double-clique sur **`SYNC.bat`** : tes modifs partent sur GitHub.
-
-Chaque envoi déclenche une notification Telegram. Quand tu en reçois une,
-c'est que l'autre a modifié la carte : lance `SYNC.bat` (KiCad fermé)
-avant de reprendre.
+4. Préviens Rafaël : « j'ai synchronisé ».
 
 La **première fois** que tu envoies, une fenêtre GitHub s'ouvre : clique
 sur **Sign in with your browser**, connecte-toi et autorise. Ça ne se
