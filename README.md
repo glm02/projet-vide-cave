@@ -1,5 +1,32 @@
 # Projet vide-cave — GEII
 
+> **En bref** — Projet de BUT GEII : une carte électronique qui surveille et commande
+> la pompe d'un vide-cave — **mesure du courant** du moteur, autotest périodique,
+> affichage sur écran LCD, alertes par LED et buzzer. Conçue sous **KiCad**,
+> programmée en **C sur PIC** (MPLAB X, MCC), étudiée sous **LTspice**, mise en scène
+> dans **Blender**, suivie dans **Obsidian**.
+
+<p align="center">
+  <img src="04_Maquette_3D/01_installation.png" alt="Maquette Blender : la pompe dans son puisard et le coffret de commande au mur" width="49%">
+  <img src="07_Visualisation_Anatomy/preview.png" alt="Vue éclatée interactive de la carte de surveillance" width="49%">
+</p>
+
+| Bloc | Rôle |
+|---|---|
+| PIC16F1788 | Acquisition, décision, affichage et commande |
+| Capteur de courant (ACS756) | Mesure du courant du moteur de la pompe |
+| Optotriac + triac de puissance | Commande de la pompe sur le secteur, isolée de l'électronique basse tension |
+| LCD 162B, LED, buzzer | Affichage de l'état et alertes |
+
+Statut : conception en cours — voir plus bas ce qui reste à câbler et à valider.
+
+**Ce que j'ai fait :** reprise et nettoyage de la carte KiCad, comparaison schéma/PCB/
+nomenclature, dimensionnement de l'optotriac (MOC3041) avec bancs LTspice, maquette
+3D de l'installation, visualisation interactive de la carte, et organisation du projet
+pour travailler à deux sous Git.
+
+---
+
 Étude d'une commande de pompe vide-cave avec surveillance du courant, affichage et alarmes. Le projet KiCad de travail est la carte **G206_CAMEL_TP_CAO**, adaptée d'une ancienne carte. **Statut : EN COURS — non prêt pour fabrication.** L'étude de commande et de puissance reste à terminer : la présence des sources dans ce dépôt ne constitue pas une validation pour fabrication ou mise sous tension.
 
 ## Ouvrir le projet
