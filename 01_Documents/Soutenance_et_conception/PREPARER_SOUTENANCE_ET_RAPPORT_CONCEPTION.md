@@ -140,18 +140,27 @@ asynchrone.
 référence fabricant, distributeur, référence distributeur, prix, délai.
 
 ### h. Organigrammes du programme
-À dessiner (draw.io) :
-1. **Programme principal** : `SYSTEM_Initialize()` (MCC) → init LCD → boucle de la
-   machine d'états.
-2. **Machine d'états** : ARRÊT → AUTO-TEST / FONCTIONNEMENT → DÉFAUT (bloqué / à vide).
-3. **Mesure du courant efficace** : N échantillons sur un nombre entier de périodes de
-   20 ms → retrancher l'offset mesuré moteur arrêté → somme des carrés → racine →
-   × (1 / 20 mV/A).
-4. **Base de temps / autotest** : interruption Timer (GIE, PEIE) qui compte les
-   secondes → 3 jours = 259 200 s → lancement du test, durée max 60 s.
-5. **Décision** : ignorer le pic de démarrage (temporisation), puis I > Imax → DÉFAUT
-   bloqué ; I < Imin → DÉFAUT à vide ; sinon OK.
-6. **Affichage / alarmes** : messages LCD, LED et buzzer différents selon le défaut.
+Écrits dans le style du cours INFO3 (MPLAB X + MCC) : pas de `float`, travail en
+**points du CAN**, IT courte, plus petit type possible. Détail et squelette de
+programme : chapitre 6 du rapport. À dessiner (draw.io) :
+1. **Programme principal** : `SYSTEM_Initialize()` (broches `ANSEL`/`TRIS`, CAN, Timer2
+   configurés **une seule fois**), init LCD, enregistrement de `IT_Timer2`, puis
+   autorisation des IT **en dernier** (`GIE` + `PEIE`, car le Timer2 est une IT
+   interne), puis `while(1) // ne se termine jamais`.
+2. **Machine à états** : variable `etat` + `switch(etat)`, un `case` par état
+   (ARRET, AUTO_TEST, FONCTIONNEMENT, DEFAUT), transitions par `if`.
+3. **Base de temps** : Timer2 à 10 ms (FOSC = 4 MHz, TCY = 1 µs, prescaler 16 ×
+   (PR2 + 1 = 125) × postscaler 5, donc PR2 = 124). L'IT **ne fait que lever
+   `Flag_10ms`** (variable globale `volatile`) ; le `main` remet le flag à 0 le plus
+   tôt possible et compte `Compteur_10ms`, `Secondes`, `Minutes`, `Heures`, tous en
+   `uint8_t`. Heures = 72 → autotest ; 60 s au plus pour le test.
+4. **Mesure** (`Mesure_Amplitude()`) : sur 20 ms, lire AN0, garder `maxi` et `mini` →
+   amplitude = maxi − mini en **points du CAN** (q = 5 V / 4096 = 1,22 mV). Pas de
+   racine carrée, pas de `float`, pas besoin de l'offset de 2,5 V.
+5. **Décision** : temporisation au démarrage, puis amplitude > `SEUIL_HAUT` → DEFAUT
+   bloqué ; amplitude < `SEUIL_BAS` → DEFAUT à vide. Seuils en points (`#define`).
+6. **Affichage / alarmes** : `sprintf` dans un `char ligne_lcd[]`, LCD rafraîchi
+   **seulement si l'état ou la mesure a changé** (évite le scintillement).
 
 ### i. Conclusion
 - Avancement chiffré par bloc, difficultés rencontrées, ce qui reste à faire, apports.
@@ -222,10 +231,18 @@ PCB, firmware, maquette, documents).
     calibre (ex. ACS712-5A, 185 mV/A) ou amplification autour de 2,5 V (×5 → 12 mA par
     pas), en gardant la mesure du courant de démarrage. **Préparer la réponse avant
     l'oral** (et décider du capteur).
-11. *Comment calculez-vous la valeur efficace ?* — Échantillonnage sur des périodes
-    entières, offset retiré, racine de la moyenne des carrés.
-12. *Comment comptez-vous 3 jours ?* — Interruption timer à base de temps fixe, compteur
-    de secondes ; précision de l'oscillateur interne suffisante pour cet usage.
+11. *Comment mesurez-vous le courant dans le programme ?* — En points du CAN, sans
+    `float` : sur une période de 20 ms on garde le max et le min lus sur AN0,
+    amplitude = max − min, comparée à des seuils en points (`#define`). Quantum
+    q = 5 V / 4096 = 1,22 mV, soit 61 mA par point.
+12. *Comment comptez-vous 3 jours ?* — Timer2 en interruption toutes les 10 ms ; l'IT
+    lève seulement un flag, le `main` compte secondes, minutes, heures en `uint8_t`
+    (Heures = 72). Pas de `__delay_ms` : pendant un délai le PIC ne voit rien.
+12 bis. *Pourquoi `PEIE = 1` ?* — Le Timer2 est une interruption interne
+    (périphérique) : il faut `PEIE` en plus de `GIE` et du bit `TMR2IE`.
+12 ter. *Pourquoi l'IT est-elle si courte ?* — Sinon le main est bloqué : pas de
+    `printf`, pas de `float`, pas de délai dans l'IT ; elle lève un flag, le main
+    fait le reste. `Flag_10ms` est `volatile` car partagée entre l'IT et le main.
 13. *Que se passe-t-il au démarrage du moteur ?* — Pic de courant normal : on ignore
     la mesure pendant une temporisation avant de comparer à Imax.
 
@@ -266,11 +283,11 @@ PCB, firmware, maquette, documents).
 
 - Secteur 230 V eff → **325 V crête** (358 V à 253 V) ; 50 Hz → T = 20 ms.
 - Pompe ~300 W → I ≈ **1,3 A** (*hypothèse, plaque à relever*).
-- ACS756 : **20 mV/A**, **2,5 V à 0 A** ; ADC 12 bits : **1,22 mV / 61 mA par pas**.
+- ACS756 : **20 mV/A**, **2,5 V à 0 A** ; CAN 12 bits : quantum **q = 5 V / 4096 = 1,22 mV**, soit **61 mA par point**.
 - MOC3041 : IFT max **15 mA**, tenue **400 V**, zéro-crossing ; R_LED **150 Ω**.
 - FODM3011 retiré : **250 V** seulement.
 - Filtre RC 1 kΩ / 10 nF : **fc ≈ 15,9 kHz**.
-- Autotest : **3 jours = 259 200 s**, durée ≤ **60 s**.
+- Autotest : **Heures = 72** (compteurs `uint8_t`), durée ≤ **60 s** ; base de temps Timer2 **10 ms**, PR2 = **124**.
 - Déphasage : φ = 360° × Δt / T ; 1° ↔ **55 µs**.
 - PIC16F1788 : AN0 = mesure, RB2 = commande opto, RB0 = LED, RB1 = buzzer,
   RA1-RA7 = LCD 4 bits, RC6/RC7 = UART, RB6/RB7 = programmation.

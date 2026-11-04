@@ -176,14 +176,14 @@ s.addNotes("ORATEUR A (1 min). Le jury connaît notre pré-étude : il faut just
 pres.addSection({ title: "Réalisation" });
 s = pres.addSlide({ masterName: "CONTENU", sectionTitle: "Réalisation" });
 s.addText("Mesurer le courant sans contact électrique avec le secteur", { placeholder: "title" });
-const chaine = [["Courant moteur", "i(t), 50 Hz"], ["ACS756", "effet Hall"], ["Filtre RC", "1 kΩ / 10 nF"], ["ADC 12 bits", "entrée AN0"], ["Calcul RMS", "logiciel"]];
+const chaine = [["Courant moteur", "i(t), 50 Hz"], ["ACS756", "effet Hall"], ["Filtre RC", "1 kΩ / 10 nF"], ["ADC 12 bits", "entrée AN0"], ["Max − min", "sur 20 ms"]];
 chaine.forEach((c, i) => {
   const x = 0.6 + i * 2.48;
   card(s, x, 1.55, 2.05, 1.05, i === 1 ? C.accent6 : C.background2, "chaine" + i);
   T(s, [{ text: c[0], options: { bold: true, breakLine: true } }, { text: c[1], options: { fontSize: 12, color: C.text2 } }], { x: x + 0.1, y: 1.6, w: 1.85, h: 0.95, fontSize: 15, align: "center", valign: "middle" });
   if (i < 4) fleche(s, x + 2.05, 2.075, x + 2.48, 2.075);
 });
-const stats = [["20 mV/A", "sensibilité du capteur"], ["2,5 V", "sortie à courant nul"], ["61 mA", "par pas d'ADC (5 V / 4096)"], ["15,9 kHz", "coupure du filtre RC"]];
+const stats = [["20 mV/A", "sensibilité du capteur"], ["2,5 V", "sortie à courant nul"], ["1,22 mV", "quantum q = 5 V / 4096 (61 mA)"], ["15,9 kHz", "coupure du filtre RC"]];
 stats.forEach((c, i) => {
   const x = 0.6 + i * 3.1;
   T(s, c[0], { x, y: 3.0, w: 2.9, h: 0.75, fontSize: 32, bold: true, color: C.accent1, fontFace: "Cambria", valign: "bottom" });
@@ -191,15 +191,15 @@ stats.forEach((c, i) => {
 });
 card(s, 0.6, 4.6, 6.6, 1.9, C.background2, "rms");
 T(s, [
-  { text: "Valeur efficace calculée par le PIC", options: { bold: true, breakLine: true } },
-  { text: "N échantillons sur des périodes entières de 20 ms, offset de 2,5 V retiré (mesuré pompe arrêtée), racine de la moyenne des carrés, puis division par 20 mV/A." },
+  { text: "Le PIC travaille en points du CAN", options: { bold: true, breakLine: true } },
+  { text: "Sur une période de 20 ms, il garde la valeur max et la valeur min lues sur AN0. Amplitude = max − min, comparée à SEUIL_HAUT et SEUIL_BAS en points. Pas de float." },
 ], { x: 0.85, y: 4.75, w: 6.1, h: 1.6, fontSize: 14, paraSpaceAfter: 4 });
 card(s, 7.5, 4.6, 5.2, 1.9, "FDF1DD", "limite");
 T(s, [
   { text: "Limite identifiée", options: { bold: true, color: HEX.accent3, breakLine: true } },
-  { text: "Calibre ±100 A pour une pompe d'environ 1,3 A : ~21 pas d'ADC seulement. Pistes : capteur de plus petit calibre ou gain ×5 centré sur 2,5 V." },
+  { text: "Calibre ±100 A pour une pompe d'environ 1,3 A : ~21 points du CAN seulement. Pistes : capteur de plus petit calibre ou gain ×5 centré sur 2,5 V." },
 ], { x: 7.75, y: 4.75, w: 4.7, h: 1.6, fontSize: 14, paraSpaceAfter: 4 });
-s.addNotes("ORATEUR B (1 min). Le capteur à effet Hall mesure le champ créé par le courant : pas de contact électrique avec le secteur. Sortie 2,5 V au repos plus 20 mV par ampère. Le filtre RC coupe à 15,9 kHz, il ne déforme pas le 50 Hz. Le PIC calcule la valeur efficace. Montrer qu'on a vu la limite : le calibre 100 A est trop large pour notre pompe ; dire la solution retenue. (Courant de 1,3 A = hypothèse 300 W / 230 V, plaque à relever.)");
+s.addNotes("ORATEUR B (1 min). Le capteur à effet Hall mesure le champ créé par le courant : pas de contact électrique avec le secteur. Sortie 2,5 V au repos plus 20 mV par ampère. Le filtre RC coupe à 15,9 kHz, il ne déforme pas le 50 Hz. Le PIC travaille en points du CAN : quantum 1,22 mV. Il garde le max et le min sur 20 ms ; l'amplitude max − min est comparée aux seuils, sans float. Montrer qu'on a vu la limite : le calibre 100 A est trop large pour notre pompe ; dire la solution retenue. (Courant de 1,3 A = hypothèse 300 W / 230 V, plaque à relever.)");
 
 // ================= 7. Commande de puissance =================
 s = pres.addSlide({ masterName: "CONTENU", sectionTitle: "Réalisation" });
@@ -262,21 +262,22 @@ etat(0.7, 3.2, "ARRÊT", HEX.accent5, "attente, affichage");
 etat(4.1, 1.6, "AUTO-TEST", HEX.accent1, "tous les 3 jours, ≤ 60 s");
 etat(4.1, 4.8, "FONCTIONNEMENT", HEX.accent4, "pompage réel");
 etat(7.5, 3.2, "DÉFAUT", HEX.accent3, "bloqué ou à vide");
-fleche(s, 2.2, 3.2, 4.1, 2.2); T(s, "3 jours écoulés", { x: 1.6, y: 2.25, w: 2.0, h: 0.3, fontSize: 11, color: C.text2 });
+fleche(s, 2.2, 3.2, 4.1, 2.2); T(s, "Heures = 72", { x: 1.6, y: 2.25, w: 2.0, h: 0.3, fontSize: 11, color: C.text2 });
 fleche(s, 2.2, 4.2, 4.1, 5.2); T(s, "eau détectée", { x: 1.8, y: 4.95, w: 1.8, h: 0.3, fontSize: 11, color: C.text2 });
-fleche(s, 6.6, 2.2, 7.9, 3.2); T(s, "I hors seuils", { x: 7.0, y: 2.3, w: 1.6, h: 0.3, fontSize: 11, color: C.accent3 });
-fleche(s, 6.6, 5.2, 7.9, 4.2); T(s, "I hors seuils", { x: 7.0, y: 4.9, w: 1.6, h: 0.3, fontSize: 11, color: C.accent3 });
+fleche(s, 6.6, 2.2, 7.9, 3.2); T(s, "hors seuils", { x: 7.0, y: 2.3, w: 1.6, h: 0.3, fontSize: 11, color: C.accent3 });
+fleche(s, 6.6, 5.2, 7.9, 4.2); T(s, "hors seuils", { x: 7.0, y: 4.9, w: 1.6, h: 0.3, fontSize: 11, color: C.accent3 });
 fleche(s, 4.1, 2.45, 2.6, 3.2); T(s, "test OK", { x: 3.3, y: 3.0, w: 1.2, h: 0.3, fontSize: 11, color: C.accent4 });
 card(s, 10.4, 1.5, 2.3, 3.7, C.background2, "decision");
 T(s, [
   { text: "Décision", options: { bold: true, breakLine: true } },
   { text: "Temporisation au démarrage (pic de courant normal)", options: { bullet: true, breakLine: true } },
-  { text: "I > Imax : bloqué", options: { bullet: true, breakLine: true } },
-  { text: "I < Imin : à vide", options: { bullet: true, breakLine: true } },
-  { text: "Timer + interruption : 259 200 s = 3 jours", options: { bullet: true } },
+  { text: "amplitude > SEUIL_HAUT : bloqué", options: { bullet: true, breakLine: true } },
+  { text: "amplitude < SEUIL_BAS : à vide", options: { bullet: true, breakLine: true } },
+  { text: "Timer2 : IT toutes les 10 ms, un flag", options: { bullet: true, breakLine: true } },
+  { text: "Heures = 72 → autotest (uint8_t)", options: { bullet: true } },
 ], { x: 10.55, y: 1.65, w: 2.05, h: 3.45, fontSize: 13, paraSpaceAfter: 6 });
-T(s, "Configuration générée par MCC (MPLAB X, XC8) ; code applicatif en cours.", { x: 0.7, y: 6.15, w: 9.5, h: 0.35, fontSize: 13, italic: true, color: C.text2 });
-s.addNotes("ORATEUR B (45 s). Le logiciel est une machine à états. Depuis ARRÊT, deux déclencheurs : le timer de 3 jours lance l'autotest, l'arrivée d'eau lance le pompage. Dans les deux cas, si le courant sort des seuils, on passe en DÉFAUT : moteur coupé, message et alarme différents selon la cause. On ignore le pic de démarrage. Dire honnêtement l'avancement du code.");
+T(s, "Codé avec switch(etat) ; broches, CAN et Timer2 configurés par MCC (MPLAB X, XC8).", { x: 0.7, y: 6.15, w: 9.5, h: 0.35, fontSize: 13, italic: true, color: C.text2 });
+s.addNotes("ORATEUR B (45 s). Le logiciel est une machine à états. Le Timer2 lève une IT toutes les 10 ms ; la routine d'IT ne fait que lever un flag, le main compte secondes, minutes, heures en uint8_t. Depuis ARRÊT, deux déclencheurs : Heures = 72 lance l'autotest, l'arrivée d'eau lance le pompage. Dans les deux cas, si le courant sort des seuils, on passe en DÉFAUT : moteur coupé, message et alarme différents selon la cause. On ignore le pic de démarrage. Dire honnêtement l'avancement du code.");
 
 // ================= 10. Avancement =================
 pres.addSection({ title: "Bilan" });
