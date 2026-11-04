@@ -197,7 +197,7 @@ T(s, [
 card(s, 7.5, 4.6, 5.2, 1.9, "FDF1DD", "limite");
 T(s, [
   { text: "Limite identifiée", options: { bold: true, color: HEX.accent3, breakLine: true } },
-  { text: "Calibre ±100 A pour une pompe d'environ 1,3 A : ~21 points du CAN seulement. Pistes : capteur de plus petit calibre ou gain ×5 centré sur 2,5 V." },
+  { text: "Calibre ±100 A pour une pompe de quelques ampères (≈ 1,3 A en négligeant le cos φ) : ~21 points du CAN seulement. Pistes : capteur de plus petit calibre ou gain ×5 centré sur 2,5 V." },
 ], { x: 7.75, y: 4.75, w: 4.7, h: 1.6, fontSize: 14, paraSpaceAfter: 4 });
 s.addNotes("ORATEUR B (1 min). Le capteur à effet Hall mesure le champ créé par le courant : pas de contact électrique avec le secteur. Sortie 2,5 V au repos plus 20 mV par ampère. Le filtre RC coupe à 15,9 kHz, il ne déforme pas le 50 Hz. Le PIC travaille en points du CAN : quantum 1,22 mV. Il garde le max et le min sur 20 ms ; l'amplitude max − min est comparée aux seuils, sans float. Montrer qu'on a vu la limite : le calibre 100 A est trop large pour notre pompe ; dire la solution retenue. (Courant de 1,3 A = hypothèse 300 W / 230 V, plaque à relever.)");
 
@@ -273,11 +273,11 @@ T(s, [
   { text: "Temporisation au démarrage (pic de courant normal)", options: { bullet: true, breakLine: true } },
   { text: "amplitude > SEUIL_HAUT : bloqué", options: { bullet: true, breakLine: true } },
   { text: "amplitude < SEUIL_BAS : à vide", options: { bullet: true, breakLine: true } },
-  { text: "Timer2 : IT toutes les 10 ms, un flag", options: { bullet: true, breakLine: true } },
+  { text: "IT 10 ms : Nb_10ms + 1, lu en section critique", options: { bullet: true, breakLine: true } },
   { text: "Heures = 72 → autotest (uint8_t)", options: { bullet: true } },
 ], { x: 10.55, y: 1.65, w: 2.05, h: 3.45, fontSize: 13, paraSpaceAfter: 6 });
 T(s, "Codé avec switch(etat) ; broches, CAN et Timer2 configurés par MCC (MPLAB X, XC8).", { x: 0.7, y: 6.15, w: 9.5, h: 0.35, fontSize: 13, italic: true, color: C.text2 });
-s.addNotes("ORATEUR B (45 s). Le logiciel est une machine à états. Le Timer2 lève une IT toutes les 10 ms ; la routine d'IT ne fait que lever un flag, le main compte secondes, minutes, heures en uint8_t. Depuis ARRÊT, deux déclencheurs : Heures = 72 lance l'autotest, l'arrivée d'eau lance le pompage. Dans les deux cas, si le courant sort des seuils, on passe en DÉFAUT : moteur coupé, message et alarme différents selon la cause. On ignore le pic de démarrage. Dire honnêtement l'avancement du code.");
+s.addNotes("ORATEUR B (45 s). Le logiciel est une machine à états. Le Timer2 lève une IT toutes les 10 ms ; la routine d'IT ajoute seulement 1 à Nb_10ms ; le main le recopie en section critique (GIE = 0 le temps de la copie) et compte secondes, minutes, heures en uint8_t. Un simple flag perdrait des pas pendant les 20 ms de mesure. Depuis ARRÊT, deux déclencheurs : Heures = 72 lance l'autotest, l'arrivée d'eau lance le pompage. Dans les deux cas, si le courant sort des seuils, on passe en DÉFAUT : moteur coupé, message et alarme différents selon la cause. On ignore le pic de démarrage. Dire honnêtement l'avancement du code.");
 
 // ================= 10. Avancement =================
 pres.addSection({ title: "Bilan" });

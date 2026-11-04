@@ -150,9 +150,9 @@ programme : chapitre 6 du rapport. À dessiner (draw.io) :
 2. **Machine à états** : variable `etat` + `switch(etat)`, un `case` par état
    (ARRET, AUTO_TEST, FONCTIONNEMENT, DEFAUT), transitions par `if`.
 3. **Base de temps** : Timer2 à 10 ms (FOSC = 4 MHz, TCY = 1 µs, prescaler 16 ×
-   (PR2 + 1 = 125) × postscaler 5, donc PR2 = 124). L'IT **ne fait que lever
-   `Flag_10ms`** (variable globale `volatile`) ; le `main` remet le flag à 0 le plus
-   tôt possible et compte `Compteur_10ms`, `Secondes`, `Minutes`, `Heures`, tous en
+   (PR2 + 1 = 125) × postscaler 5, donc PR2 = 124). L'IT **ajoute seulement 1 à
+   `Nb_10ms`** (variable globale `volatile`) ; le `main` le recopie puis le remet à 0
+   en **section critique** (IT coupées le temps de la copie) et compte `Compteur_10ms`, `Secondes`, `Minutes`, `Heures`, tous en
    `uint8_t`. Heures = 72 → autotest ; 60 s au plus pour le test.
 4. **Mesure** (`Mesure_Amplitude()`) : sur 20 ms, lire AN0, garder `maxi` et `mini` →
    amplitude = maxi − mini en **points du CAN** (q = 5 V / 4096 = 1,22 mV). Pas de
@@ -236,13 +236,15 @@ PCB, firmware, maquette, documents).
     amplitude = max − min, comparée à des seuils en points (`#define`). Quantum
     q = 5 V / 4096 = 1,22 mV, soit 61 mA par point.
 12. *Comment comptez-vous 3 jours ?* — Timer2 en interruption toutes les 10 ms ; l'IT
-    lève seulement un flag, le `main` compte secondes, minutes, heures en `uint8_t`
+    ajoute 1 à `Nb_10ms`, le `main` le recopie en section critique et compte secondes, minutes, heures en `uint8_t`
     (Heures = 72). Pas de `__delay_ms` : pendant un délai le PIC ne voit rien.
 12 bis. *Pourquoi `PEIE = 1` ?* — Le Timer2 est une interruption interne
     (périphérique) : il faut `PEIE` en plus de `GIE` et du bit `TMR2IE`.
 12 ter. *Pourquoi l'IT est-elle si courte ?* — Sinon le main est bloqué : pas de
-    `printf`, pas de `float`, pas de délai dans l'IT ; elle lève un flag, le main
-    fait le reste. `Flag_10ms` est `volatile` car partagée entre l'IT et le main.
+    `printf`, pas de `float`, pas de délai dans l'IT ; elle compte, le main
+    fait le reste. `Nb_10ms` est `volatile` car partagée entre l'IT et le main.
+    Un simple flag ne suffit pas : pendant les 20 ms de mesure, deux IT peuvent
+    arriver et un flag n'en garde qu'une.
 13. *Que se passe-t-il au démarrage du moteur ?* — Pic de courant normal : on ignore
     la mesure pendant une temporisation avant de comparer à Imax.
 
@@ -282,7 +284,7 @@ PCB, firmware, maquette, documents).
 ## 6. Ce qu'il faut retenir (fiche mémo chiffres)
 
 - Secteur 230 V eff → **325 V crête** (358 V à 253 V) ; 50 Hz → T = 20 ms.
-- Pompe ~300 W → I ≈ **1,3 A** (*hypothèse, plaque à relever*).
+- Pompe ~300 W → I ≈ **1,3 A** si on néglige le facteur de puissance (P / U) ; le vrai courant est plus élevé (P / (U × cos φ)) : *plaque à relever*.
 - ACS756 : **20 mV/A**, **2,5 V à 0 A** ; CAN 12 bits : quantum **q = 5 V / 4096 = 1,22 mV**, soit **61 mA par point**.
 - MOC3041 : IFT max **15 mA**, tenue **400 V**, zéro-crossing ; R_LED **150 Ω**.
 - FODM3011 retiré : **250 V** seulement.
