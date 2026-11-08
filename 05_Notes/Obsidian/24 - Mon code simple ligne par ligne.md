@@ -275,6 +275,40 @@ Dans MPLAB : **Clean and Build**, puis programmer le PIC. Ensuite, avec le poten
 | Bouton reset, au milieu, puis en bas pendant 10 s | A VIDE, LED éteinte |
 | En haut dès le départ | BLOQUE après le démarrage |
 
+## Si on passe par MCC Classic
+
+Le fichier prêt est `Projet_vide_cave_1.X/main_MCC_Classic.c`. **Il n'est pas encore testé avec les vrais fichiers de MCC.**
+
+**Ce qui change dans le `main` :**
+
+```c
+#include "mcc_generated_files/mcc.h"
+
+TMR2_SetInterruptHandler(IT_Timer2);     // avant d'autoriser les interruptions
+INTERRUPT_GlobalInterruptEnable();
+INTERRUPT_PeripheralInterruptEnable();
+```
+
+**Ce qui change dans l'interruption :**
+
+```c
+void IT_Timer2(void)      // appelée par MCC toutes les 10 ms
+{
+    static uint8_t nb_10ms = 0;
+
+    nb_10ms = nb_10ms + 1;
+    if(nb_10ms >= 10)
+    {
+        nb_10ms = 0;
+        top_100ms = 1;
+    }
+}
+```
+
+**À dire à l'oral :** « Le Timer2 est configuré dans MCC. MCC remet le drapeau à zéro et appelle ma fonction `IT_Timer2` toutes les 10 ms. »
+
+**Ce qui reste écrit dans le code :** `#define`, `etat`, `compteur`, `courant`, `top_100ms`. C'est la logique du programme, MCC ne s'en occupe pas.
+
 ## 10. Si le jury demande
 
 **Pourquoi une interruption plutôt qu'un `__delay_ms` ?**
