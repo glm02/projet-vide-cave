@@ -11,6 +11,42 @@ Le code est dans `Projet_vide_cave_1.X/main.c`.
 **En une phrase :** le Timer2 déclenche une interruption toutes les 10 ms. Toutes les 100 ms, le
 programme lit le courant et décide quoi faire du moteur selon son état.
 
+## Mémo : la lecture analogique
+
+**À retenir :** le CAN du PIC fait **12 bits**, et mon programme en garde **8**.
+
+Le CAN transforme une tension en nombre. C'est comme un escalier de 256 marches entre 0 V et 5 V : une marche fait 19,5 mV, et le CAN donne le numéro de la marche.
+
+| Tension sur RA0 | Nombre sur 8 bits |
+|---|---|
+| 0 V | 0 |
+| 2,5 V | 128 |
+| 3,38 V | 173 (seuil haut) |
+| 5 V | 255 |
+
+**Le calcul :** nombre = tension × 256 / 5.
+
+```c
+courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
+```
+
+| Morceau | Ce que ça veut dire |
+|---|---|
+| `ADC_GetConversion(...)` | Lis la tension et donne-moi le nombre (fonction générée par MCC) |
+| `Capteur_COURANT` | La broche à lire : RA0 |
+| `negChannel_ADNREF` | La référence : la masse, 0 V |
+| `>> 8` | Garde les 8 bits les plus importants, comme une division par 256 |
+
+**Ce que fait la fonction :** elle choisit la broche, allume le CAN, attend un peu, lance la mesure (`GO_nDONE = 1`), attend la fin, puis renvoie le résultat.
+
+**À l'oral :**
+
+> Le CAN transforme la tension en nombre. Je lis RA0 avec `ADC_GetConversion`, générée par MCC. Il mesure sur 12 bits, et je garde 8 bits avec le `>> 8`, donc une valeur de 0 à 255. Chaque point vaut 19,5 mV. Ensuite, je compare cette valeur à mes seuils.
+
+**Si on me demande pourquoi pas 12 bits :**
+
+> 8 bits suffisent pour le test au potentiomètre. Avec le vrai capteur à 20 mV par ampère, un point vaudrait environ 1 A, donc il faudra passer en 12 bits.
+
 ## 1. Les noms au début
 
 ```c
