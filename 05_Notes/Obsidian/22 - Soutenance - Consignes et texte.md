@@ -127,29 +127,31 @@ La répartition entre vous deux est une proposition, à adapter. Les durées fon
 
 ### Partie 7 : la lecture analogique (1 min 15) · Rafaël
 
-> Le PIC ne comprend que des nombres, alors que le capteur donne une tension. Le CAN, le convertisseur analogique numérique, découpe la plage de 0 à 5 V en petites marches et donne le numéro de la marche. Sur 8 bits, il y a 256 marches de 19,5 mV. Sur 12 bits, il y en a 4096, de 1,22 mV. Pour les tests au potentiomètre, 8 bits suffisent. Avec le vrai capteur à 20 mV par ampère, un point vaudrait déjà environ 1 A : il faudra donc passer à 12 bits.
+> Le capteur donne une tension, mais le PIC ne comprend que des nombres. C'est le CAN qui transforme la tension en nombre. Pour tester, on a utilisé le potentiomètre de la carte SAE22. Le PIC envoyait le nombre au PC, on le lisait sur RealTerm et on notait les valeurs en tournant le potentiomètre. On a vu la valeur aller de 9 à 255, soit de 0,18 V à 4,98 V. On a coupé cette plage en trois zones, ce qui nous donne deux seuils de test : 91 et 173.
 
-**À montrer :** le tableau 0 V, 2,5 V, 5 V en 8 et 12 bits, puis le tableau RealTerm : voir [[23 - Mesures RealTerm expliquees]].
+**À montrer :** le tableau RealTerm : voir [[23 - Mesures RealTerm expliquees]].
 
 ### Partie 8 : le code (1 min 15) · Rafaël
 
 ```c
-void IT_Timer2(void)      // appelée par MCC toutes les 10 ms
-{
-    static uint8_t nb_10ms = 0;
+courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
 
-    nb_10ms = nb_10ms + 1;
-    if(nb_10ms >= 10)     // 10 x 10 ms = 100 ms
+if(courant > SEUIL_HAUT || courant < SEUIL_BAS)
+{
+    if(compteur >= 100)         // depuis 10 s
     {
-        nb_10ms = 0;
-        top_100ms = 1;
+        OPTO_TRIAC_SetLow();    // on coupe le moteur
     }
+}
+else
+{
+    compteur = 0;
 }
 ```
 
-> Le Timer2 est configuré dans MCC et déclenche une interruption toutes les 10 ms. MCC appelle alors ma fonction IT_Timer2. Au bout de 10 fois, je préviens le main avec un drapeau. Toutes les 100 ms, le main lit le courant et passe dans un switch avec quatre états : arrêt, démarrage, marche et défaut. Il ne coupe pas au premier dépassement : il faut 10 secondes de suite, pour qu'un pic isolé ne coupe pas la pompe. Avec l'interruption, le PIC n'est pas bloqué à attendre. Pour l'instant, c'est un potentiomètre qui simule le courant.
+> Je ne montre que les morceaux importants. On lit le courant, on garde une valeur de 0 à 255, et on la compare à nos deux seuils. Si le courant est anormal pendant 10 secondes, on coupe le moteur. S'il redevient normal, le compteur repart de zéro, donc un pic isolé ne coupe pas la pompe. Pour le temps, le Timer2 réglé dans MCC déclenche une interruption toutes les 10 ms. Le programme suit quatre états : arrêt, démarrage, marche et défaut. Pour l'instant, c'est le potentiomètre qui simule le courant.
 
-**À montrer :** l'interruption, le `case MARCHE` et les quatre états.
+**À montrer :** seulement les morceaux de la note [[25 - Texte des diapos]], pas tout le code.
 
 ### Partie 9 : ce qu'on a, ce qu'il reste (1 min) · Rafaël
 

@@ -15,6 +15,13 @@ On a tourné le potentiomètre de la carte SAE22, branché sur RA0. Le PIC lisai
 et envoyait le résultat au PC par la liaison série. RealTerm affichait ce résultat, et on a
 noté les valeurs dans un tableau.
 
+Le morceau de code qui envoyait la valeur :
+
+```c
+valeur = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF);
+printf("CAN=%u\r\n", valeur);
+```
+
 ## Le tableau
 
 | Mesure | Valeur lue sur RealTerm | Valeur sur 8 bits | Tension |

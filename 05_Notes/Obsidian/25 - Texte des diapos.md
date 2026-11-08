@@ -135,7 +135,8 @@ Images : dossier `Soutenance vide-cave/Photos composants` du Bureau.
 
 **Essai 1 : lecture analogique, sur la carte SAE22**
 
-- Potentiomètre sur RA0, valeurs lues sur RealTerm.
+- Potentiomètre sur RA0 : plus je tourne, plus la tension et le nombre montent.
+- Le PIC envoie le nombre au PC par la liaison série, je le lis sur RealTerm.
 
 | Valeur RealTerm | Sur 8 bits | Tension |
 |---|---|---|
@@ -158,21 +159,44 @@ Images : dossier `Soutenance vide-cave/Photos composants` du Bureau.
 
 **Pas encore testé :** le vrai capteur, le triac et le 230 V.
 
-## Le code : l'organisation
-
-- **Interruption du Timer2** toutes les 10 ms
-- **Toutes les 100 ms**, le `main` lit le courant et passe dans le `switch`
-- **4 états :** ARRET → DEMARRAGE → MARCHE → DEFAUT
-
-**Réglage du Timer2 dans MCC :** 0,25 µs × 16 × 250 × 10 = 10 ms
-
-## Le code : l'interruption
+## Le code : la lecture analogique
 
 ```c
-void IT_Timer2(void)      // appelée par MCC toutes les 10 ms
-{
-    static uint8_t nb_10ms = 0;
+#define SEUIL_BAS   91
+#define SEUIL_HAUT  173
 
+courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
+```
+
+- On lit la tension sur RA0.
+- `>> 8` : on garde une valeur de 0 à 255.
+- On compare cette valeur à deux seuils.
+
+## Le code : la décision
+
+```c
+if(courant > SEUIL_HAUT || courant < SEUIL_BAS)
+{
+    if(compteur >= 100)         // depuis 10 s
+    {
+        OPTO_TRIAC_SetLow();    // on coupe le moteur
+    }
+}
+else
+{
+    compteur = 0;
+}
+```
+
+- Courant anormal pendant 10 s : on coupe.
+- Courant normal : le compteur repart de zéro.
+- Un pic isolé ne coupe donc pas la pompe.
+
+## Le code : le temps
+
+```c
+void IT_Timer2(void)      // appelée toutes les 10 ms
+{
     nb_10ms = nb_10ms + 1;
     if(nb_10ms >= 10)     // 10 x 10 ms = 100 ms
     {
@@ -182,34 +206,19 @@ void IT_Timer2(void)      // appelée par MCC toutes les 10 ms
 }
 ```
 
-- Toutes les 10 ms, MCC appelle ma fonction.
-- Au bout de 10 fois, on prévient le `main`.
+- Le Timer2, réglé dans MCC, déclenche une interruption toutes les 10 ms.
+- Toutes les 100 ms, le `main` mesure et décide.
 
-## Le code : la mesure et la décision
+## Le code : les états
 
-```c
-courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
-compteur = compteur + 1;
-```
+**ARRET → DEMARRAGE → MARCHE → DEFAUT**
 
-```c
-case MARCHE:
-    if((courant >= SEUIL_BAS) && (courant <= SEUIL_HAUT))
-    {
-        compteur = 0;
-    }
-    else if(compteur >= DUREE_DEFAUT)
-    {
-        Moteur_Arret();
-        ...
-        etat = DEFAUT;
-    }
-    break;
-```
-
-- Courant normal : le compteur repart de zéro.
-- Courant anormal pendant 10 s : on coupe.
-- Un pic isolé ne coupe donc pas la pompe.
+| État | Ce que fait le programme |
+|---|---|
+| ARRET | Moteur coupé, démarre au bout de 2 s pour le test |
+| DEMARRAGE | Attend 5 s : le pic de courant est normal |
+| MARCHE | Compare le courant aux seuils |
+| DEFAUT | Moteur coupé, affiche BLOQUE ou A VIDE |
 
 ## Ce qui est fait, ce qui reste à faire
 
