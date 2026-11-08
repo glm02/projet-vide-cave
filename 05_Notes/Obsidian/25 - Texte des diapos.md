@@ -153,7 +153,7 @@ Images : dossier `Soutenance vide-cave/Photos composants` du Bureau.
 
 - Une LED d'un côté du potentiomètre, l'autre LED de l'autre côté.
 
-**Essai 3 : le programme à 4 états**
+**Essai 3 : le programme à 3 états**
 
 - [À compléter après le test sur la carte. Sinon, écrire : écrit, pas encore testé.]
 
@@ -165,7 +165,7 @@ Images : dossier `Soutenance vide-cave/Photos composants` du Bureau.
 #define SEUIL_BAS   91
 #define SEUIL_HAUT  173
 
-courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
+Courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
 ```
 
 - On lit la tension sur RA0.
@@ -175,48 +175,41 @@ courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
 ## Le code : la décision
 
 ```c
-if(courant > SEUIL_HAUT || courant < SEUIL_BAS)
+if(Courant >= SEUIL_BAS && Courant <= SEUIL_HAUT)    // courant normal
 {
-    if(compteur >= 100)         // depuis 10 s
-    {
-        OPTO_TRIAC_SetLow();    // on coupe le moteur
-    }
+    Compteur = 0;
 }
-else
+else if(Compteur >= 100)    // anormal depuis 10 s
 {
-    compteur = 0;
+    OPTO_TRIAC_SetLow();    // on coupe le moteur
 }
 ```
 
-- Courant anormal pendant 10 s : on coupe.
 - Courant normal : le compteur repart de zéro.
+- Courant anormal pendant 10 s : on coupe.
 - Un pic isolé ne coupe donc pas la pompe.
 
 ## Le code : le temps
 
 ```c
-void IT_Timer2(void)      // appelée toutes les 10 ms
+TMR2_SetInterruptHandler(IT_Timer2);
+
+void IT_Timer2(void)      // appelée par MCC toutes les 100 ms
 {
-    nb_10ms = nb_10ms + 1;
-    if(nb_10ms >= 10)     // 10 x 10 ms = 100 ms
-    {
-        nb_10ms = 0;
-        top_100ms = 1;
-    }
+    Top = 1;
 }
 ```
 
-- Le Timer2, réglé dans MCC, déclenche une interruption toutes les 10 ms.
-- Toutes les 100 ms, le `main` mesure et décide.
+- Le Timer2, réglé dans MCC, appelle notre fonction toutes les 100 ms.
+- Le `main` voit `Top` à 1, mesure et décide.
 
 ## Le code : les états
 
-**ARRET → DEMARRAGE → MARCHE → DEFAUT**
+**DEMARRAGE → MARCHE → DEFAUT**
 
 | État | Ce que fait le programme |
 |---|---|
-| ARRET | Moteur coupé, démarre au bout de 2 s pour le test |
-| DEMARRAGE | Attend 5 s : le pic de courant est normal |
+| DEMARRAGE | Moteur en marche, attend 5 s : le pic de courant est normal |
 | MARCHE | Compare le courant aux seuils |
 | DEFAUT | Moteur coupé, affiche BLOQUE ou A VIDE |
 
@@ -229,7 +222,7 @@ void IT_Timer2(void)      // appelée toutes les 10 ms
 | Mesure | Lecture testée au potentiomètre | Brancher l'ACS756, passer à 12 bits |
 | Commande | Schéma KiCad | Tester le triac et l'optotriac |
 | Détection du zéro | 6N136 au schéma | Fixer les valeurs, relier au programme |
-| Programme | 4 états et interruption écrits | Vrais seuils, lancement tous les 3 jours |
+| Programme | 3 états et interruption écrits | Vrais seuils, état d'arrêt, lancement tous les 3 jours |
 | Carte | Schéma et typons en cours | Finir, imprimer, souder |
 | Dossier | Rapport de conception en cours | Compléter et rendre |
 

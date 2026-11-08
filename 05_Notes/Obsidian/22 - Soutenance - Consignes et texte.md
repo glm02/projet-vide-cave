@@ -134,22 +134,19 @@ La répartition entre vous deux est une proposition, à adapter. Les durées fon
 ### Partie 8 : le code (1 min 15) · Rafaël
 
 ```c
-courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
+Courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
 
-if(courant > SEUIL_HAUT || courant < SEUIL_BAS)
+if(Courant >= SEUIL_BAS && Courant <= SEUIL_HAUT)    // courant normal
 {
-    if(compteur >= 100)         // depuis 10 s
-    {
-        OPTO_TRIAC_SetLow();    // on coupe le moteur
-    }
+    Compteur = 0;
 }
-else
+else if(Compteur >= 100)    // anormal depuis 10 s
 {
-    compteur = 0;
+    OPTO_TRIAC_SetLow();    // on coupe le moteur
 }
 ```
 
-> Je ne montre que les morceaux importants. On lit le courant, on garde une valeur de 0 à 255, et on la compare à nos deux seuils. Si le courant est anormal pendant 10 secondes, on coupe le moteur. S'il redevient normal, le compteur repart de zéro, donc un pic isolé ne coupe pas la pompe. Pour le temps, le Timer2 réglé dans MCC déclenche une interruption toutes les 10 ms. Le programme suit quatre états : arrêt, démarrage, marche et défaut. Pour l'instant, c'est le potentiomètre qui simule le courant.
+> Je ne montre que les morceaux importants. On lit le courant, on garde une valeur de 0 à 255, et on la compare à nos deux seuils. Si le courant est normal, le compteur repart de zéro, donc un pic isolé ne coupe pas la pompe. S'il reste anormal pendant 10 secondes, on coupe le moteur. Pour le temps, le Timer2 réglé dans MCC appelle notre fonction toutes les 100 ms. Le programme suit trois états : démarrage, marche et défaut. Pour l'instant, c'est le potentiomètre qui simule le courant, et le lancement tous les trois jours n'est pas encore codé.
 
 **À montrer :** seulement les morceaux de la note [[25 - Texte des diapos]], pas tout le code.
 
@@ -199,7 +196,7 @@ Le code ligne par ligne : [[24 - Mon code simple ligne par ligne]]. Le reste est
 | 19,5 mV | Le quantum en 8 bits |
 | 1,22 mV | Le quantum en 12 bits |
 | 91 et 173 | Les seuils de test au potentiomètre |
-| 10 ms, 100 ms | L'interruption du Timer2, puis le traitement dans le `main` |
-| 1:16, 1:10, 10 ms | Le réglage du Timer2 dans MCC : 0,25 µs × 16 × 250 × 10 = 10 ms |
-| 2 s, 5 s, 10 s | Attente avant de démarrer (test), démarrage toléré, défaut confirmé en marche |
+| 100 ms | L'appel de notre fonction par le Timer2, puis la mesure dans le `main` |
+| 1:16, 1:10, 10 ms, 10 fois | Le réglage du Timer2 dans MCC : 0,25 µs × 16 × 250 × 10 = 10 ms, et 10 × 10 ms = 100 ms |
+| 5 s, 10 s | Démarrage toléré, défaut confirmé en marche |
 | 5 mA, 330 Ω | Amorçage du MOC3023, valeur prévue pour R7 |

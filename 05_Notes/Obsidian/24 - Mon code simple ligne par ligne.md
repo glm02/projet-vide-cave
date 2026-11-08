@@ -11,7 +11,7 @@ Retour : [[00 - Accueil]] · Mesures : [[23 - Mesures RealTerm expliquees]]
 Le code est dans `Projet_vide_cave_1.X` :
 
 - `main_MCC_Classic.c` : le Timer2 est réglé dans MCC. C'est la version à utiliser une fois le projet généré en Classic. **Elle n'a pas encore été compilée avec les vrais fichiers de MCC.**
-- `main.c` : le même programme, avec le Timer2 réglé dans le code. Il compile avec le projet actuel.
+- `main.c` : le même programme, avec le Timer2 réglé dans le code. Il compile avec le projet actuel, mais il est un peu plus long.
 
 ## 1. La lecture analogique, avec mon potentiomètre
 
@@ -55,7 +55,7 @@ printf("CAN=%u\r\n", valeur);
 ### La lecture
 
 ```c
-courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
+Courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
 ```
 
 > Je lis la tension sur RA0. Le `>> 8` divise par 256 : j'ai une valeur de 0 à 255.
@@ -63,81 +63,151 @@ courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
 ### La décision
 
 ```c
-if(courant > SEUIL_HAUT || courant < SEUIL_BAS)   // courant anormal
+if(Courant >= SEUIL_BAS && Courant <= SEUIL_HAUT)    // courant normal
 {
-    if(compteur >= 100)                           // depuis 10 s
-    {
-        OPTO_TRIAC_SetLow();                      // on coupe le moteur
-    }
+    Compteur = 0;
 }
-else                                              // courant normal
+else if(Compteur >= 100)    // anormal depuis 10 s
 {
-    compteur = 0;
+    OPTO_TRIAC_SetLow();    // on coupe le moteur
 }
 ```
 
-> Si le courant est trop fort ou trop faible, je laisse le compteur monter. Au bout de 10 secondes, je coupe. S'il redevient normal, je remets à zéro. Comme ça, un pic isolé ne coupe pas la pompe.
+> Si le courant est normal, je remets le compteur à zéro. Sinon, il continue de monter : au bout de 10 secondes, je coupe. Comme ça, un pic isolé ne coupe pas la pompe.
 
-`||` veut dire « ou ».
+`&&` veut dire « et ».
 
 ### Le temps, avec l'interruption
 
 ```c
-void IT_Timer2(void)      // appelée toutes les 10 ms
+TMR2_SetInterruptHandler(IT_Timer2);     // avant d'autoriser les IT
+INTERRUPT_GlobalInterruptEnable();       // GIE = 1
+INTERRUPT_PeripheralInterruptEnable();   // PEIE = 1
+
+void IT_Timer2(void)      // appelée par MCC toutes les 100 ms
 {
-    nb_10ms = nb_10ms + 1;
-    if(nb_10ms >= 10)     // 10 x 10 ms = 100 ms
-    {
-        nb_10ms = 0;
-        top_100ms = 1;
-    }
+    Top = 1;
 }
 ```
 
-> Le Timer2 déclenche une interruption toutes les 10 ms. Au bout de 10 fois, je préviens le `main` : c'est le moment de mesurer.
+> Le Timer2 est réglé dans MCC. Toutes les 100 ms, il appelle ma fonction, qui met `Top` à 1. Le `main` voit ce drapeau, le remet à 0, mesure et décide.
 
-## 3. Comment marche tout le programme
+## 3. Le programme en entier
 
-Une variable `etat` retient où en est le moteur.
+```c
+// Projet vide-cave - IUT Lyon 1 GEII - version MCC Classic
+// Test : le potentiometre sur RA0 remplace le capteur de courant.
+
+#include "mcc_generated_files/mcc.h"
+#include "lcd.h"
+
+#define SEUIL_BAS   91
+#define SEUIL_HAUT  173
+
+#define DEMARRAGE  0
+#define MARCHE     1
+#define DEFAUT     2
+
+volatile uint8_t Top = 0;   // mis a 1 toutes les 100 ms par le Timer2
+
+void IT_Timer2(void);
+
+void main(void)
+{
+    uint8_t Etat = DEMARRAGE;
+    uint8_t Compteur = 0;   // temps passe, en fois 100 ms
+    uint16_t Courant;
+
+    SYSTEM_Initialize();
+    LCD_Initialize();
+
+    // Enregistrement AVANT d'autoriser les IT
+    TMR2_SetInterruptHandler(IT_Timer2);
+
+    INTERRUPT_GlobalInterruptEnable();     // GIE = 1
+    INTERRUPT_PeripheralInterruptEnable(); // PEIE = 1
+
+    OPTO_TRIAC_SetHigh();   // on demarre le moteur
+    LCD_WriteText("Demarrage");
+
+    while(1) // ne se termine jamais
+    {
+        if(Top == 1)        // toutes les 100 ms
+        {
+            Top = 0;
+            Compteur = Compteur + 1;
+            Courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
+
+            if(Etat == DEMARRAGE && Compteur >= 50)    // 5 s : le pic de courant est passe
+            {
+                Compteur = 0;
+                LCD_Clear();
+                LCD_WriteText("En marche");
+                Etat = MARCHE;
+            }
+            else if(Etat == MARCHE)
+            {
+                if(Courant >= SEUIL_BAS && Courant <= SEUIL_HAUT)    // courant normal
+                {
+                    Compteur = 0;
+                }
+                else if(Compteur >= 100)    // anormal depuis 10 s
+                {
+                    OPTO_TRIAC_SetLow();    // on coupe le moteur
+                    LCD_Clear();
+                    if(Courant > SEUIL_HAUT)
+                    {
+                        LCD_WriteText("BLOQUE");
+                    }
+                    else
+                    {
+                        LCD_WriteText("A VIDE");
+                    }
+                    Etat = DEFAUT;          // on n'en sort que par le bouton reset
+                }
+            }
+        }
+    }
+}
+
+// Appelee par MCC toutes les 100 ms
+void IT_Timer2(void)
+{
+    Top = 1;
+}
+```
+
+**Les 3 états :**
 
 | État | Ce qu'il fait | Quand il change |
 |---|---|---|
-| `ARRET` | Moteur coupé | Après 2 s (pour le test) : démarre le moteur |
-| `DEMARRAGE` | Moteur en marche | Après 5 s : le pic de courant est passé |
+| `DEMARRAGE` | Moteur en marche, attend | Après 5 s : le pic de courant est passé |
 | `MARCHE` | Compare le courant aux seuils | Anormal pendant 10 s : coupe le moteur |
 | `DEFAUT` | Moteur coupé, affiche BLOQUE ou A VIDE | Seulement avec le bouton reset |
 
-Chaque état est un simple `if` :
-
-```c
-if(etat == ARRET) { ... }
-else if(etat == DEMARRAGE) { ... }
-else if(etat == MARCHE) { ... }
-```
-
-**Les durées :** `compteur` augmente toutes les 100 ms. 20 fois = 2 s, 50 fois = 5 s, 100 fois = 10 s.
+**Les durées :** `Compteur` augmente toutes les 100 ms. 50 fois = 5 s, 100 fois = 10 s.
 
 **Les variables :**
 
 | Variable | Type | Pourquoi |
 |---|---|---|
-| `etat`, `compteur`, `nb_10ms` | `uint8_t` | De 0 à 255, ça suffit |
-| `courant` | `uint16_t` | Le CAN renvoie 16 bits |
-| `top_100ms` | `volatile uint8_t` | Modifiée dans l'interruption, lue dans le `main` |
+| `Etat`, `Compteur` | `uint8_t` | De 0 à 255, ça suffit |
+| `Courant` | `uint16_t` | Le CAN renvoie 16 bits |
+| `Top` | `volatile uint8_t` | Modifiée dans l'interruption, lue dans le `main` |
 
-**Le réglage du Timer2 dans MCC :** prescaler 1:16, postscaler 1:10, période 10 ms, interruption activée.
+**Le réglage du Timer2 dans MCC :** prescaler 1:16, postscaler 1:10, période 10 ms, interruption activée, **Callback Function Rate à 10** : la fonction est appelée toutes les 10 × 10 ms = 100 ms.
 
-Le calcul : 0,25 µs × 16 × 250 × 10 = 10 ms.
+Le calcul de la période : 0,25 µs × 16 × 250 × 10 = 10 ms.
 
 ## 4. Comment le tester sur la carte
 
-Dans MPLAB : **Clean and Build**, puis programmer le PIC. Ensuite, avec le potentiomètre :
+Dans MPLAB : **Clean and Build**, puis programmer le PIC. Le moteur est commandé dès le démarrage, donc **pas de 230 V pour ce test**. Avec le potentiomètre :
 
 | Potentiomètre | Ce que tu dois voir |
 |---|---|
-| Au milieu | Arret, Demarrage après 2 s, En marche 5 s plus tard, LED allumée |
-| Puis en haut pendant 10 s | BLOQUE, LED éteinte |
-| Bouton reset, au milieu, puis en bas pendant 10 s | A VIDE, LED éteinte |
+| Au milieu | Demarrage, puis En marche après 5 s |
+| Puis en haut pendant 10 s | BLOQUE |
+| Bouton reset, au milieu, puis en bas pendant 10 s | A VIDE |
 
 ## 5. Si le jury demande
 
@@ -153,11 +223,14 @@ Dans MPLAB : **Clean and Build**, puis programmer le PIC. Ensuite, avec le poten
 **Pourquoi une interruption ?**
 > Pour que le PIC ne reste pas bloqué dans une attente. Il mesure toutes les 100 ms et reste libre entre deux.
 
+**Pourquoi l'interruption ne fait qu'une ligne ?**
+> Une interruption doit être courte. Elle prévient le `main`, qui fait le travail.
+
 **Pourquoi `volatile` ?**
-> `top_100ms` change dans l'interruption. Le mot oblige le programme à la relire à chaque fois.
+> `Top` change dans l'interruption. Le mot oblige le programme à la relire à chaque fois.
 
 **Qu'est-ce que tu as réglé dans MCC ?**
 > L'horloge, les broches, le CAN et le Timer2. Moi, j'écris la logique du programme.
 
 **Ton programme compte 3 jours ?**
-> Pas encore, il attend 2 s pour le test. Il faudra compter les heures jusqu'à 72.
+> Pas encore, il démarre tout de suite pour le test. Il faudra ajouter un état d'arrêt et compter les heures jusqu'à 72.
