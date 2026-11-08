@@ -121,7 +121,7 @@ L'explication complète est dans [[24 - Mon code simple ligne par ligne]].
 
 ## 4. Attention
 
-- **Ne pas dire « MOC3041 » ni « Timer2 toutes les 10 ms »** : c'était dans l'ancien diaporama et la note 10, ce n'est pas ce qu'on a.
+- **Ne pas dire « MOC3041 »** : c'était dans l'ancien diaporama et la note 10. Nous, c'est le MOC3023.
 - **Dire 230 V** (pas 130 V).
 - **Dire « optotriac » pour le MOC3023** et **« optocoupleur » pour le 6N136**.
-- **Réglage à vérifier dans MCC :** le fichier généré `adc.c` indique une horloge du CAN à `FOSC/2`, alors que ton commentaire demande `FOSC/16`. À 16 MHz, `FOSC/16` donne TAD = 1 µs, le minimum recommandé ; `FOSC/2` donne 0,125 µs, c'est trop rapide et la mesure peut être moins précise.
+- **Réglage dans MCC :** l'horloge du CAN doit être à `FOSC/16` : à 16 MHz, ça donne TAD = 1 µs. `FOSC/2` serait trop rapide.

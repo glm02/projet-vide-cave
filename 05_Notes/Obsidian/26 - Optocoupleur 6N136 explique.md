@@ -56,43 +56,36 @@ Puissance dans une résistance : (230 V / 94 kΩ)² × 47 kΩ ≈ 0,28 W. Le 1 W
 
 ## Le code
 
-**Pas encore dans ton `main.c` :** la carte avec le 6N136 n'existe pas encore. Ce code compile, mais il n'a pas été testé.
+**Pas encore dans le programme :** la carte avec le 6N136 n'existe pas encore. Ce code n'a été ni compilé avec MCC Classic ni testé. Le nom `IOCBF4_SetInterruptHandler` est à vérifier dans `pin_manager.h`.
 
 On utilise une **interruption sur changement d'état (IOC)**, vue en cours.
 
-### 1. La configuration, avant `GIE = 1`
+### 1. La configuration dans MCC
 
-```c
-ANSB4 = 0;    // RB4 en numérique
-TRISB4 = 1;   // RB4 en entrée
-IOCBN4 = 1;   // interruption quand RB4 passe de 1 à 0
-IOCBF4 = 0;   // le drapeau part de 0
-IOCIE = 1;    // j'autorise les interruptions IOC
-```
+Dans le Pin Module, pour RB4 :
 
-`IOCBN4` : le N veut dire front négatif, donc de 1 vers 0.
+- entrée numérique, nommée `ZERO` ;
+- IOC sur front négatif, donc quand RB4 passe de 1 à 0 ;
+- interruption activée.
 
-### 2. Dans l'interruption
+### 2. L'interruption
 
 ```c
 volatile uint8_t top_zero = 0;
 
-void __interrupt() int_handler(void)
+void IT_Zero(void)        // appelée par MCC à chaque repère
 {
-    if(IOCBF4 == 1)       // c'est le 6N136
-    {
-        IOCBF4 = 0;       // RAZ en premier
-        top_zero = 1;     // je préviens le main
-    }
-
-    if(TMR2IF == 1)       // c'est le Timer2
-    {
-        // le code d'aujourd'hui, sans changement
-    }
+    top_zero = 1;         // je préviens le main
 }
 ```
 
-Il n'y a qu'un seul gestionnaire d'interruption. Je regarde donc d'où vient l'interruption avec les drapeaux.
+Dans le `main`, avant d'autoriser les interruptions :
+
+```c
+IOCBF4_SetInterruptHandler(IT_Zero);
+```
+
+MCC remet le drapeau `IOCBF4` à 0 et appelle ma fonction. Le Timer2 garde sa fonction à lui, `IT_Timer2`.
 
 ### 3. Dans le `main`
 

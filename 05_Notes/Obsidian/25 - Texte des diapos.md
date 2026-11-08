@@ -154,7 +154,7 @@ Images : dossier `Soutenance vide-cave/Photos composants` du Bureau.
 
 **Essai 3 : le programme à 4 états**
 
-- [À compléter après le test sur la carte : ce que tu as vu.]
+- [À compléter après le test sur la carte. Sinon, écrire : écrit, pas encore testé.]
 
 **Pas encore testé :** le vrai capteur, le triac et le 230 V.
 
@@ -164,29 +164,25 @@ Images : dossier `Soutenance vide-cave/Photos composants` du Bureau.
 - **Toutes les 100 ms**, le `main` lit le courant et passe dans le `switch`
 - **4 états :** ARRET → DEMARRAGE → MARCHE → DEFAUT
 
-**Réglage du Timer2 :** 0,25 µs × 16 × 250 × 10 = 10 ms
+**Réglage du Timer2 dans MCC :** 0,25 µs × 16 × 250 × 10 = 10 ms
 
 ## Le code : l'interruption
 
 ```c
-void __interrupt() int_handler(void)
+void IT_Timer2(void)      // appelée par MCC toutes les 10 ms
 {
     static uint8_t nb_10ms = 0;
 
-    if(TMR2IF == 1)
+    nb_10ms = nb_10ms + 1;
+    if(nb_10ms >= 10)     // 10 x 10 ms = 100 ms
     {
-        TMR2IF = 0;
-        nb_10ms = nb_10ms + 1;
-        if(nb_10ms >= 10)
-        {
-            nb_10ms = 0;
-            top_100ms = 1;
-        }
+        nb_10ms = 0;
+        top_100ms = 1;
     }
 }
 ```
 
-- Toutes les 10 ms, on compte.
+- Toutes les 10 ms, MCC appelle ma fonction.
 - Au bout de 10 fois, on prévient le `main`.
 
 ## Le code : la mesure et la décision
@@ -275,7 +271,7 @@ Montrer ici le Gantt : `Gantt_vide-cave_a_jour.xlsx`.
 | Outil          | Pour quoi faire                                |
 | -------------- | ---------------------------------------------- |
 | MPLAB X et XC8 | Écrire et compiler le code en C                |
-| MCC            | Configurer l'horloge, les broches et le CAN    |
+| MCC Classic | Configurer l'horloge, les broches, le CAN et le Timer2 |
 | MPLAB SNAP     | Programmer le PIC                              |
 | RealTerm       | Lire les valeurs envoyées par la liaison série |
 | KiCad          | Faire le schéma et le typon                    |
