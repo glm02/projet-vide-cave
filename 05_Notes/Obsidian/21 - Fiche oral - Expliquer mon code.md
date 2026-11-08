@@ -6,8 +6,8 @@ date: 2026-11-08
 
 Retour : [[00 - Accueil]]
 
-À lire ce soir, puis à redire à voix haute sans regarder. Le code à montrer est
-`main_simple.c`. Le fichier `main.c` ne compile pas (il contient deux `main`).
+À lire ce soir, puis à redire à voix haute sans regarder. Le code à montrer est `main.c`, la version
+simplifiée : [[24 - Mon code simple ligne par ligne]].
 
 ## 1. Les 3 notions à savoir
 
@@ -69,108 +69,9 @@ Le **quantum**, c'est la hauteur d'une marche :
 **La formule :** nombre = tension / 5 V × 256 (en 8 bits).
 Exemple : 3,38 V / 5 × 256 = 173, c'est mon `SEUIL_HAUT`.
 
-## 2. Mon code, morceau par morceau
+## 2. Mon code
 
-### La lecture du courant
-
-```c
-uint8_t Lire_Courant(void)
-{
-    return (uint8_t)(ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8);
-}
-```
-
-- `uint8_t Lire_Courant(void)` : la fonction ne reçoit rien (`void`) et renvoie un nombre de 0 à 255.
-- `ADC_GetConversion(...)` : fonction générée par MCC. Elle choisit l'entrée, attend un peu, lance la conversion, attend la fin et renvoie le résultat.
-- `Capteur_COURANT` : le nom que j'ai donné à RA0 dans MCC.
-- `negChannel_ADNREF` : la tension de référence basse, ici la masse. La mesure se fait par rapport à 0 V.
-- `>> 8` : le CAN mesure sur 12 bits, le résultat est rangé à gauche dans 16 bits. Décaler de 8 vers la droite garde les 8 bits les plus importants.
-- `(uint8_t)` : je range le résultat dans 8 bits.
-
-```text
-Résultat sur 16 bits :  1000 0000 0000 0000   (2,5 V)
-Après >> 8          :   0000 0000 1000 0000   = 128
-```
-
-> **À dire :** « Si demain on change de capteur, je n'ai que l'intérieur de cette fonction à modifier. »
-
-### Les noms au début du fichier
-
-```c
-#define SEUIL_BAS   91
-#define SEUIL_HAUT  173
-#define DUREE_10S   100
-```
-
-`#define` donne un nom à une valeur. Le compilateur remplace le nom par la valeur. Ça
-rend le code lisible et je change une valeur à un seul endroit. 91 et 173 découpent le
-potentiomètre en 3 zones : ce sont des seuils de test, à refaire avec le vrai capteur.
-
-```c
-#define MOTEUR_ON()  do { OPTO_TRIAC_SetHigh(); LED_SetHigh(); } while(0)
-```
-
-`MOTEUR_ON()` met RB2 à 1 (donc l'optotriac, donc le triac) et allume la LED. La LED me
-permet de voir la commande sans avoir de 230 V. `do { } while(0)` permet juste d'utiliser
-la macro comme une instruction normale, avec ses deux actions groupées.
-
-### Le programme principal
-
-```c
-SYSTEM_Initialize();   // MCC : horloge, broches, CAN
-LCD_Initialize();      // LCD
-MOTEUR_OFF();          // sécurité : moteur coupé au démarrage
-
-while (1) // ne se termine jamais
-{
-    courant = Lire_Courant();
-    switch (etat) { ... }
-    __delay_ms(100);
-}
-```
-
-Toutes les 100 ms : je lis le courant, je regarde dans quel état je suis, j'agis.
-
-### La machine à états
-
-Une variable `etat` retient où on en est. `switch (etat)` exécute le `case` qui
-correspond. `break` sort du `switch`.
-
-| État | Ce que fait le moteur | Comment on en sort |
-|---|---|---|
-| `ETAT_ARRET` | Coupé | Après 2 s (pour le test) → DEMARRAGE |
-| `ETAT_DEMARRAGE` | En marche | À 3 s si le courant est redescendu → MARCHE ; à 5 s s'il est encore trop fort → BLOQUE |
-| `ETAT_MARCHE` | En marche | 10 s trop fort → BLOQUE ; 10 s trop faible → A_VIDE |
-| `ETAT_BLOQUE` | Coupé | Seulement par le bouton reset |
-| `ETAT_A_VIDE` | Coupé | Seulement par le bouton reset |
-
-**Le calcul des durées :** la boucle dure 100 ms. 100 tours × 100 ms = 10 s. 30 tours = 3 s. 50 tours = 5 s.
-
-```c
-if (courant > SEUIL_HAUT)
-{
-    compteur_haut = compteur_haut + 1;   // un tour de plus avec un courant trop fort
-    compteur_bas = 0;
-}
-```
-
-> **À dire :** « Je ne coupe pas au premier dépassement. Je compte combien de temps ça dure.
-> Comme ça, un pic isolé ne coupe pas la pompe. Si le courant redevient normal, je
-> remets le compteur à zéro. »
-
-### L'affichage
-
-```c
-if (etat != etat_precedent)   // != veut dire « différent de »
-{
-    Afficher_Etat(etat);
-    etat_precedent = etat;
-}
-```
-
-Je n'écris sur le LCD que si l'état a changé. Sinon l'écran clignote.
-
-`etat_precedent` commence à 255, une valeur impossible : ça force le premier affichage.
+L'explication complète est dans [[24 - Mon code simple ligne par ligne]].
 
 ## 3. Les questions pièges
 
@@ -225,5 +126,4 @@ Je n'écris sur le LCD que si l'état a changé. Sinon l'écran clignote.
 - **Ne pas dire « MOC3041 » ni « Timer2 toutes les 10 ms »** : c'était dans l'ancien diaporama et la note 10, ce n'est pas ce qu'on a.
 - **Dire 230 V** (pas 130 V).
 - **Dire « optotriac » pour le MOC3023** et **« optocoupleur » pour le 6N136**.
-- **Si le jury veut voir le projet dans MPLAB :** le projet compile `main.c`, qui contient deux `main` et ne compile pas. Montrer `main_simple.c` dans l'éditeur, ou enlever le premier programme de `main.c` avant.
 - **Réglage à vérifier dans MCC :** le fichier généré `adc.c` indique une horloge du CAN à `FOSC/2`, alors que ton commentaire demande `FOSC/16`. À 16 MHz, `FOSC/16` donne TAD = 1 µs, le minimum recommandé ; `FOSC/2` donne 0,125 µs, c'est trop rapide et la mesure peut être moins précise.

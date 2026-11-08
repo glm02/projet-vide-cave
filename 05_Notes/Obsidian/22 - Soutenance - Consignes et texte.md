@@ -136,7 +136,10 @@ La répartition entre vous deux est une proposition, à adapter. Les durées fon
 ```c
 uint8_t Lire_Courant(void)
 {
-    return (uint8_t)(ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8);
+    uint16_t mesure;
+
+    mesure = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF);
+    return (uint8_t)(mesure >> 8);
 }
 ```
 
@@ -173,7 +176,7 @@ uint8_t Lire_Courant(void)
 
 ## 4. Ce que tu dois savoir expliquer
 
-Tout est dans [[21 - Fiche oral - Expliquer mon code]] :
+Le code ligne par ligne : [[24 - Mon code simple ligne par ligne]]. Le reste est dans [[21 - Fiche oral - Expliquer mon code]] :
 
 - `uint8_t`, 8 bits, 12 bits et le quantum
 - la lecture analogique et `>> 8`
@@ -191,5 +194,5 @@ Tout est dans [[21 - Fiche oral - Expliquer mon code]] :
 | 1,22 mV | Le quantum en 12 bits |
 | 91 et 173 | Les seuils de test au potentiomètre |
 | 100 ms | La durée d'un tour de boucle |
-| 3 s, 5 s, 10 s | Démarrage toléré, blocage au démarrage, défaut confirmé en marche |
+| 2 s, 5 s, 10 s | Attente avant de démarrer (test), démarrage toléré, défaut confirmé en marche |
 | 5 mA, 330 Ω | Amorçage du MOC3023, valeur prévue pour R7 |
