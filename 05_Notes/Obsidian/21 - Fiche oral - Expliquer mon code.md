@@ -184,11 +184,9 @@ Je n'écris sur le LCD que si l'état a changé. Sinon l'écran clignote.
 > autre chose en même temps.
 
 **Là, tu lis une seule valeur : le courant est alternatif, non ?**
-> Oui, et c'est la limite de cette version. Une seule mesure tombe n'importe où sur la sinusoïde.
-> C'est pour ça que j'ai écrit un autre programme de test, `main_test_efficace.c` : 100 mesures
-> sur une période de 20 ms, une toutes les 200 µs, puis le calcul de la valeur efficace.
-> Pour l'instant il tourne en simulation, le PIC fabrique lui-même la sinusoïde. Et c'est
-> aussi le rôle du 6N136 : savoir quand démarrer les mesures.
+> Oui, et c'est la limite de cette version : une seule mesure tombe n'importe où sur la sinusoïde.
+> La prochaine étape, c'est de faire plusieurs mesures sur une période de 20 ms. Le 6N136 sert
+> à savoir quand les démarrer.
 
 **Le 6N136, il sert à quoi exactement ?**
 > À repérer le passage par zéro de la tension du secteur, en restant isolé. Ça permet de
@@ -209,8 +207,9 @@ Je n'écris sur le LCD que si l'état a changé. Sinon l'écran clignote.
 > code sur la carte SAE22 avec un potentiomètre, ensuite capteur et triac, puis le reste.
 
 **Ton capteur 100 A, ce n'est pas trop ?**
-> Si. Pour une pompe d'environ 1 A, il donne seulement 20 mV. Passer en 12 bits aide. Un capteur
-> plus petit, comme un ACS712 5 A à 185 mV/A, donnerait 9 fois plus de signal : c'est une amélioration possible.
+> Si, mais c'est celui que les profs nous ont donné. Pour une pompe d'environ 1 A, il donne seulement
+> 20 mV, donc il faudra passer en 12 bits. Un capteur plus petit donnerait plus de signal : c'est une
+> amélioration possible.
 
 **C'est quoi MCC ?**
 > L'outil de MPLAB qui configure le PIC et génère le code : horloge, broches, CAN, liaison série.

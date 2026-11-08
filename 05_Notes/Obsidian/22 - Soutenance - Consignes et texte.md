@@ -45,7 +45,7 @@ Pour chaque idée, se demander : « quel message je veux faire passer ? », puis
 - [ ] Synoptique simple (introduction)
 - [ ] Synthèse du cahier des charges
 - [ ] Synoptique détaillé avec les noms des signaux (AN0, RB2)
-- [ ] Choix des composants, **avec la raison de chaque choix**
+- [ ] Les composants : dire qu'ils nous ont été donnés par les profs, et à quoi sert chacun
 - [ ] Schéma structurel (KiCad)
 - [ ] Organigramme ou machine à états du programme
 - [ ] Résultats et essais déjà réalisés
@@ -63,7 +63,7 @@ Pour chaque idée, se demander : « quel message je veux faire passer ? », puis
 
 ### À faire avant demain
 
-- [ ] **Planning :** à faire ou à mettre à jour. Le fichier Gantt ne contient que 4 tâches.
+- [ ] **Planning :** relire `Gantt_vide-cave_a_jour.xlsx` à deux (dossier `Soutenance vide-cave` du Bureau)
 - [ ] Photos réelles si vous en avez : carte SAE22, composants
 - [ ] Se répartir les parties avec ton binôme
 - [ ] Une répétition chronométrée, à voix haute
@@ -98,13 +98,13 @@ La répartition entre vous deux est une proposition, à adapter. Les durées fon
 
 **À montrer :** les trois cas de courant.
 
-### Partie 4 : l'architecture et ce qui a changé (1 min) · Binôme
+### Partie 4 : l'architecture et ce qui a changé (1 min) · Jules
 
 > À gauche, le 230 V avec la pompe et le triac. À droite, le 5 V avec le PIC. Trois composants font le lien sans contact électrique : le capteur de courant, l'optotriac et l'optocoupleur. Depuis la pré-étude, on est passés du relais au triac. On a ajouté un optocoupleur pour repérer le passage par zéro de la tension. Et on repart de la carte de la SAE22, qu'on modifie : on garde le PIC, la liaison série, des LED et le LCD, on enlève la liaison avec le hacheur.
 
 **À montrer :** synoptique détaillé.
 
-### Partie 5 : les composants (1 min 30) · Binôme
+### Partie 5 : les composants (1 min 30) · Jules
 
 | Composant | Référence | Rôle | À retenir |
 |---|---|---|---|
@@ -115,11 +115,11 @@ La répartition entre vous deux est une proposition, à adapter. Les durées fon
 | Microcontrôleur | PIC16F1788 | Lit le courant, décide, commande | CAN 12 bits, RA0 capteur, RB2 commande |
 | Afficheur | LCD 162B, 2 × 16 | Affiche l'état du moteur | Mode 4 bits |
 
-> La plupart des composants nous ont été fournis à l'IUT. Il reste quelques résistances et condensateurs à fixer avant d'imprimer la carte.
+> On n'a pas vraiment eu à chercher : ces composants nous ont été donnés par les profs. Nous, on a regardé à quoi ils servent et comment les câbler. Il reste quelques résistances et condensateurs à fixer avant d'imprimer la carte.
 
-**À montrer :** le tableau avec les images, dans `01_Documents/Images_composants`.
+**À montrer :** le tableau avec les images, dans le dossier `Soutenance vide-cave/Photos composants` du Bureau.
 
-### Partie 6 : le schéma (45 s) · Binôme
+### Partie 6 : le schéma (45 s) · Jules
 
 > Le PIC commande l'optotriac par RB2, à travers R7. Pour R7 : 5 V moins 1,5 V pour la LED, divisé par 10 mA, ça donne 350 Ω, on prend 330 Ω, à valider. L'optotriac déclenche la gâchette du triac. Ce schéma est une version de travail : il reste à faire passer le courant du moteur dans le capteur, à ajouter le bornier secteur et à revoir R4, qui est en série avec le moteur.
 
@@ -129,7 +129,7 @@ La répartition entre vous deux est une proposition, à adapter. Les durées fon
 
 > Le PIC ne comprend que des nombres, alors que le capteur donne une tension. Le CAN, le convertisseur analogique numérique, découpe la plage de 0 à 5 V en petites marches et donne le numéro de la marche. Sur 8 bits, il y a 256 marches de 19,5 mV. Sur 12 bits, il y en a 4096, de 1,22 mV. Pour les tests au potentiomètre, 8 bits suffisent. Avec le vrai capteur à 20 mV par ampère, un point vaudrait déjà environ 1 A : il faudra donc passer à 12 bits.
 
-**À montrer :** le tableau 0 V, 2,5 V, 5 V en 8 et 12 bits.
+**À montrer :** le tableau 0 V, 2,5 V, 5 V en 8 et 12 bits, puis le tableau RealTerm : voir [[23 - Mesures RealTerm expliquees]].
 
 ### Partie 8 : le code (1 min 15) · Rafaël
 
@@ -157,17 +157,17 @@ uint8_t Lire_Courant(void)
 
 > Ce qui marche aujourd'hui, c'est la lecture analogique et les seuils. On n'a pas encore de résultat avec le vrai capteur et le 230 V, parce que la carte n'est pas imprimée.
 
-### Partie 10 : le planning (30 s) · Binôme
+### Partie 10 : le planning (30 s) · Jules
 
 > On a un peu de retard, surtout sur le code et la carte. On a perdu du temps à chercher des composants sur internet alors qu'ils étaient à l'IUT. Pour rattraper, on avance bloc par bloc : capteur et triac, puis optocoupleur, puis LED et LCD. La date de fin ne change pas.
 
-**À montrer :** le planning actualisé. **À préparer : il n'existe pas encore à jour.**
+**À montrer :** le Gantt à jour.
 
 ### Partie 11 : conclusion (30 s) · chacun une phrase
 
 > **Rafaël :** Je me suis occupé de la recherche des composants, du choix des broches du PIC et du code. J'ai surtout appris la lecture analogique, qu'on n'avait pas encore vue en cours, et sa configuration avec MCC.
 >
-> **Binôme :** Je me suis occupé de KiCad, du schéma et des typons. [À compléter avec ses mots.]
+> **Jules :** Je me suis occupé de KiCad, du schéma et des typons. [À compléter avec ses mots.]
 >
 > **Pour finir :** Le projet mélange électronique, programmation et gestion de projet. On a utilisé GitHub et un Kanban pour s'organiser. Il nous reste à imprimer la carte et à tester avec le vrai capteur. Merci, nous sommes prêts pour vos questions.
 
