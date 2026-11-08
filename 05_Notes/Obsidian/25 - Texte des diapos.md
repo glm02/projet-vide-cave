@@ -272,19 +272,19 @@ Montrer ici le Gantt : `Gantt_vide-cave_a_jour.xlsx`.
 
 ## Les outils utilisés
 
-| Outil | Pour quoi faire |
-|---|---|
-| MPLAB X et XC8 | Écrire et compiler le code en C |
-| MCC | Configurer l'horloge, les broches et le CAN |
-| MPLAB SNAP | Programmer le PIC |
-| RealTerm | Lire les valeurs envoyées par la liaison série |
-| KiCad | Faire le schéma et le typon |
-| draw.io | Dessiner les synoptiques |
-| GitHub | Partager les fichiers à deux |
-| Obsidian | Garder nos notes et nos décisions |
-| Google Drive | Partager les documents et les datasheets |
-| Google Sheets | Faire le Gantt |
-| Kanban | Suivre les tâches |
+| Outil          | Pour quoi faire                                |
+| -------------- | ---------------------------------------------- |
+| MPLAB X et XC8 | Écrire et compiler le code en C                |
+| MCC            | Configurer l'horloge, les broches et le CAN    |
+| MPLAB SNAP     | Programmer le PIC                              |
+| RealTerm       | Lire les valeurs envoyées par la liaison série |
+| KiCad          | Faire le schéma et le typon                    |
+| draw.io        | Dessiner les synoptiques                       |
+| GitHub         | Partager les fichiers à deux                   |
+| Obsidian       | Garder nos notes et nos décisions              |
+| Google Drive   | Partager les documents et les datasheets       |
+| Google Sheets  | Faire le Gantt                                 |
+| Kanban         | Suivre les tâches                              |
 
 ## Conclusion
 

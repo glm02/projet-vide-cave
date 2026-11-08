@@ -45,8 +45,8 @@ Pour chaque idée, se demander : « quel message je veux faire passer ? », puis
 - [x] Synoptique simple (introduction)
 - [ ] Synthèse du cahier des charges
 - [ ] Synoptique détaillé avec les noms des signaux (AN0, RB2)
-- [ ] Les composants : dire qu'ils nous ont été donnés par les profs, et à quoi sert chacun
-- [ ] Schéma structurel (KiCad)
+- [x] Les composants : dire qu'ils nous ont été donnés par les profs, et à quoi sert chacun
+- [x] Schéma structurel (KiCad)
 - [ ] Organigramme ou machine à états du programme
 - [ ] Résultats et essais déjà réalisés
 - [ ] Ce qui est fait et ce qui reste à faire
@@ -134,24 +134,20 @@ La répartition entre vous deux est une proposition, à adapter. Les durées fon
 ### Partie 8 : le code (1 min 15) · Rafaël
 
 ```c
-void __interrupt() int_handler(void)
+void IT_Timer2(void)      // appelée par MCC toutes les 10 ms
 {
     static uint8_t nb_10ms = 0;
 
-    if(TMR2IF == 1)
+    nb_10ms = nb_10ms + 1;
+    if(nb_10ms >= 10)     // 10 x 10 ms = 100 ms
     {
-        TMR2IF = 0;
-        nb_10ms = nb_10ms + 1;
-        if(nb_10ms >= 10)
-        {
-            nb_10ms = 0;
-            top_100ms = 1;
-        }
+        nb_10ms = 0;
+        top_100ms = 1;
     }
 }
 ```
 
-> Le Timer2 déclenche une interruption toutes les 10 ms. Au bout de 10 fois, je préviens le main avec un drapeau. Toutes les 100 ms, le main lit le courant et passe dans un switch avec quatre états : arrêt, démarrage, marche et défaut. Il ne coupe pas au premier dépassement : il faut 10 secondes de suite, pour qu'un pic isolé ne coupe pas la pompe. Avec l'interruption, le PIC n'est pas bloqué à attendre. Pour l'instant, c'est un potentiomètre qui simule le courant.
+> Le Timer2 est configuré dans MCC et déclenche une interruption toutes les 10 ms. MCC appelle alors ma fonction IT_Timer2. Au bout de 10 fois, je préviens le main avec un drapeau. Toutes les 100 ms, le main lit le courant et passe dans un switch avec quatre états : arrêt, démarrage, marche et défaut. Il ne coupe pas au premier dépassement : il faut 10 secondes de suite, pour qu'un pic isolé ne coupe pas la pompe. Avec l'interruption, le PIC n'est pas bloqué à attendre. Pour l'instant, c'est un potentiomètre qui simule le courant.
 
 **À montrer :** l'interruption, le `case MARCHE` et les quatre états.
 
@@ -202,6 +198,6 @@ Le code ligne par ligne : [[24 - Mon code simple ligne par ligne]]. Le reste est
 | 1,22 mV | Le quantum en 12 bits |
 | 91 et 173 | Les seuils de test au potentiomètre |
 | 10 ms, 100 ms | L'interruption du Timer2, puis le traitement dans le `main` |
-| PR2 = 249, T2CON = 0b01001110 | Le réglage du Timer2 : 0,25 µs × 16 × 250 × 10 = 10 ms |
+| 1:16, 1:10, 10 ms | Le réglage du Timer2 dans MCC : 0,25 µs × 16 × 250 × 10 = 10 ms |
 | 2 s, 5 s, 10 s | Attente avant de démarrer (test), démarrage toléré, défaut confirmé en marche |
 | 5 mA, 330 Ω | Amorçage du MOC3023, valeur prévue pour R7 |

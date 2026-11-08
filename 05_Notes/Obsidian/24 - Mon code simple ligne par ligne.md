@@ -6,7 +6,7 @@ date: 2026-11-08
 
 Retour : [[00 - Accueil]] · Notions : [[21 - Fiche oral - Expliquer mon code]]
 
-Le code est dans `Projet_vide_cave_1.X/main.c`.
+Le code est dans `Projet_vide_cave_1.X/main_MCC_Classic.c`. **Il reste à générer le projet en MCC Classic et à le tester sur la carte.**
 
 **En une phrase :** le Timer2 déclenche une interruption toutes les 10 ms. Toutes les 100 ms, le
 programme lit le courant et décide quoi faire du moteur selon son état.
@@ -94,48 +94,49 @@ LCD_WriteText("Arret");
 
 `SYSTEM_Initialize` vient de MCC : horloge, broches et CAN. Je coupe le moteur par sécurité.
 
-## 4. Le réglage du Timer2
+## 4. Le réglage du Timer2 dans MCC
 
-```c
-PR2 = 249;
-T2CON = 0b01001110;   // postscaler 1:10, Timer2 ON, prescaler 1:16
-```
+Le Timer2 se règle dans MCC, pas dans le code :
+
+| Réglage | Valeur |
+|---|---|
+| Prescaler | 1:16 |
+| Postscaler | 1:10 |
+| Période | 10 ms |
+| Interruption | Activée |
 
 **Le calcul :** FOSC = 16 MHz, donc TCY = 4 / FOSC = 0,25 µs.
 
 0,25 µs × 16 (prescaler) × 250 (PR2 + 1) × 10 (postscaler) = **10 ms**
 
+Dans le `main`, il reste trois lignes :
+
 ```c
-TMR2IF = 0;   // le drapeau part de 0
-TMR2IE = 1;   // j'autorise l'interruption du Timer2
-PEIE = 1;     // le Timer2 est un périphérique
-GIE = 1;      // j'autorise les interruptions, en dernier
+TMR2_SetInterruptHandler(IT_Timer2);     // MCC appellera ma fonction
+INTERRUPT_GlobalInterruptEnable();       // GIE = 1
+INTERRUPT_PeripheralInterruptEnable();   // PEIE = 1 : le Timer2 est un périphérique
 ```
 
-`GIE` vient en dernier, une fois que tout est initialisé.
+J'enregistre d'abord ma fonction, puis j'autorise les interruptions, une fois que tout est initialisé.
 
 ## 5. L'interruption
 
 ```c
-void __interrupt() int_handler(void)
+void IT_Timer2(void)      // appelée par MCC toutes les 10 ms
 {
     static uint8_t nb_10ms = 0;
 
-    if(TMR2IF == 1)
+    nb_10ms = nb_10ms + 1;
+    if(nb_10ms >= 10)     // 10 x 10 ms = 100 ms
     {
-        TMR2IF = 0;               // RAZ en premier
-        nb_10ms = nb_10ms + 1;
-        if(nb_10ms >= 10)         // 10 x 10 ms = 100 ms
-        {
-            nb_10ms = 0;
-            top_100ms = 1;
-        }
+        nb_10ms = 0;
+        top_100ms = 1;
     }
 }
 ```
 
-1. Le PIC arrête ce qu'il fait et vient ici toutes les 10 ms.
-2. Je vérifie que c'est bien le Timer2, puis je remets le drapeau à 0. Sinon le PIC revient ici sans arrêt.
+1. Toutes les 10 ms, le Timer2 déclenche une interruption. Le PIC arrête ce qu'il fait.
+2. Le code de MCC remet le drapeau `TMR2IF` à 0 et appelle ma fonction `IT_Timer2`.
 3. `static` : `nb_10ms` garde sa valeur d'un appel à l'autre.
 4. Au bout de 10 fois, je mets `top_100ms` à 1 pour prévenir le `main`.
 
@@ -275,39 +276,9 @@ Dans MPLAB : **Clean and Build**, puis programmer le PIC. Ensuite, avec le poten
 | Bouton reset, au milieu, puis en bas pendant 10 s | A VIDE, LED éteinte |
 | En haut dès le départ | BLOQUE après le démarrage |
 
-## Si on passe par MCC Classic
+## Ce qui reste écrit dans le code
 
-Le fichier prêt est `Projet_vide_cave_1.X/main_MCC_Classic.c`. **Il n'est pas encore testé avec les vrais fichiers de MCC.**
-
-**Ce qui change dans le `main` :**
-
-```c
-#include "mcc_generated_files/mcc.h"
-
-TMR2_SetInterruptHandler(IT_Timer2);     // avant d'autoriser les interruptions
-INTERRUPT_GlobalInterruptEnable();
-INTERRUPT_PeripheralInterruptEnable();
-```
-
-**Ce qui change dans l'interruption :**
-
-```c
-void IT_Timer2(void)      // appelée par MCC toutes les 10 ms
-{
-    static uint8_t nb_10ms = 0;
-
-    nb_10ms = nb_10ms + 1;
-    if(nb_10ms >= 10)
-    {
-        nb_10ms = 0;
-        top_100ms = 1;
-    }
-}
-```
-
-**À dire à l'oral :** « Le Timer2 est configuré dans MCC. MCC remet le drapeau à zéro et appelle ma fonction `IT_Timer2` toutes les 10 ms. »
-
-**Ce qui reste écrit dans le code :** `#define`, `etat`, `compteur`, `courant`, `top_100ms`. C'est la logique du programme, MCC ne s'en occupe pas.
+`#define`, `etat`, `compteur`, `courant` et `top_100ms` restent dans le code : c'est la logique du programme, MCC ne s'en occupe pas.
 
 ## 10. Si le jury demande
 
@@ -315,11 +286,11 @@ void IT_Timer2(void)      // appelée par MCC toutes les 10 ms
 > Pendant un délai, le PIC ne fait rien d'autre. Avec le Timer2 en interruption, il est libre entre deux
 > mesures, et le temps reste précis.
 
-**Pourquoi `PEIE = 1` ?**
-> Le Timer2 est un périphérique. Il faut `TMR2IE` pour le Timer2, `PEIE` pour les périphériques et `GIE` pour tout.
+**Pourquoi `INTERRUPT_PeripheralInterruptEnable()` ?**
+> Le Timer2 est un périphérique. Cette ligne met `PEIE` à 1, et il faut aussi `GIE` pour autoriser les interruptions.
 
-**Pourquoi remettre `TMR2IF` à 0 ?**
-> Sinon, le PIC repart dans l'interruption dès qu'il en sort, et le programme se bloque.
+**Qui remet `TMR2IF` à 0 ?**
+> Le code généré par MCC, avant d'appeler ma fonction. Sinon, le PIC repartirait dans l'interruption dès qu'il en sort.
 
 **Pourquoi l'interruption est-elle si courte ?**
 > Elle coupe le programme principal. Elle prévient juste le `main`, qui fait le travail.
@@ -333,8 +304,8 @@ void IT_Timer2(void)      // appelée par MCC toutes les 10 ms
 **Pourquoi 10 ms et pas directement 100 ms ?**
 > Le Timer2 n'y arrive pas. Au maximum, 0,25 µs × 64 × 256 × 16 ≈ 65 ms. Donc je compte 10 fois 10 ms.
 
-**Pourquoi le Timer2 n'est pas configuré dans MCC ?**
-> Je l'ai réglé directement avec les registres, comme en cours. MCC configure l'horloge, les broches et le CAN.
+**Qu'est-ce que tu as configuré dans MCC ?**
+> L'horloge, les broches, le CAN et le Timer2. Moi, j'écris la logique et la fonction `IT_Timer2`.
 
 **Ton programme compte 3 jours ?**
 > Pas encore, il attend 2 s pour le test. Avec le même `top_100ms`, je pourrai compter les secondes, les minutes et les heures jusqu'à 72.
