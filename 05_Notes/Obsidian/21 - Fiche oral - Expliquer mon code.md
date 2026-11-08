@@ -79,10 +79,8 @@ L'explication complète est dans [[24 - Mon code simple ligne par ligne]].
 > Pour le test au potentiomètre, ça suffit et c'est plus simple : 3 zones sur 256 valeurs.
 > Avec le vrai capteur, il faudra les 12 bits.
 
-**Pourquoi un `__delay_ms(100)` ? Ce n'est pas bloquant ?**
-> Si, pendant ces 100 ms le PIC ne fait rien d'autre. Pour ce test, c'est suffisant et simple.
-> Pour la suite, je veux passer par une interruption de Timer, pour qu'il puisse faire
-> autre chose en même temps.
+**Pourquoi une interruption et pas un `__delay_ms` ?**
+> Pendant un délai, le PIC ne fait rien d'autre. Avec le Timer2 en interruption, il reste libre entre deux mesures.
 
 **Là, tu lis une seule valeur : le courant est alternatif, non ?**
 > Oui, et c'est la limite de cette version : une seule mesure tombe n'importe où sur la sinusoïde.

@@ -40,9 +40,9 @@ Pour chaque idée, se demander : « quel message je veux faire passer ? », puis
 
 ### Obligatoire
 
-- [ ] Noms, groupe 311, nom de l'enseignant, IUT Lyon 1 GEII, 2026-2027
-- [ ] Un plan de l'exposé
-- [ ] Synoptique simple (introduction)
+- [x] Noms, groupe 311, nom de l'enseignant, IUT Lyon 1 GEII, 2026-2027
+- [x] Un plan de l'exposé
+- [x] Synoptique simple (introduction)
 - [ ] Synthèse du cahier des charges
 - [ ] Synoptique détaillé avec les noms des signaux (AN0, RB2)
 - [ ] Les composants : dire qu'ils nous ont été donnés par les profs, et à quoi sert chacun
@@ -63,7 +63,7 @@ Pour chaque idée, se demander : « quel message je veux faire passer ? », puis
 
 ### À faire avant demain
 
-- [ ] **Planning :** relire `Gantt_vide-cave_a_jour.xlsx` à deux (dossier `Soutenance vide-cave` du Bureau)
+- [x] **Planning :** relire `Gantt_vide-cave_a_jour.xlsx` à deux (dossier `Soutenance vide-cave` du Bureau)
 - [ ] Photos réelles si vous en avez : carte SAE22, composants
 - [ ] Se répartir les parties avec ton binôme
 - [ ] Une répétition chronométrée, à voix haute
@@ -134,18 +134,26 @@ La répartition entre vous deux est une proposition, à adapter. Les durées fon
 ### Partie 8 : le code (1 min 15) · Rafaël
 
 ```c
-uint8_t Lire_Courant(void)
+void __interrupt() int_handler(void)
 {
-    uint16_t mesure;
+    static uint8_t nb_10ms = 0;
 
-    mesure = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF);
-    return (uint8_t)(mesure >> 8);
+    if(TMR2IF == 1)
+    {
+        TMR2IF = 0;
+        nb_10ms = nb_10ms + 1;
+        if(nb_10ms >= 10)
+        {
+            nb_10ms = 0;
+            top_100ms = 1;
+        }
+    }
 }
 ```
 
-> uint8_t veut dire un entier sans signe sur 8 bits, de 0 à 255. ADC_GetConversion est générée par MCC : elle lance la conversion et renvoie le résultat. Le décalage de 8 garde les 8 bits les plus importants. Le programme est une machine à cinq états : arrêt, démarrage, marche, bloqué et à vide. Toutes les 100 ms, il lit le courant et le compare aux seuils. Il ne coupe pas au premier dépassement : il faut 10 secondes de défaut, pour qu'un pic isolé ne coupe pas la pompe. Pour l'instant, c'est un potentiomètre qui simule le courant.
+> Le Timer2 déclenche une interruption toutes les 10 ms. Au bout de 10 fois, je préviens le main avec un drapeau. Toutes les 100 ms, le main lit le courant et passe dans un switch avec quatre états : arrêt, démarrage, marche et défaut. Il ne coupe pas au premier dépassement : il faut 10 secondes de suite, pour qu'un pic isolé ne coupe pas la pompe. Avec l'interruption, le PIC n'est pas bloqué à attendre. Pour l'instant, c'est un potentiomètre qui simule le courant.
 
-**À montrer :** ce bout de code et la machine à états.
+**À montrer :** l'interruption, le `case MARCHE` et les quatre états.
 
 ### Partie 9 : ce qu'on a, ce qu'il reste (1 min) · Rafaël
 
@@ -193,6 +201,7 @@ Le code ligne par ligne : [[24 - Mon code simple ligne par ligne]]. Le reste est
 | 19,5 mV | Le quantum en 8 bits |
 | 1,22 mV | Le quantum en 12 bits |
 | 91 et 173 | Les seuils de test au potentiomètre |
-| 100 ms | La durée d'un tour de boucle |
+| 10 ms, 100 ms | L'interruption du Timer2, puis le traitement dans le `main` |
+| PR2 = 249, T2CON = 0b01001110 | Le réglage du Timer2 : 0,25 µs × 16 × 250 × 10 = 10 ms |
 | 2 s, 5 s, 10 s | Attente avant de démarrer (test), démarrage toléré, défaut confirmé en marche |
 | 5 mA, 330 Ω | Amorçage du MOC3023, valeur prévue pour R7 |

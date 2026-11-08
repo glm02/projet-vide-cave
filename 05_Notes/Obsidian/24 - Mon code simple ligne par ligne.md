@@ -6,11 +6,10 @@ date: 2026-11-08
 
 Retour : [[00 - Accueil]] · Notions : [[21 - Fiche oral - Expliquer mon code]]
 
-Le code est dans `Projet_vide_cave_1.X/main.c`. L'ancien est gardé dans
-`main_avant_simplification.c.txt`.
+Le code est dans `Projet_vide_cave_1.X/main.c`.
 
-**En une phrase :** toutes les 100 ms, le PIC lit le courant, regarde dans quel état il est, et
-décide s'il faut changer d'état.
+**En une phrase :** le Timer2 déclenche une interruption toutes les 10 ms. Toutes les 100 ms, le
+programme lit le courant et décide quoi faire du moteur selon son état.
 
 ## 1. Les noms au début
 
@@ -18,40 +17,35 @@ décide s'il faut changer d'état.
 #define SEUIL_BAS   91
 #define SEUIL_HAUT  173
 
-#define DUREE_ARRET      20    // 20 x 100 ms = 2 s
-#define DUREE_DEMARRAGE  50    // 50 x 100 ms = 5 s
-#define DUREE_DEFAUT     100   // 100 x 100 ms = 10 s
+#define DUREE_ARRET      20    // 2 s
+#define DUREE_DEMARRAGE  50    // 5 s
+#define DUREE_DEFAUT     100   // 10 s
 
 #define ARRET      0
 #define DEMARRAGE  1
 #define MARCHE     2
-#define BLOQUE     3
-#define A_VIDE     4
+#define DEFAUT     3
 ```
 
-`#define` donne un nom à un nombre. C'est plus lisible, et je change la valeur à un seul endroit.
+`#define` donne un nom à un nombre.
 
 - **Les seuils** viennent des mesures RealTerm : voir [[23 - Mesures RealTerm expliquees]].
-- **Les durées** sont en tours de boucle. Un tour dure 100 ms.
-- **Les états** sont juste des numéros avec un nom.
+- **Les durées** se comptent en fois 100 ms : 20 × 100 ms = 2 s.
+- **Les états** sont des numéros avec un nom.
 
 ## 2. Les variables
 
 ```c
-uint8_t etat = ARRET;
-uint8_t etat_affiche = ARRET;
-uint8_t compteur = 0;
-uint8_t courant;
+volatile uint8_t top_100ms = 0;   // globale, partagée avec l'interruption
+
+uint8_t etat = ARRET;             // l'état du moteur
+uint8_t compteur = 0;             // le temps passé, en fois 100 ms
+uint16_t courant;                 // la mesure
 ```
 
-| Variable | Elle retient |
-|---|---|
-| `etat` | où en est le moteur |
-| `etat_affiche` | ce qui est écrit sur le LCD |
-| `compteur` | le nombre de tours passés |
-| `courant` | la dernière mesure, de 0 à 255 |
-
-`uint8_t` : un nombre entier de 0 à 255. `DUREE_DEFAUT` vaut 100, ça rentre.
+- **`uint8_t`** : nombre entier de 0 à 255. Il suffit pour `etat` et `compteur`.
+- **`uint16_t`** : nombre entier sur 16 bits. Le CAN renvoie son résultat sur 16 bits.
+- **`volatile`** : la variable change dans l'interruption. Le mot dit au compilateur de la relire à chaque fois.
 
 ## 3. Le démarrage du PIC
 
@@ -59,179 +53,221 @@ uint8_t courant;
 SYSTEM_Initialize();
 LCD_Initialize();
 Moteur_Arret();
-Afficher_Etat(etat);
+LCD_WriteText("Arret");
 ```
 
-Ça ne s'exécute qu'une fois. `SYSTEM_Initialize` vient de MCC : horloge, broches et CAN. Ensuite je
-coupe le moteur, par sécurité, et j'affiche l'état.
+`SYSTEM_Initialize` vient de MCC : horloge, broches et CAN. Je coupe le moteur par sécurité.
 
-## 4. La boucle
+## 4. Le réglage du Timer2
+
+```c
+PR2 = 249;
+T2CON = 0b01001110;   // postscaler 1:10, Timer2 ON, prescaler 1:16
+```
+
+**Le calcul :** FOSC = 16 MHz, donc TCY = 4 / FOSC = 0,25 µs.
+
+0,25 µs × 16 (prescaler) × 250 (PR2 + 1) × 10 (postscaler) = **10 ms**
+
+```c
+TMR2IF = 0;   // le drapeau part de 0
+TMR2IE = 1;   // j'autorise l'interruption du Timer2
+PEIE = 1;     // le Timer2 est un périphérique
+GIE = 1;      // j'autorise les interruptions, en dernier
+```
+
+`GIE` vient en dernier, une fois que tout est initialisé.
+
+## 5. L'interruption
+
+```c
+void __interrupt() int_handler(void)
+{
+    static uint8_t nb_10ms = 0;
+
+    if(TMR2IF == 1)
+    {
+        TMR2IF = 0;               // RAZ en premier
+        nb_10ms = nb_10ms + 1;
+        if(nb_10ms >= 10)         // 10 x 10 ms = 100 ms
+        {
+            nb_10ms = 0;
+            top_100ms = 1;
+        }
+    }
+}
+```
+
+1. Le PIC arrête ce qu'il fait et vient ici toutes les 10 ms.
+2. Je vérifie que c'est bien le Timer2, puis je remets le drapeau à 0. Sinon le PIC revient ici sans arrêt.
+3. `static` : `nb_10ms` garde sa valeur d'un appel à l'autre.
+4. Au bout de 10 fois, je mets `top_100ms` à 1 pour prévenir le `main`.
+
+L'interruption est courte : elle ne lit rien et n'écrit pas sur le LCD. Le `main` fait le travail.
+
+## 6. La boucle
 
 ```c
 while(1) // ne se termine jamais
 {
-    courant = Lire_Courant();
-    switch(etat) { ... }
-    if(etat != etat_affiche) { ... }
-    __delay_ms(100);
+    if(top_100ms == 1)
+    {
+        top_100ms = 0;
+        courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
+        compteur = compteur + 1;
+        switch(etat) { ... }
+    }
 }
 ```
 
-1. Je lis le courant.
-2. Je fais ce que demande l'état actuel.
-3. J'écris sur le LCD si l'état a changé. `!=` veut dire « différent de ». Si on écrivait tout le temps, l'écran clignoterait.
-4. J'attends 100 ms, puis je recommence.
+- **`top_100ms`** : je le remets à 0 pour attendre les 100 ms suivantes.
+- **`ADC_GetConversion`** vient de MCC. Elle lit la tension sur RA0.
+- **`>> 8`** garde les 8 bits de gauche, comme une division par 256. Il reste une valeur de 0 à 255.
+- **`compteur`** compte le temps passé dans l'état, il augmente toutes les 100 ms.
 
-## 5. Le `switch`
+Le PIC ne reste pas bloqué à attendre : il pourrait faire autre chose dans le `while(1)`.
 
-`switch(etat)` va directement au `case` qui correspond à l'état. `break` sort du `switch`.
+## 7. Le `switch`
+
+`switch(etat)` va au `case` de l'état actuel. `break` sort du `switch`.
 
 ### ARRET
 
 ```c
 case ARRET:
-    compteur = compteur + 1;
     if(compteur >= DUREE_ARRET)
     {
         compteur = 0;
         Moteur_Marche();
+        LCD_Clear();
+        LCD_WriteText("Demarrage");
         etat = DEMARRAGE;
     }
     break;
 ```
 
-Je compte les tours. Après 2 s, je démarre le moteur. Le 2 s, c'est pour le test : à la fin, ce sera tous les 3 jours.
+Après 2 s, je démarre le moteur et je change d'état. Le 2 s, c'est pour le test : à la fin, ce sera 3 jours.
 
 ### DEMARRAGE
 
 ```c
 case DEMARRAGE:
-    compteur = compteur + 1;
     if(compteur >= DUREE_DEMARRAGE)
     {
         compteur = 0;
         if(courant > SEUIL_HAUT)
         {
             Moteur_Arret();
-            etat = BLOQUE;
+            LCD_Clear();
+            LCD_WriteText("BLOQUE");
+            etat = DEFAUT;
         }
         else
         {
+            LCD_Clear();
+            LCD_WriteText("En marche");
             etat = MARCHE;
         }
     }
     break;
 ```
 
-Au démarrage, le moteur tire beaucoup de courant, c'est normal. J'attends donc 5 s avant de regarder.
-Si c'est encore trop fort, le moteur est bloqué. Sinon, il est en marche.
+Au démarrage, le moteur tire beaucoup de courant, c'est normal. J'attends 5 s avant de regarder. Si
+c'est encore trop fort, il est bloqué. Sinon, il est en marche.
 
 ### MARCHE
 
 ```c
 case MARCHE:
-    if(courant > SEUIL_HAUT)
-    {
-        compteur = compteur + 1;
-        if(compteur >= DUREE_DEFAUT)
-        {
-            Moteur_Arret();
-            etat = BLOQUE;
-        }
-    }
-    else if(courant < SEUIL_BAS)
-    {
-        compteur = compteur + 1;
-        if(compteur >= DUREE_DEFAUT)
-        {
-            Moteur_Arret();
-            etat = A_VIDE;
-        }
-    }
-    else
+    if((courant >= SEUIL_BAS) && (courant <= SEUIL_HAUT))
     {
         compteur = 0;
     }
+    else if(compteur >= DUREE_DEFAUT)
+    {
+        Moteur_Arret();
+        LCD_Clear();
+        if(courant > SEUIL_HAUT)
+        {
+            LCD_WriteText("BLOQUE");
+        }
+        else
+        {
+            LCD_WriteText("A VIDE");
+        }
+        etat = DEFAUT;
+    }
     break;
 ```
 
-- Courant trop fort ou trop faible : je compte.
-- Après 100 tours, soit 10 s de suite : je coupe.
-- Courant normal : je remets le compteur à zéro.
+- **Courant normal :** je remets le compteur à zéro.
+- **Courant anormal :** le compteur continue. Au bout de 10 s, je coupe et j'affiche la cause.
 
-Comme ça, un pic de courant isolé ne coupe pas la pompe.
+Un pic isolé ne coupe donc pas la pompe, car le compteur repart de zéro dès que le courant redevient normal.
 
-### BLOQUE et A_VIDE
+### DEFAUT
 
 ```c
-case BLOQUE:
+case DEFAUT:
     break;
 ```
 
-Il n'y a rien à faire : le moteur est déjà coupé. On n'en sort que par le bouton reset.
+Le moteur est déjà coupé. On n'en sort que par le bouton reset.
 
-## 6. Les fonctions
+**Pourquoi le LCD est écrit dans les `case` :** on écrit seulement quand l'état change. Comme ça, l'écran ne clignote pas.
 
-### Le moteur
+## 8. Les fonctions du moteur
 
 ```c
 void Moteur_Marche(void)
 {
-    OPTO_TRIAC_SetHigh();
-    LED_SetHigh();
+    OPTO_TRIAC_SetHigh();   // RB2 à 1 : l'optotriac déclenche le triac
+    LED_SetHigh();          // RB0 à 1 : la LED s'allume
 }
 ```
 
-`OPTO_TRIAC_SetHigh()` est généré par MCC : RB2 passe à 1. La LED montre la commande sans 230 V.
-`void` veut dire que la fonction ne reçoit rien et ne renvoie rien.
+Ces macros viennent de MCC. La LED montre la commande sans 230 V. `Moteur_Arret` fait l'inverse.
 
-### La mesure
-
-```c
-uint8_t Lire_Courant(void)
-{
-    uint16_t mesure;
-
-    mesure = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF);
-    return (uint8_t)(mesure >> 8);
-}
-```
-
-1. `ADC_GetConversion` vient de MCC. Elle lance la conversion sur RA0 et renvoie le résultat sur 16 bits.
-2. `>> 8` décale de 8 bits vers la droite, comme une division par 256. Il reste une valeur de 0 à 255.
-3. `(uint8_t)` dit qu'on range ce résultat sur 8 bits.
-
-### L'affichage
-
-`Afficher_Etat` efface le LCD, écrit « Etat moteur : » sur la ligne 1, puis le nom de l'état sur la ligne 2.
-
-## 7. Comment le tester sur la carte
+## 9. Comment le tester sur la carte
 
 Dans MPLAB : **Clean and Build**, puis programmer le PIC. Ensuite, avec le potentiomètre :
 
 | Potentiomètre | Ce que tu dois voir |
 |---|---|
-| Au milieu | Arret, puis Demarrage après 2 s, puis En marche 5 s plus tard, et la LED allumée |
-| Au milieu, puis en haut pendant 10 s | BLOQUE - coupe, et la LED éteinte |
-| Bouton reset, puis au milieu, puis en bas pendant 10 s | A VIDE - coupe, et la LED éteinte |
-| En haut dès le départ | BLOQUE - coupe après le démarrage |
+| Au milieu | Arret, Demarrage après 2 s, En marche 5 s plus tard, LED allumée |
+| Au milieu, puis en haut pendant 10 s | BLOQUE, LED éteinte |
+| Bouton reset, au milieu, puis en bas pendant 10 s | A VIDE, LED éteinte |
+| En haut dès le départ | BLOQUE après le démarrage |
 
-## 8. Si le jury demande
+## 10. Si le jury demande
 
-**Pourquoi un `uint16_t` dans `Lire_Courant` ?**
-> Parce que le résultat du CAN est rangé sur 16 bits. Ensuite, je ne garde que 8 bits.
+**Pourquoi une interruption plutôt qu'un `__delay_ms` ?**
+> Pendant un délai, le PIC ne fait rien d'autre. Avec le Timer2 en interruption, il est libre entre deux
+> mesures, et le temps reste précis.
 
-**Pourquoi un seul compteur ?**
-> À chaque changement d'état, je le remets à zéro. Il sert donc à compter le temps dans l'état en cours.
+**Pourquoi `PEIE = 1` ?**
+> Le Timer2 est un périphérique. Il faut `TMR2IE` pour le Timer2, `PEIE` pour les périphériques et `GIE` pour tout.
 
-**Pourquoi des fonctions ?**
-> Chaque fonction a un rôle, et le `main` reste lisible. Avec le vrai capteur, je n'aurai que `Lire_Courant` à modifier.
+**Pourquoi remettre `TMR2IF` à 0 ?**
+> Sinon, le PIC repart dans l'interruption dès qu'il en sort, et le programme se bloque.
+
+**Pourquoi l'interruption est-elle si courte ?**
+> Elle coupe le programme principal. Elle prévient juste le `main`, qui fait le travail.
+
+**Pourquoi `volatile` ?**
+> `top_100ms` est modifiée dans l'interruption et lue dans le `main`. Le mot oblige à la relire à chaque fois.
+
+**Pourquoi pas de section critique ?**
+> `top_100ms` fait 8 bits : le PIC la lit en une seule fois.
+
+**Pourquoi 10 ms et pas directement 100 ms ?**
+> Le Timer2 n'y arrive pas. Au maximum, 0,25 µs × 64 × 256 × 16 ≈ 65 ms. Donc je compte 10 fois 10 ms.
+
+**Pourquoi le Timer2 n'est pas configuré dans MCC ?**
+> Je l'ai réglé directement avec les registres, comme en cours. MCC configure l'horloge, les broches et le CAN.
 
 **Ton programme compte 3 jours ?**
-> Pas encore. Là, il attend 2 s pour le test. Pour 3 jours, il faudra une base de temps avec un Timer.
+> Pas encore, il attend 2 s pour le test. Avec le même `top_100ms`, je pourrai compter les secondes, les minutes et les heures jusqu'à 72.
 
-**Le `__delay_ms`, ça ne bloque pas le PIC ?**
-> Si, pendant 100 ms il ne fait rien d'autre. C'est simple et ça suffit pour le test, mais pour la suite on veut passer par un Timer.
-
-**Il y a de l'ESP32, un flotteur, le passage par zéro dans ce code ?**
-> Non. Ce programme teste la logique avec le potentiomètre. Le reste viendra une fois la carte fabriquée.
+**Tu n'as plus de fonction `Lire_Courant` ?**
+> Non, c'est une seule ligne. Avec le vrai capteur, c'est cette ligne que je changerai.
