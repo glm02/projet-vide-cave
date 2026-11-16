@@ -29,6 +29,8 @@ views:
         - Collègue
         - Les deux
         - Rafaël
+        - Jules
+        - Uncategorized
     collapsedLanes:
       "note.statut\x1fnote.qui": []
   - type: kanban-view

@@ -9,7 +9,7 @@ date: 2026-11-16
 **Le suivi : [[Kanban vide-cave.base|Kanban vide-cave]].** Une carte = une tâche, à glisser d'une colonne à l'autre.
 
 - **Rafaël :** les mesures de test et la finition du code (`Projet_vide_cave_1.X/main.c`).
-- **Le collègue :** le KiCad de la carte V2 avec l'optotriac (`03_Electronique/G206A_CAMEL_TP_CAO V2`).
+- **Jules :** le KiCad de la carte V2 avec l'optotriac (`03_Electronique/G206A_CAMEL_TP_CAO V2`).
 
 ## Comprendre le projet
 
