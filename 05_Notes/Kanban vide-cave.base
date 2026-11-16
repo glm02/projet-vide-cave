@@ -8,11 +8,32 @@ properties:
     displayName: Qui
   note.partie:
     displayName: Partie
+  note.etape:
+    displayName: Étape
 views:
+  - type: kanban-view
+    name: Par étape
+    order:
+      - qui
+    groupByProperty: note.statut
+    swimlaneByProperty: note.etape
+    columnOrders:
+      note.statut:
+        - À faire
+        - En cours
+        - Fait
+    swimlaneOrders:
+      "note.statut\x1fnote.etape":
+        - 1 - Procédure de test
+        - 2 - Fabrication
+        - 3 - Soudure
+        - 4 - Code
+        - 5 - Tests
+        - 6 - Carte V2
   - type: kanban-view
     name: Par personne
     order:
-      - partie
+      - etape
     groupByProperty: note.statut
     swimlaneByProperty: note.qui
     columnOrders:
@@ -20,50 +41,18 @@ views:
         - À faire
         - En cours
         - Fait
-    cardOrders:
-      "note.statut\x1fnote.qui": {}
-    columnColors:
-      note.statut: {}
     swimlaneOrders:
       "note.statut\x1fnote.qui":
-        - Collègue
-        - Les deux
         - Rafaël
         - Jules
-        - Uncategorized
-    collapsedLanes:
-      "note.statut\x1fnote.qui": []
-  - type: kanban-view
-    name: Par partie
-    order:
-      - qui
-    groupByProperty: note.statut
-    swimlaneByProperty: note.partie
-    columnOrders:
-      note.statut:
-        - À faire
-        - En cours
-        - Fait
-        - Uncategorized
-    cardOrders:
-      "note.statut\x1fnote.partie": {}
-    columnColors:
-      note.statut: {}
-    swimlaneOrders:
-      "note.statut\x1fnote.partie":
-        - Carte V2
-        - Code
-        - Mesures
-        - Uncategorized
-    collapsedLanes:
-      "note.statut\x1fnote.partie": []
+        - Les deux
   - type: table
     name: Liste
     order:
       - file.name
+      - etape
       - statut
       - qui
-      - partie
     sort:
-      - property: statut
+      - property: note.etape
         direction: ASC

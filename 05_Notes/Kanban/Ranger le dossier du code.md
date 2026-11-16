@@ -2,6 +2,7 @@
 statut: Fait
 qui: Rafaël
 partie: Code
+etape: 4 - Code
 ---
 Projet déplacé dans `08_Firmware/Projet_vide_cave_1.X`, anciennes versions de `main` rangées dans `anciennes_versions/`, code mis dans git.
 

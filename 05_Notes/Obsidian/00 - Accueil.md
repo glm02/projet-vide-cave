@@ -8,8 +8,11 @@ date: 2026-11-16
 
 **Le suivi : [[Kanban vide-cave.base|Kanban vide-cave]].** Une carte = une tâche, à glisser d'une colonne à l'autre.
 
+Ordre : procédure de test → Gerbers → soudure → code → tests → carte V2.
+
+- **La procédure : [[Procédure de test]]**, à remplir pendant les essais.
 - **Rafaël :** les mesures de test et la finition du code (`08_Firmware/Projet_vide_cave_1.X/main.c`).
-- **Jules :** le KiCad de la carte V2 avec l'optotriac (`03_Electronique/G206A_CAMEL_TP_CAO V2`).
+- **Jules :** le KiCad, puis la carte V2 avec l'optotriac (`03_Electronique/G206A_CAMEL_TP_CAO V2`).
 
 ## Comprendre le projet
 
