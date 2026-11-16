@@ -28,15 +28,15 @@ pour travailler à deux sous Git.
 ---
 
 Étude d'une commande de pompe vide-cave avec surveillance du courant, affichage et alarmes. Le projet KiCad de travail est la carte **G206_CAMEL_TP_CAO**, adaptée d'une ancienne carte. **Statut : EN COURS — non prêt pour fabrication.** L'étude de commande et de puissance reste à terminer : la présence des sources dans ce dépôt ne constitue pas une validation pour fabrication ou mise sous tension.
-
+http://geii.pages.univ-lyon1.fr/cao/
 ## Ouvrir le projet
 
-- **KiCad de travail :** [G206_CAMEL_TP_CAO.kicad_pro](03_Electronique/G206A_CAMEL_TP_CAO/G206_CAMEL_TP_CAO.kicad_pro).
-- **Notes Obsidian :** ouvrir `05_Notes/Obsidian` comme coffre, puis [00 — Accueil](05_Notes/Obsidian/00%20-%20Accueil.md).
+- **KiCad de travail (carte V2, Jules) :** [G206_CAMEL_TP_CAO.kicad_pro](03_Electronique/G206A_CAMEL_TP_CAO%20V2/G206_CAMEL_TP_CAO.kicad_pro).
+- **Notes Obsidian :** ouvrir le dossier du projet comme coffre, puis [00 — Accueil](05_Notes/Obsidian/00%20-%20Accueil.md). Suivi des tâches : `05_Notes/Kanban vide-cave.base`.
 - **Analyse de la carte et comparaison aux documents :** [rapport du 12 octobre 2026](05_Notes/Analyse_G206_2026-10-12/RAPPORT_ANALYSE.md).
-- **Étude MOC3041 :** [dimensionnement proposé et bancs LTspice](05_Notes/Etude_MOC3041/DIMENSIONNEMENT.md), [simulation Anatomy](07_Visualisation_Anatomy/simulation.html) et [travail à deux sur GitHub](05_Notes/Obsidian/09%20-%20Travail%20a%20deux%20et%20MOC3041.md). Les valeurs secteur restent conditionnées au triac et à la pompe réels.
-- **Firmware principal :** ouvrir le dossier `Projet vide cave.X` dans MPLAB X. Configuration et pilotes générés avec **MCC Melody** à partir de `Projet_vide_cave.mc3` ; ajouter ensuite le code d'application selon le cours GEII. [Suivi du projet](Projet%20vide%20cave.X/README.md).
-- **Composants :** [CSV détaillé, une ligne par référence](03_Electronique/G206A_CAMEL_TP_CAO/Composants_G206.csv) et [nomenclature groupée](03_Electronique/G206A_CAMEL_TP_CAO/Nomenclature_G206_groupee.csv). Le schéma compte 24 composants ; le CSV détaillé indique aussi les écarts avec le PCB.
+- **Étude MOC3041 :** [dimensionnement proposé et bancs LTspice](05_Notes/Etude_MOC3041/DIMENSIONNEMENT.md), [simulation Anatomy](07_Visualisation_Anatomy/simulation.html) et [travail à deux sur GitHub](05_Notes/Archives/09%20-%20Travail%20a%20deux%20et%20MOC3041.md). Les valeurs secteur restent conditionnées au triac et à la pompe réels.
+- **Firmware principal :** ouvrir `08_Firmware/Projet_vide_cave_1.X` dans MPLAB X (PIC16F1788, MCC Classic, XC8). Le programme est dans `main.c` ; les versions précédentes sont dans `anciennes_versions/`. Les essais du TP sont dans `08_Firmware/SAE22`.
+- **Composants :** [CSV détaillé, une ligne par référence](03_Electronique/G206A_CAMEL_TP_CAO%20V2/Composants_G206.csv) et [nomenclature groupée](03_Electronique/G206A_CAMEL_TP_CAO%20V2/Nomenclature_G206_groupee.csv). Le schéma compte 24 composants ; le CSV détaillé indique aussi les écarts avec le PCB.
 - **Rapport de pré-étude :** [document Word](01_Documents/Rapport/Rapport_pre-etude_vide-cave.docx).
 - **Synoptique modifiable :** [Synoptique V3](02_Synoptiques/Synoptique%20V3.drawio).
 - **Maquette :** [fichier Blender](04_Maquette_3D/Vide_cave_GEII.blend) et [notice](04_Maquette_3D/LISEZ_MOI.md).
@@ -48,15 +48,17 @@ pour travailler à deux sous Git.
 | --- | --- |
 | `01_Documents` | Consignes, rapport Word, présentation et planning |
 | `02_Synoptiques` | Sources Draw.io et versions exportées |
-| `03_Electronique/G206A_CAMEL_TP_CAO` | **Carte de travail à poursuivre**, schéma, PCB et bibliothèques locales |
+| `03_Electronique/G206A_CAMEL_TP_CAO V2` | **Carte de travail V2** avec l'optotriac (Jules), schéma, PCB et bibliothèques locales |
 | `03_Electronique/Carte_vide_cave_PIC_Allegro_TRIAC` | Proposition indépendante ; ne remplace pas la carte G206 et n'applique pas son routage simple face |
 | `03_Electronique/Projets_KiCad_initiaux` | Versions antérieures conservées comme références |
 | `04_Maquette_3D` | Scène Blender, rendus et scripts existants |
-| `05_Notes/Obsidian` | Coffre de suivi : fonctionnement, contraintes, décisions, anomalies et tâches |
-| `05_Notes/PROJET VIDE CAVE` | Notes personnelles préexistantes conservées |
+| `05_Notes/Obsidian` | Notes à jour : code, mesures, 6N136, soutenance |
+| `05_Notes/Kanban` | Une note par tâche, affichées par `Kanban vide-cave.base` |
+| `05_Notes/Archives` | Anciennes notes (G206 v1, ancien code) |
 | `05_Notes/Analyse_G206_2026-10-12` | Rapport de contrôle et tableau de comparaison des composants |
-| `06_Archives_et_exports` | Archives, anciens exports et journal de rangement |
+| `06_Archives_et_exports` | Archives, anciens exports, projets MPLAB abandonnés (`Firmware_abandonne`) et journal de rangement |
 | `07_Visualisation_Anatomy` | Visualisation du fonctionnement et des blocs du projet |
+| `08_Firmware` | Projets MPLAB X : `Projet_vide_cave_1.X` (programme du vide-cave) et `SAE22` (essais du TP) |
 
 Les Gerbers et typons déjà présents sont des exports antérieurs. **Les régénérer seulement après validation du schéma et du PCB** ; leur présence ne garantit pas leur concordance avec les sources actuelles.
 
@@ -68,7 +70,7 @@ Les Gerbers et typons déjà présents sont des exports antérieurs. **Les rég�
 4. Conserver les composants présents au schéma. Ne pas déplacer ni remplacer les autres composants conservés pour effectuer ce nettoyage.
 5. Garder les règles KiCad existantes. La consigne bleu/straps est une décision de fabrication à vérifier visuellement, pas une restriction automatique du DRC.
 
-Voir [les règles PCB](05_Notes/Obsidian/02%20-%20Regles%20PCB.md) et [les problèmes à résoudre](05_Notes/Obsidian/04%20-%20Anomalies%20et%20verifications.md). Les valeurs de courant et la plaque moteur restent à renseigner ; les hypothèses inscrites dans une variante ne sont pas des mesures de la pompe.
+Voir [les règles PCB](05_Notes/Archives/02%20-%20Regles%20PCB.md) et [les problèmes à résoudre](05_Notes/Archives/04%20-%20Anomalies%20et%20verifications.md). Les valeurs de courant et la plaque moteur restent à renseigner ; les hypothèses inscrites dans une variante ne sont pas des mesures de la pompe.
 
 ## Travailler depuis un autre ordinateur
 
@@ -84,7 +86,7 @@ Ouvrir ensuite le `.kicad_pro` indiqué plus haut. Pour enregistrer et partager 
 
 ```sh
 git status
-git add -- "03_Electronique/G206A_CAMEL_TP_CAO" "05_Notes/Obsidian"
+git add -- "03_Electronique/G206A_CAMEL_TP_CAO V2" "05_Notes"
 git diff --cached --stat
 git commit -m "Décrire la modification réalisée sur la carte"
 git push
@@ -96,8 +98,9 @@ Le schéma peut être modifié volontairement sans importer immédiatement toute
 
 ## Sauvegardes et portabilité
 
-Git versionne les sources, bibliothèques et documents utiles. Il ignore les préférences KiCad `.kicad_prl`, les verrous, caches, sauvegardes automatiques, copies temporaires de l'analyse, état des fenêtres Obsidian et l'alias local `maquette_3d`. Les fichiers ignorés restent sur le PC : le dépôt distant ne les sauvegarde pas. Les archives documentaires existantes sont conservées.
+Git versionne les sources, bibliothèques et documents utiles. Il ignore les préférences KiCad `.kicad_prl`, les verrous, caches, sauvegardes automatiques, copies temporaires de l'analyse, état des fenêtres Obsidian et les dossiers de compilation MPLAB (`build`, `dist`…). Les fichiers ignorés restent sur le PC : le dépôt distant ne les sauvegarde pas. Les archives documentaires existantes sont conservées.
 
-Les scripts historiques de la variante et quelques anciennes notices utilisent encore des chemins propres au PC d'origine. Ils sont conservés comme sources historiques ; leur exécution sur un autre poste peut demander une adaptation des chemins d'outils. Le [guide Git du coffre](05_Notes/Obsidian/07%20-%20Guide%20Git%20et%20portabilite.md) distingue ces scripts de l'ouverture du projet G206.
+Les scripts historiques de la variante et quelques anciennes notices utilisent encore des chemins propres au PC d'origine. Ils sont conservés comme sources historiques ; leur exécution sur un autre poste peut demander une adaptation des chemins d'outils. Le [guide Git du coffre](05_Notes/Archives/07%20-%20Guide%20Git%20et%20portabilite.md) distingue ces scripts de l'ouverture du projet G206.
 
 Le dépôt contient des documents scolaires, bibliothèques locales et ressources tierces. Aucun changement de licence globale n'est imposé aux fichiers préexistants. Les ressources Anatomy conservent leur licence et leur attribution propres.
+

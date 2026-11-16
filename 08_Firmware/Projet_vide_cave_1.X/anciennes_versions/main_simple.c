@@ -1,0 +1,185 @@
+/*
+ * main_simple.c  -  Projet vide-cave (IUT Lyon 1 GEII) - VERSION SIMPLE DE TEST
+ *
+ * Le potentiometre (RA0) simule le courant du moteur :
+ *   potar en bas    (< SEUIL_BAS)  -> courant faible  -> pompe A VIDE
+ *   potar au milieu                -> courant normal  -> MARCHE
+ *   potar en haut   (> SEUIL_HAUT) -> courant fort    -> moteur BLOQUE
+ *
+ * Machine a etats (cf. diagramme) :
+ *   ARRET -> DEMARRAGE -> MARCHE -> BLOQUE ou A_VIDE (defaut memorise)
+ *   Un defaut reste affiche, moteur coupe, jusqu'au RESET (bouton MCLR).
+ *
+ * La LED (RB0) recopie l'etat du moteur pour voir la commande sans 230 V.
+ */
+
+#include <xc.h>
+#include "mcc_generated_files/system/system.h"
+#include "lcd.h"
+
+/* ---------- Commande du moteur (optotriac sur RB2) ---------- */
+#define MOTEUR_ON()   do { OPTO_TRIAC_SetHigh(); LED_SetHigh(); } while(0)
+#define MOTEUR_OFF()  do { OPTO_TRIAC_SetLow();  LED_SetLow();  } while(0)
+
+/* ---------- Seuils (potar : 9 a 255, decoupe en 3 zones) ---------- */
+#define SEUIL_BAS   91
+#define SEUIL_HAUT  173
+
+/* ---------- Durees, en tours de boucle de 100 ms ---------- */
+#define DUREE_ATTENTE  20      // 2 s a l'arret avant de demarrer (test)
+#define DUREE_DEMAR    30      // 3 s : appel de courant tolere au demarrage
+#define DUREE_MAX_DEM  50      // 5 s : si le courant est encore fort -> bloque
+#define DUREE_10S      100     // 10 s de defaut confirme en marche (mettre 30 pour tester vite)
+
+/* ---------- Les 5 etats ---------- */
+#define ETAT_ARRET      0
+#define ETAT_DEMARRAGE  1
+#define ETAT_MARCHE     2
+#define ETAT_BLOQUE     3
+#define ETAT_A_VIDE     4
+
+/* ---------- Variables globales ---------- */
+uint8_t etat = ETAT_ARRET;
+uint8_t etat_precedent = 255;   // valeur impossible : force le 1er affichage
+uint8_t compteur = 0;           // temps passe dans l'etat (ARRET / DEMARRAGE)
+uint8_t compteur_haut = 0;      // temps passe avec un courant trop fort (MARCHE)
+uint8_t compteur_bas = 0;       // temps passe avec un courant trop faible (MARCHE)
+
+/* ---------- Prototypes ---------- */
+uint8_t Lire_Courant(void);
+void    Afficher_Etat(uint8_t etat_a_afficher);
+
+/* ======================================================================= */
+void main(void)
+{
+    uint8_t courant;
+
+    SYSTEM_Initialize();   // MCC : horloge, broches, CAN
+    LCD_Initialize();      // LCD sur RA1-RA7 (toujours apres SYSTEM_Initialize)
+    MOTEUR_OFF();          // securite : moteur coupe au demarrage
+
+    while (1) // ne se termine jamais
+    {
+        courant = Lire_Courant();
+
+        switch (etat)
+        {
+            case ETAT_ARRET:
+                MOTEUR_OFF();
+                compteur = compteur + 1;
+                if (compteur >= DUREE_ATTENTE)       // pour le test : on demarre apres 2 s
+                {
+                    compteur = 0;
+                    etat = ETAT_DEMARRAGE;
+                }
+                break;
+
+            case ETAT_DEMARRAGE:
+                MOTEUR_ON();
+                compteur = compteur + 1;
+                if (compteur >= DUREE_DEMAR)         // l'appel de courant est passe
+                {
+                    if (courant <= SEUIL_HAUT)       // le courant est redescendu : tout va bien
+                    {
+                        compteur = 0;
+                        compteur_haut = 0;
+                        compteur_bas = 0;
+                        etat = ETAT_MARCHE;
+                    }
+                    else if (compteur >= DUREE_MAX_DEM)  // toujours trop fort apres 5 s
+                    {
+                        etat = ETAT_BLOQUE;
+                    }
+                }
+                break;
+
+            case ETAT_MARCHE:
+                MOTEUR_ON();
+                if (courant > SEUIL_HAUT)            // courant trop fort
+                {
+                    compteur_haut = compteur_haut + 1;
+                    compteur_bas = 0;
+                }
+                else if (courant < SEUIL_BAS)        // courant trop faible
+                {
+                    compteur_bas = compteur_bas + 1;
+                    compteur_haut = 0;
+                }
+                else                                 // courant normal : on remet a zero
+                {
+                    compteur_haut = 0;
+                    compteur_bas = 0;
+                }
+
+                if (compteur_haut >= DUREE_10S)
+                {
+                    etat = ETAT_BLOQUE;
+                }
+                if (compteur_bas >= DUREE_10S)
+                {
+                    etat = ETAT_A_VIDE;
+                }
+                break;
+
+            case ETAT_BLOQUE:                        // defaut memorise : on n'en sort que par RESET
+                MOTEUR_OFF();
+                break;
+
+            case ETAT_A_VIDE:                        // defaut memorise : on n'en sort que par RESET
+                MOTEUR_OFF();
+                break;
+
+            default:                                 // securite : etat inconnu -> arret
+                MOTEUR_OFF();
+                etat = ETAT_ARRET;
+                break;
+        }
+
+        if (etat != etat_precedent)      // on n'affiche que si ca change (evite le clignotement)
+        {
+            Afficher_Etat(etat);
+            etat_precedent = etat;
+        }
+
+        __delay_ms(100);
+    }
+}
+
+/* ======================================================================= */
+/* Mesure : une conversion, ramenee sur 8 bits (resultat aligne a gauche -> octet haut).
+ * Plus tard : remplacer UNIQUEMENT l'interieur de cette fonction par le calcul efficace. */
+uint8_t Lire_Courant(void)
+{
+    return (uint8_t)(ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8);
+}
+
+/* Affiche l'etat du moteur sur le LCD (pas d'accents : le LCD ne les connait pas) */
+void Afficher_Etat(uint8_t etat_a_afficher)
+{
+    LCD_Clear();
+    LCD_GoTo(1, 1);
+    LCD_WriteText("Etat moteur :");
+    LCD_GoTo(2, 1);
+
+    switch (etat_a_afficher)
+    {
+        case ETAT_ARRET:
+            LCD_WriteText("Arret");
+            break;
+        case ETAT_DEMARRAGE:
+            LCD_WriteText("Demarrage");
+            break;
+        case ETAT_MARCHE:
+            LCD_WriteText("En marche");
+            break;
+        case ETAT_BLOQUE:
+            LCD_WriteText("BLOQUE - coupe");
+            break;
+        case ETAT_A_VIDE:
+            LCD_WriteText("A VIDE - coupe");
+            break;
+        default:
+            LCD_WriteText("Etat inconnu");
+            break;
+    }
+}

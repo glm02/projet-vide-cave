@@ -40,9 +40,6 @@ node_modules/
 Thumbs.db
 desktop.ini
 
-# Alias local masqué : la source est 04_Maquette_3D
-/maquette_3d/
-
 # Analyse : publier le rapport et la comparaison, pas les copies de travail
 /05_Notes/Analyse_G206_2026-10-12/*
 !/05_Notes/Analyse_G206_2026-10-12/*.md
@@ -55,18 +52,21 @@ desktop.ini
 /07_Visualisation_Anatomy/captures_qa/
 /07_Visualisation_Anatomy/controle_interaction.json
 
+# MPLAB X : MPLAB regénère tout ça à la compilation
+**/*.X/build/
+**/*.X/_build/
+**/*.X/dist/
+**/*.X/debug/
+**/*.X/out/
+**/*.X/cmake/
+**/*.X/queuelogs/
+**/*.X/nbproject/private/
+**/*.X/nbproject/Makefile-local-*.mk
+**/*.X/nbproject/Makefile-genesis.properties
+**/*.X/mcc-manifest-autosave.yml
+**/*.X/defmplabxtrace.log*
+
 # Résultats binaires locaux des bancs LTspice ; conserver .cir et mesures texte
-/08_Firmware/**/build/
-/08_Firmware/**/dist/
-/08_Firmware/**/nbproject/private/
-/Projet vide cave.X/build/
-/Projet vide cave.X/dist/
-/Projet vide cave.X/nbproject/private/
-/Projet vide cave.X/nbproject/Makefile-local-*.mk
-/Projet vide cave.X/nbproject/Makefile-genesis.properties
-/Projet vide cave.X/mcc-manifest-autosave.yml
-/Projet vide cave.X/debug/
-/Projet vide cave.X/queuelogs/
 /05_Notes/Etude_MOC3041/*.raw
 /05_Notes/Etude_MOC3041/*.db
 /05_Notes/Etude_MOC3041/*.log

@@ -1,0 +1,114 @@
+/*
+ * Projet vide-cave - IUT Lyon 1 GEII - version MCC Classic
+ *
+ * Test avec le potentiometre sur RA0, il remplace le capteur de courant.
+ * La LED sur RB0 montre si le moteur est commande, sans avoir de 230 V.
+ */
+
+#include "mcc_generated_files/mcc.h"
+#include "lcd.h"
+
+// Seuils de courant, en points du CAN (de 0 a 255)
+#define SEUIL_BAS   91
+#define SEUIL_HAUT  173
+
+// Les etats du moteur
+#define ARRET      0
+#define DEMARRAGE  1
+#define MARCHE     2
+#define DEFAUT     3
+
+volatile uint8_t top_100ms = 0;   // l'interruption le met a 1 toutes les 100 ms
+uint8_t nb_10ms = 0;              // compte les interruptions de 10 ms
+
+void IT_Timer2(void);
+
+void main(void)
+{
+    uint8_t etat = ARRET;
+    uint8_t compteur = 0;         // temps passe, en fois 100 ms
+    uint16_t courant;             // mesure du CAN
+
+    SYSTEM_Initialize();
+    LCD_Initialize();
+    OPTO_TRIAC_SetLow();          // moteur coupe au demarrage
+    LED_SetLow();
+    LCD_WriteText("Arret");
+
+    // Timer2 regle dans MCC : une interruption toutes les 10 ms
+    TMR2_SetInterruptHandler(IT_Timer2);
+    INTERRUPT_GlobalInterruptEnable();
+    INTERRUPT_PeripheralInterruptEnable();
+
+    while(1) // ne se termine jamais
+    {
+        if(top_100ms == 1)        // on passe ici toutes les 100 ms
+        {
+            top_100ms = 0;
+            compteur = compteur + 1;
+
+            // Lecture du CAN : on garde une valeur de 0 a 255
+            courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
+
+            if(etat == ARRET)
+            {
+                if(compteur >= 20)            // 20 x 100 ms = 2 s
+                {
+                    compteur = 0;
+                    OPTO_TRIAC_SetHigh();     // on demarre le moteur
+                    LED_SetHigh();
+                    LCD_Clear();
+                    LCD_WriteText("Demarrage");
+                    etat = DEMARRAGE;
+                }
+            }
+            else if(etat == DEMARRAGE)
+            {
+                if(compteur >= 50)            // 5 s : le pic de courant est passe
+                {
+                    compteur = 0;
+                    LCD_Clear();
+                    LCD_WriteText("En marche");
+                    etat = MARCHE;
+                }
+            }
+            else if(etat == MARCHE)
+            {
+                if(courant > SEUIL_HAUT || courant < SEUIL_BAS)   // courant anormal
+                {
+                    if(compteur >= 100)       // anormal depuis 10 s
+                    {
+                        OPTO_TRIAC_SetLow();  // on coupe le moteur
+                        LED_SetLow();
+                        LCD_Clear();
+                        if(courant > SEUIL_HAUT)
+                        {
+                            LCD_WriteText("BLOQUE");
+                        }
+                        else
+                        {
+                            LCD_WriteText("A VIDE");
+                        }
+                        etat = DEFAUT;
+                    }
+                }
+                else                          // courant normal
+                {
+                    compteur = 0;
+                }
+            }
+            // Etat DEFAUT : moteur coupe, on n'en sort que par le bouton reset
+        }
+    }
+}
+
+// Appelee par MCC toutes les 10 ms
+void IT_Timer2(void)
+{
+    nb_10ms = nb_10ms + 1;
+    if(nb_10ms >= 10)    // 10 x 10 ms = 100 ms
+    {
+        nb_10ms = 0;
+        top_100ms = 1;
+    }
+}

@@ -8,7 +8,7 @@ Retour : [[00 - Accueil]] · Mesures : [[23 - Mesures RealTerm expliquees]]
 
 **En une phrase :** toutes les 100 ms, le programme lit le courant, le compare à deux seuils et décide s'il coupe le moteur.
 
-Le code est dans `Projet_vide_cave_1.X` :
+Le code est dans `08_Firmware/Projet_vide_cave_1.X` :
 
 - `main_MCC_Classic.c` : le Timer2 est réglé dans MCC. C'est la version à utiliser une fois le projet généré en Classic. **Elle n'a pas encore été compilée avec les vrais fichiers de MCC.**
 - `main.c` : le même programme, avec le Timer2 réglé dans le code. Il compile avec le projet actuel, mais il est un peu plus long.

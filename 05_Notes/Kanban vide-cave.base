@@ -44,6 +44,19 @@ views:
         - À faire
         - En cours
         - Fait
+        - Uncategorized
+    cardOrders:
+      "note.statut\x1fnote.partie": {}
+    columnColors:
+      note.statut: {}
+    swimlaneOrders:
+      "note.statut\x1fnote.partie":
+        - Carte V2
+        - Code
+        - Mesures
+        - Uncategorized
+    collapsedLanes:
+      "note.statut\x1fnote.partie": []
   - type: table
     name: Liste
     order:

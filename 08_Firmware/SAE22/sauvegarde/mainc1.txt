@@ -1,0 +1,62 @@
+#include <xc.h>
+#include "libsae22.h"
+
+void IO_Initialize(void);
+
+void main(void) 
+{
+    //Initialisation des entrées/sorties
+    IO_Initialize();
+    //Initialisation de l'oscillateur interne, de l'EUSART
+    SAE22_Initialize();
+    
+    while(1)
+    {
+          PORTB = 1 << ( RC3 *2 +  RC0 );
+                 
+                 0001
+                 0010
+                 0100
+                 1000
+                 
+        if (RC0==0 && RC3==0)
+        {
+            RB0=1;
+            RB1=0;
+            RB2=0;
+            RB3=0;
+        }
+        if (RC0==1 && RC3==0)
+        {
+            RB1=1;
+            RB0=0;
+            RB2=0;
+            RB3=0;
+        }
+        if (RC0==0 && RC3==1)
+        {
+            RB2=1;
+            RB0=0;
+            RB1=0;
+            RB3=0;
+        }
+        if (RC0==1 && RC3==1)
+        {
+            RB3=1;
+            RB0=0;
+            RB1=0;
+            RB2=0;
+        }
+    }
+}
+
+void IO_Initialize(void)
+{
+    ANSELC=0;
+    ANSELB=0;
+    ANSELA=0;
+    TRISA = 0b11111111;
+    TRISB = 0b11110000;
+    TRISC = 0b11111111;
+    
+}

@@ -1,0 +1,142 @@
+/*
+ * Projet vide-cave - IUT Lyon 1 GEII - version MCC Classic
+ *
+ * Test avec le potentiometre sur RA0, il remplace le capteur de courant.
+ * La LED sur RB0 montre si le moteur est commande, sans avoir de 230 V.
+ */
+
+#include "mcc_generated_files/mcc.h"
+#include "lcd.h"
+
+// Seuils de courant, en points du CAN (de 0 a 255)
+#define SEUIL_BAS   91
+#define SEUIL_HAUT  173
+
+// Durees, en nombre de fois 100 ms
+#define DUREE_ARRET      20    // 2 s
+#define DUREE_DEMARRAGE  50    // 5 s
+#define DUREE_DEFAUT     100   // 10 s
+
+// Les etats du moteur
+#define ARRET      0
+#define DEMARRAGE  1
+#define MARCHE     2
+#define DEFAUT     3
+
+volatile uint8_t top_100ms = 0;   // mis a 1 par l'interruption toutes les 100 ms
+
+void IT_Timer2(void);
+void Moteur_Marche(void);
+void Moteur_Arret(void);
+
+void main(void)
+{
+    uint8_t etat = ARRET;
+    uint8_t compteur = 0;
+    uint16_t courant;
+
+    SYSTEM_Initialize();      // MCC : horloge, broches et CAN
+    LCD_Initialize();
+    Moteur_Arret();           // securite : moteur coupe au demarrage
+    LCD_WriteText("Arret");
+
+    // Timer2 regle dans MCC : une interruption toutes les 10 ms
+    TMR2_SetInterruptHandler(IT_Timer2);    // avant d'autoriser les interruptions
+    INTERRUPT_GlobalInterruptEnable();
+    INTERRUPT_PeripheralInterruptEnable();  // le Timer2 est un peripherique
+
+    while(1) // ne se termine jamais
+    {
+        if(top_100ms == 1)    // on passe ici toutes les 100 ms
+        {
+            top_100ms = 0;    // RAZ le plus tot possible
+
+            // CAN sur 12 bits range a gauche : >> 8 garde une valeur de 0 a 255
+            courant = ADC_GetConversion(Capteur_COURANT, negChannel_ADNREF) >> 8;
+            compteur = compteur + 1;
+
+            switch(etat)
+            {
+                case ARRET:
+                    if(compteur >= DUREE_ARRET)      // pour le test : on demarre apres 2 s
+                    {
+                        compteur = 0;
+                        Moteur_Marche();
+                        LCD_Clear();
+                        LCD_WriteText("Demarrage");
+                        etat = DEMARRAGE;
+                    }
+                    break;
+
+                case DEMARRAGE:
+                    if(compteur >= DUREE_DEMARRAGE)  // le pic de courant est passe
+                    {
+                        compteur = 0;
+                        if(courant > SEUIL_HAUT)
+                        {
+                            Moteur_Arret();
+                            LCD_Clear();
+                            LCD_WriteText("BLOQUE");
+                            etat = DEFAUT;
+                        }
+                        else
+                        {
+                            LCD_Clear();
+                            LCD_WriteText("En marche");
+                            etat = MARCHE;
+                        }
+                    }
+                    break;
+
+                case MARCHE:
+                    if((courant >= SEUIL_BAS) && (courant <= SEUIL_HAUT))
+                    {
+                        compteur = 0;                // courant normal
+                    }
+                    else if(compteur >= DUREE_DEFAUT)  // anormal depuis 10 s
+                    {
+                        Moteur_Arret();
+                        LCD_Clear();
+                        if(courant > SEUIL_HAUT)
+                        {
+                            LCD_WriteText("BLOQUE");
+                        }
+                        else
+                        {
+                            LCD_WriteText("A VIDE");
+                        }
+                        etat = DEFAUT;
+                    }
+                    break;
+
+                case DEFAUT:                         // on n'en sort que par le bouton reset
+                    break;
+            }
+        }
+    }
+}
+
+// Appelee par MCC toutes les 10 ms : MCC remet deja le drapeau a 0
+void IT_Timer2(void)
+{
+    static uint8_t nb_10ms = 0;
+
+    nb_10ms = nb_10ms + 1;
+    if(nb_10ms >= 10)           // 10 x 10 ms = 100 ms
+    {
+        nb_10ms = 0;
+        top_100ms = 1;
+    }
+}
+
+void Moteur_Marche(void)
+{
+    OPTO_TRIAC_SetHigh();     // RB2 a 1 : l'optotriac declenche le triac
+    LED_SetHigh();            // RB0 a 1 : la LED s'allume
+}
+
+void Moteur_Arret(void)
+{
+    OPTO_TRIAC_SetLow();
+    LED_SetLow();
+}
