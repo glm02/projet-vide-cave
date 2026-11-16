@@ -9,7 +9,7 @@ sujet: Carte V2 — rangement, routage et isolement
 >
 > L'erreur du 6N136 (cathode sur le GND du 5 V) est **corrigée** : patte 3 sur AC_N, diode de protection D1 ajoutée, zone de U1 re-routée. Voir [[#5. Correction du 6N136 (U1)]].
 >
-> **À voir avant d'envoyer les Gerbers :** la sortie du 6N136 n'arrive pas encore au PIC (RB4), et R1/R2 chauffent un peu trop. Voir [[#Reste à faire]].
+> La sortie du 6N136 arrive maintenant au PIC par **J6 (RB4 + GND)**, et R1/R2 passent en **47 kΩ 1 W**. Voir [[#6. Sortie RB4 et résistances R1 R2]].
 
 ![[Routage V2 avant apres.png]]
 *À gauche le routage de départ, à droite le routage final.*
@@ -108,10 +108,17 @@ Conséquences de l'ancien câblage :
 - **Carte :** tout le côté LED de U1 est maintenant en 230 V. R1 et R2 ont été rapprochées de J3 (phase et neutre arrivent en bas à gauche), et D1 placée à côté de U1. La phase AC_L passe au-dessus du triac pour libérer la zone. La piste du neutre vers U1 passe sous le corps de R1 (pont).
 - **Isolement :** les pattes 2 et 3 de U1 sont à 4,6 mm des pattes 5 à 8 (côté 5 V). La règle des 3 mm est respectée partout.
 
+### Retouches de Rafaël (16/11, 16 h 23)
+J3 tourné et placé à gauche, R1, R2 et D1 replacés, zone de U1 re-routée, gouttes ajoutées aux pastilles. Le neutre rejoint la bande 230 V en passant **entre les deux rangées de U1** : en 1,5 mm il n'était qu'à 2,75 mm de la patte 8 (+5V). Il est passé en 1 mm et décalé de 0,12 mm : **3,12 mm**, la règle est tenue. Certaines pistes 230 V de cette zone sont en 1 mm (choix de Rafaël, courant de quelques mA).
+
+## 6. Sortie RB4 et résistances R1 R2
+
+- **Sortie du 6N136 :** la patte 6 (avec R5 et C2) n'était reliée à aucun bornier, le signal de passage par zéro n'atteignait pas le PIC. Le net s'appelle maintenant **RB4** et sort sur **J6**, un connecteur 2 broches au pas de 2,54 mm (pastilles agrandies à 2 mm) : broche 1 = RB4, broche 2 = GND. J6 est en bas à droite, côté 5 V, à côté de C2.
+- **R1 et R2 :** passées de 33 kΩ à **47 kΩ 1 W**, comme prévu dans [[26 - Optocoupleur 6N136 explique]]. Avec 33 kΩ, chaque résistance dissipait environ 0,4 W ($230^2 / 66\,000 \approx 0{,}8$ W au total) : trop pour une résistance de 0,25 W. Avec 2 × 47 kΩ : 0,28 W chacune, et un courant crête de LED de 3,5 mA. L'empreinte reste en DIN0207 (pas de 10,16 mm) : prendre une 1 W qui tient dans ce format (résistance de puissance à couche métal), ou une 0,6 W au minimum. À vérifier sur la fiche du modèle commandé.
+
 ## Reste à faire
 
-- [ ] **Sortie du 6N136 vers le PIC :** la sortie (patte 6, avec R5 et C2) n'est reliée à aucun bornier. Le signal de passage par zéro n'arrive donc pas sur RB4. Il faut ajouter une borne (par exemple un 3ᵉ plot sur J5).
-- [ ] **Puissance de R1 et R2 :** avec 33 kΩ chacune sous 230 V, chaque résistance dissipe environ 0,4 W ($230^2 / 66\,000 \approx 0{,}8$ W au total). Prendre des résistances de **0,5 W au moins** (ou 2 × 47 kΩ, 0,56 W au total), sinon elles chauffent.
+- [ ] R5 et C2 : la note du 6N136 prévoit 22 kΩ et 1 nF, le schéma a encore 10 kΩ et « C » sans valeur
 - [ ] Contrôler les Gerbers dans la visionneuse de KiCad
 - [ ] Vérifier la largeur des pistes moteur avec le courant de démarrage mesuré
 
