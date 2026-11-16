@@ -63,5 +63,5 @@ views:
       - statut
       - etape
     sort:
-      - property: note.date
+      - property: date
         direction: ASC
