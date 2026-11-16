@@ -116,11 +116,21 @@ J3 tourné et placé à gauche, R1, R2 et D1 replacés, zone de U1 re-routée, g
 - **Sortie du 6N136 :** la patte 6 (avec R5 et C2) n'était reliée à aucun bornier, le signal de passage par zéro n'atteignait pas le PIC. Le net s'appelle maintenant **RB4** et sort sur **J6**, un connecteur 2 broches au pas de 2,54 mm (pastilles agrandies à 2 mm) : broche 1 = RB4, broche 2 = GND. J6 est en bas à droite, côté 5 V, à côté de C2.
 - **R1 et R2 :** passées de 33 kΩ à **47 kΩ 1 W**, comme prévu dans [[26 - Optocoupleur 6N136 explique]]. Avec 33 kΩ, chaque résistance dissipait environ 0,4 W ($230^2 / 66\,000 \approx 0{,}8$ W au total) : trop pour une résistance de 0,25 W. Avec 2 × 47 kΩ : 0,28 W chacune, et un courant crête de LED de 3,5 mA. L'empreinte reste en DIN0207 (pas de 10,16 mm) : prendre une 1 W qui tient dans ce format (résistance de puissance à couche métal), ou une 0,6 W au minimum. À vérifier sur la fiche du modèle commandé.
 
+## 7. Finitions
+
+- **R5 = 22 kΩ et C2 = 1 nF**, comme prévu dans [[26 - Optocoupleur 6N136 explique]] (schéma et carte). C2 garde son empreinte au pas de 2,5 mm : un condensateur céramique de 1 nF y rentre, sans polarité à respecter.
+- **Pistes 230 V élargies** : 19 des 21 pistes fines de la zone retouchée passent en 2 mm (ou 1,5 mm là où le DRC l'impose). Restent en 1 mm :
+  - les 3 départs des pattes du triac (pattes à 2,54 mm : en 2 mm, la phase serait à 0,54 mm du moteur) ;
+  - le neutre qui passe entre les deux rangées de U1 (l'espace fait 4,6 mm : en 2 mm, il serait à 2,6 mm du +5V).
+- **Gerbers contrôlés** : les fichiers ont été relus et redessinés. On y trouve 50 pastilles (50 sur la carte), 50 trous, 9 gouttes et un contour fermé. Les annotations Cmts.User n'y sont pas, et les textes sont en miroir côté cuivre.
+
+![[Controle Gerbers V2.png]]
+*Cuivre redessiné à partir du fichier Gerber B_Cu et du fichier de perçage.*
+
 ## Reste à faire
 
-- [ ] R5 et C2 : la note du 6N136 prévoit 22 kΩ et 1 nF, le schéma a encore 10 kΩ et « C » sans valeur
-- [ ] Contrôler les Gerbers dans la visionneuse de KiCad
-- [ ] Vérifier la largeur des pistes moteur avec le courant de démarrage mesuré
+- [ ] Vérifier la largeur des pistes moteur avec le courant de démarrage mesuré (mesure à faire sur la vraie pompe)
+- [ ] Commander R1 et R2 en 1 W au format 0207 (ou 0,6 W au minimum)
 
 ![[Routage V2 final.png]]
 *Routage final, côté cuivre, avec les annotations du calque Cmts.User.*
