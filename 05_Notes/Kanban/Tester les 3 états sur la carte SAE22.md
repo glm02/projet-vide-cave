@@ -3,6 +3,8 @@ statut: À faire
 qui: Rafaël
 partie: Mesures
 etape: 5 - Tests
+duree: 1
+date: 2026-11-16
 ---
 Avec le potentiomètre sur RA0 : vérifier Démarrage (5 s), Marche, puis Défaut « A VIDE » sous 91 et « BLOQUE » au-dessus de 173 au bout de 10 s.
 

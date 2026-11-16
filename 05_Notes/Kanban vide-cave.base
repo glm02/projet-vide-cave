@@ -10,11 +10,17 @@ properties:
     displayName: Partie
   note.etape:
     displayName: Étape
+  note.duree:
+    displayName: Heures
+  note.date:
+    displayName: Lundi
 views:
   - type: kanban-view
     name: Par étape
     order:
       - qui
+      - duree
+      - date
     groupByProperty: note.statut
     swimlaneByProperty: note.etape
     columnOrders:
@@ -33,7 +39,8 @@ views:
   - type: kanban-view
     name: Par personne
     order:
-      - etape
+      - date
+      - duree
     groupByProperty: note.statut
     swimlaneByProperty: note.qui
     columnOrders:
@@ -49,10 +56,12 @@ views:
   - type: table
     name: Liste
     order:
+      - date
       - file.name
-      - etape
-      - statut
       - qui
+      - duree
+      - statut
+      - etape
     sort:
-      - property: note.etape
+      - property: note.date
         direction: ASC

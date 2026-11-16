@@ -1,8 +1,10 @@
 ---
 statut: À faire
-qui: Rafaël
+qui: Jules
 partie: Mesures
 etape: 5 - Tests
+duree: 2
+date: 2026-12-07
 ---
 Relever la sortie du capteur sur RA0 : moteur arrêté (zéro), à vide, en charge normale, rotor bloqué. Ces valeurs donnent les vrais seuils.
 

@@ -1,8 +1,10 @@
 ---
 statut: À faire
-qui: Les deux
+qui: Jules
 partie: Carte
 etape: 2 - Fabrication
+duree: 2
+date: 2026-11-16
 ---
 Les Gerbers de `03_Electronique/G206A_CAMEL_TP_CAO V2/Gerber` datent de février 2026 : les **régénérer** depuis le PCB actuel.
 
