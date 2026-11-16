@@ -1,0 +1,54 @@
+filters:
+  and:
+    - file.inFolder("05_Notes/Kanban")
+properties:
+  note.statut:
+    displayName: Statut
+  note.qui:
+    displayName: Qui
+  note.partie:
+    displayName: Partie
+views:
+  - type: kanban-view
+    name: Par personne
+    order:
+      - partie
+    groupByProperty: note.statut
+    swimlaneByProperty: note.qui
+    columnOrders:
+      note.statut:
+        - À faire
+        - En cours
+        - Fait
+    cardOrders:
+      "note.statut\x1fnote.qui": {}
+    columnColors:
+      note.statut: {}
+    swimlaneOrders:
+      "note.statut\x1fnote.qui":
+        - Collègue
+        - Les deux
+        - Rafaël
+    collapsedLanes:
+      "note.statut\x1fnote.qui": []
+  - type: kanban-view
+    name: Par partie
+    order:
+      - qui
+    groupByProperty: note.statut
+    swimlaneByProperty: note.partie
+    columnOrders:
+      note.statut:
+        - À faire
+        - En cours
+        - Fait
+  - type: table
+    name: Liste
+    order:
+      - file.name
+      - statut
+      - qui
+      - partie
+    sort:
+      - property: statut
+        direction: ASC
