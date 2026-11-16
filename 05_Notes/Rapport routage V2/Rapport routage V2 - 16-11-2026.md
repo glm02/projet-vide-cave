@@ -7,7 +7,9 @@ sujet: Carte V2 — rangement, routage et isolement
 > [!abstract] En bref
 > La carte V2 (triac, MOC3041, 6N136, ACS756) est entièrement re-routée **en simple face, couche B.Cu (bleu)**. Pistes 230 V en **2 mm**, pistes 5 V en **1 mm**, au moins **3 mm** entre 230 V et 5 V, aucun angle droit. KiCad ne trouve plus **aucune erreur ni aucun avertissement** (DRC 0, ERC 0, carte et schéma cohérents).
 >
-> **À régler avant d'envoyer les Gerbers :** la cathode du 6N136 (U1 patte 3) est sur GND au lieu de AC_N, voir [[#Problème de schéma à corriger]].
+> L'erreur du 6N136 (cathode sur le GND du 5 V) est **corrigée** : patte 3 sur AC_N, diode de protection D1 ajoutée, zone de U1 re-routée. Voir [[#5. Correction du 6N136 (U1)]].
+>
+> **À voir avant d'envoyer les Gerbers :** la sortie du 6N136 n'arrive pas encore au PIC (RB4), et R1/R2 chauffent un peu trop. Voir [[#Reste à faire]].
 
 ![[Routage V2 avant apres.png]]
 *À gauche le routage de départ, à droite le routage final.*
@@ -45,7 +47,7 @@ Dans le dossier d'origine :
 ### Routage
 - **Tout le routage refait sur B.Cu uniquement** (simple face, rien en F.Cu).
 - **Pistes 230 V en 2 mm** : Phase L, Neutre N, Moteur L, gâchette, commande gâchette (R3), R1/R2. Rétrécies à 1 mm sur quelques millimètres seulement à la sortie des pattes du triac (pas de 2,54 mm). IP+ et IP- gardent 4 et 5 mm.
-- **Pistes 5 V en 1 mm** : +5V, GND, AN0, RB2, LED du MOC, détection du zéro, sortie du 6N136.
+- **Pistes 5 V en 1 mm** : +5V, GND, AN0, RB2, LED du MOC, sortie du 6N136.
 - **Aucun angle droit** : chanfreins à 45° de 1,5 mm, et plus aucun angle aigu (piège à acide à la gravure).
 - **Pas de passage sous l'optotriac** : AC_L arrive sur U2 par l'extérieur, le GND passe seul entre les deux rangées côté 5 V.
 - **Ponts sous les résistances** : sur une carte simple face, une piste peut passer entre les deux pattes d'une résistance axiale. Le routage s'en sert sous R3 (AC_L) et sous R5 (GND de C1).
@@ -58,6 +60,7 @@ Dans le dossier d'origine :
 ### Composants
 - **U2 (MOC3041)** : empreinte remplacée par `DIP-6_W7.62mm` standard (anneaux corrects), en carte et au schéma.
 - **R7** remontée de 5 mm (trop près du triac) et **J4** décalée de 1,35 mm vers la gauche (pour laisser passer les pistes 5 V le long du bord droit).
+- **R1 et R2** déplacées en bas à gauche, entre J3 et U1, et **D1 (1N4148)** ajoutée à côté de U1 : voir la partie 5.
 - **U3 (ACS756)** : règle d'exception pour ses broches fines (pas de 1,91 mm imposé par le boîtier).
 - **Sérigraphie** : traits coupés là où ils passaient sur les pastilles (8 composants), référence J2 déplacée.
 - **Bibliothèques du projet** : les empreintes de la carte (pastilles agrandies pour l'IUT) sont enregistrées dans `206A_CAMEL_empreintes` ; le symbole MOC3041M dans `MOC3041M.kicad_sym` ; les symboles ACS756 et 6N136 figés dans `G206_CAMEL_composants.kicad_sym` (pour ne pas décaler les broches avec la bibliothèque de KiCad 10).
@@ -80,19 +83,35 @@ Dans le dossier d'origine :
 
 Non vérifié : un contrôle visuel des Gerbers dans la visionneuse de KiCad, et la largeur des pistes moteur face au vrai courant de démarrage de la pompe (voir [[Mesurer le courant de démarrage]]).
 
-## Problème de schéma à corriger
+## 5. Correction du 6N136 (U1)
 
-> [!warning] Cathode du 6N136 sur la mauvaise masse
-> La patte 3 de U1 (cathode de la LED du 6N136) est reliée au **GND du 5 V**. Le secteur passe donc par R2, R1 et la LED jusqu'à la masse basse tension : l'optocoupleur **n'isole plus rien**, et la carte relie le 230 V au 5 V à travers les résistances.
->
-> **Correction :** relier la patte 3 à **AC_N** et ajouter une **diode tête-bêche** sur la LED (elle ne supporte que 5 V en inverse). Il faudra alors refaire le routage autour de U1, car R1-Pad2 passera côté 230 V.
->
-> **Ne pas envoyer les Gerbers avant cette correction.**
+### L'erreur
+Le 6N136 sert à détecter le passage du secteur par zéro. Côté entrée, il contient une LED (patte 2 = anode, patte 3 = cathode). Côté sortie, un phototransistor alimenté en 5 V (pattes 5, 6, 8). La lumière est le seul lien entre les deux côtés : c'est ce qui **isole** le 230 V du 5 V.
+
+Pour que la LED s'allume, il faut un courant qui part de la phase, traverse R2, R1 et la LED, puis **revient au neutre**. Sur le schéma, la cathode (patte 3) était reliée au **GND du 5 V** au lieu du neutre :
+
+```mermaid
+flowchart LR
+    L["Phase AC_L"] --> R2 --> R1 --> A["LED anode (U1.2)"] --> K["LED cathode (U1.3)"]
+    K -- "avant : GND du 5 V" --> G["GND du PIC, du capteur, du 5 V"]
+    K -- "après : AC_N" --> N["Neutre AC_N"]
+```
+
+Conséquences de l'ancien câblage :
+- **Plus d'isolement** : la masse du 5 V (PIC, programmateur, PC branché en USB) était reliée au secteur à travers 66 kΩ. Toucher la carte côté 5 V devenait dangereux.
+- **Détection fausse** : le courant de la LED revenait par le GND, pas par le neutre. Selon la façon dont l'alimentation 5 V est branchée, la LED ne s'allume pas, ou le courant se referme par la terre.
+- **LED abîmée** : sur l'alternance négative, la LED du 6N136 ne supporte que 5 V en inverse, et rien ne la protégeait.
+
+### La correction
+- **Schéma :** la patte 3 de U1 va sur **AC_N** (étiquette AC_N à la place du symbole GND). Une diode **D1 (1N4148)** est montée **tête-bêche** sur la LED (cathode de D1 sur l'anode de la LED, anode de D1 sur AC_N) : sur l'alternance négative, le courant passe par D1 et la LED ne voit plus que 0,7 V en inverse.
+- **J4 :** le moteur est passé sur la borne du haut et le neutre sur celle du bas. C'est indispensable pour router sans croisement en simple face. Pensez à brancher la pompe en conséquence (repères ML et AC_N gravés à côté de J4).
+- **Carte :** tout le côté LED de U1 est maintenant en 230 V. R1 et R2 ont été rapprochées de J3 (phase et neutre arrivent en bas à gauche), et D1 placée à côté de U1. La phase AC_L passe au-dessus du triac pour libérer la zone. La piste du neutre vers U1 passe sous le corps de R1 (pont).
+- **Isolement :** les pattes 2 et 3 de U1 sont à 4,6 mm des pattes 5 à 8 (côté 5 V). La règle des 3 mm est respectée partout.
 
 ## Reste à faire
 
-- [ ] Corriger la cathode du 6N136 et ajouter la diode (à décider avec Jules)
-- [ ] Reprendre le routage autour de U1 après cette correction
+- [ ] **Sortie du 6N136 vers le PIC :** la sortie (patte 6, avec R5 et C2) n'est reliée à aucun bornier. Le signal de passage par zéro n'arrive donc pas sur RB4. Il faut ajouter une borne (par exemple un 3ᵉ plot sur J5).
+- [ ] **Puissance de R1 et R2 :** avec 33 kΩ chacune sous 230 V, chaque résistance dissipe environ 0,4 W ($230^2 / 66\,000 \approx 0{,}8$ W au total). Prendre des résistances de **0,5 W au moins** (ou 2 × 47 kΩ, 0,56 W au total), sinon elles chauffent.
 - [ ] Contrôler les Gerbers dans la visionneuse de KiCad
 - [ ] Vérifier la largeur des pistes moteur avec le courant de démarrage mesuré
 

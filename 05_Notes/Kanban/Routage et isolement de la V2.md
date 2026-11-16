@@ -10,4 +10,4 @@ Séparer la zone 5 V et la zone 230 V, respecter les distances d'isolement, puis
 
 **16/11/2026 :** routage refait en simple face (B.Cu), 230 V en 2 mm, 5 V en 1 mm, 3 mm minimum entre les deux, DRC 0 et ERC 0, Gerbers exportés. Détails dans [[Rapport routage V2 - 16-11-2026]].
 
-Reste : reprendre le routage autour de U1 après [[Corriger la cathode du 6N136]], puis contrôler les Gerbers dans la visionneuse.
+Routage autour de U1 refait après [[Corriger la cathode du 6N136]] (fait le 16/11/2026). Reste : ajouter la sortie du 6N136 vers RB4, puis contrôler les Gerbers dans la visionneuse.
