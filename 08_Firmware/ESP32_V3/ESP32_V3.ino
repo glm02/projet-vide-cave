@@ -105,6 +105,7 @@ bool picSeen = false;
 bool picLostAlerted = false;
 uint32_t blockedSinceMs = 0;
 uint32_t blockedSinceEpoch = 0;
+uint32_t stateSinceEpoch = 0;
 uint32_t lastBlockedReminder = 0;
 
 LineReader fromPic;
@@ -387,6 +388,7 @@ void updatePump(uint32_t now) {
 
   PumpState previous = shownState;
   shownState = state;
+  stateSinceEpoch = epochNow();
   char text[64];
   if (state == DEFAUT) {
     blockedSinceMs = lastBlockedReminder = now;
@@ -542,6 +544,8 @@ void handleState() {
   out += picSeen ? String((now - lastPicReport) / 1000) : String("null");
   out += ",\"bloque_depuis\":";
   out += shownState == DEFAUT && blockedSinceEpoch ? String(blockedSinceEpoch) : String("null");
+  out += ",\"depuis\":";
+  out += stateSinceEpoch ? String(stateSinceEpoch) : String("null");
   out += ",\"wifi_dbm\":";
   out += WiFi.RSSI();
   out += ",\"ip\":\"";
