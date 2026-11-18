@@ -27,6 +27,11 @@ constexpr int PIC_TX_PIN = 17;
 constexpr uint8_t SENSOR_ADDRESS = 0x44;
 constexpr uint32_t SENSOR_PERIOD_MS = 2000;
 constexpr uint32_t SENSOR_READY_MS = 20;
+constexpr uint8_t SHT4X_MEASURE_HIGH = 0xFD;
+constexpr uint8_t SHT4X_HEATER_200MW_1S = 0x39;
+constexpr float HEATER_HUMIDITY_PCT = 90.0f;
+constexpr uint32_t HEATER_PERIOD_MS = 900000;
+constexpr uint32_t HEATER_COOLDOWN_MS = 15000;
 constexpr uint32_t PIC_TIMEOUT_MS = 5000;
 constexpr uint32_t PIC_LOST_ALERT_MS = 60000;
 constexpr uint32_t SIMULATION_HOLD_MS = 60000;
@@ -89,6 +94,8 @@ float humidity = NAN;
 uint32_t lastMeasurement = 0;
 bool measurementPending = false;
 uint32_t simulatedUntil = 0;
+uint32_t lastHeating = 0;
+bool heaterUsed = false;
 
 PumpState reportedState = INCONNU;
 PumpState shownState = INCONNU;
@@ -238,7 +245,7 @@ void addEvent(const char *kind, const char *text, bool notify) {
   queueTelegram(message);
 }
 
-uint8_t crcSht31(const uint8_t *bytes) {
+uint8_t crcSht4x(const uint8_t *bytes) {
   uint8_t crc = 0xff;
   for (int i = 0; i < 2; ++i) {
     crc ^= bytes[i];
@@ -262,11 +269,11 @@ void readClimate() {
   uint8_t data[6];
   if (Wire.requestFrom(SENSOR_ADDRESS, uint8_t{6}) == 6) {
     for (auto &byte : data) byte = Wire.read();
-    if (crcSht31(data) == data[2] && crcSht31(data + 3) == data[5]) {
+    if (crcSht4x(data) == data[2] && crcSht4x(data + 3) == data[5]) {
       uint16_t rawT = (uint16_t(data[0]) << 8) | data[1];
       uint16_t rawH = (uint16_t(data[3]) << 8) | data[4];
       t = -45.0f + 175.0f * rawT / 65535.0f;
-      h = 100.0f * rawH / 65535.0f;
+      h = constrain(-6.0f + 125.0f * rawH / 65535.0f, 0.0f, 100.0f);
     }
   }
   bool simulating = int32_t(simulatedUntil - millis()) > 0;
@@ -283,11 +290,21 @@ void updateClimate(uint32_t now) {
     reportClimate();
   }
   if (now - lastMeasurement < SENSOR_PERIOD_MS) return;
+  // Chauffe 1 s à 200 mW : au-dessus de 90 %HR, le capteur dérive et peut se couvrir de condensation.
+  if (heaterUsed && now - lastHeating < HEATER_COOLDOWN_MS) return;
 
   lastMeasurement = now;
+  if (humidity >= HEATER_HUMIDITY_PCT && (!heaterUsed || now - lastHeating >= HEATER_PERIOD_MS)) {
+    Wire.beginTransmission(SENSOR_ADDRESS);
+    Wire.write(SHT4X_HEATER_200MW_1S);
+    if (Wire.endTransmission() == 0) {
+      heaterUsed = true;
+      lastHeating = now;
+      return;
+    }
+  }
   Wire.beginTransmission(SENSOR_ADDRESS);
-  Wire.write(0x24);
-  Wire.write(0x00);
+  Wire.write(SHT4X_MEASURE_HIGH);
   measurementPending = Wire.endTransmission() == 0;
   if (!measurementPending) {
     readClimate();

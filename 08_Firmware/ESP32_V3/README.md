@@ -1,11 +1,11 @@
 # ESP32 V3 : supervision du vide-cave
 
-L'ESP32 reçoit l'état de la pompe envoyé par le PIC, mesure le climat (SHT31-D),
+L'ESP32 reçoit l'état de la pompe envoyé par le PIC, mesure le climat (Sensirion SHT45),
 garde l'historique, sert le site de supervision et envoie une alerte Telegram
 quand le moteur est bloqué.
 
 Carte : ESP32 Dev Module (CP210x). GPIO25 SDA, GPIO26 SCL, GPIO16 RX, GPIO17 TX.
-SHT31-D à l'adresse 0x44.
+SHT45 (module Adafruit 5665) à l'adresse 0x44, câblé VIN, GND, SCL, SDA. Au-dessus de 90 %HR, sa chaufferette tourne 1 s toutes les 15 min contre la condensation ; les mesures reprennent 15 s après.
 
 ## Mise en route
 
